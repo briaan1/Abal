@@ -7,9 +7,9 @@
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	</head>
 	<body>
-		< class = "container">
+		<div class = "container">
 			<h1>Bienvenidos a Taller Web 1</h1>
-			<h2> soy lili</h2>>
+			<h2> soy lili</h2>
 			<h2>probando</h2>
 		</div>
 		<!-- Placed at the end of the document so the pages load faster -->
