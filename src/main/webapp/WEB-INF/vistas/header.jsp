@@ -2,10 +2,10 @@
 <html>
 <head>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" >
     <!-- Bootstrap theme -->
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
