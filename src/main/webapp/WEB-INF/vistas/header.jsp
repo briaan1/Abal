@@ -39,7 +39,7 @@
             </ul>
             <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <button type="button" class="btn btn-primary">Carrito</button>
+                 <a href="/carrito"><button type="button" class="btn btn-primary">Carrito <span class="badge badge-light badge-pill">0</span></button> </a>    
                 </li></ul>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle"
