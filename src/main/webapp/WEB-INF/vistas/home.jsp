@@ -7,7 +7,7 @@
   <img class="card-img-top" src="img/clasica.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">CLASICAS</h5>
-    <a href="#" class="btn btn-primary">ELEGIR</a>
+    <a href="/categoria" class="btn btn-primary">ELEGIR</a>
   </div>
 			</div>
     </div>
@@ -16,7 +16,7 @@
   <img class="card-img-top" src="img/combos.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">COMBOS</h5>
-    <a href="#" class="btn btn-primary">ELEGIR</a>
+    <a href="/categoria" class="btn btn-primary">ELEGIR</a>
   </div>
 </div>
 		</div>

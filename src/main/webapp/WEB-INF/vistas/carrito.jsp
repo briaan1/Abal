@@ -15,7 +15,7 @@
 			</thead>
 			<tbody>
 			<tr>
-				<td>Imagen</td>
+				<td><img style="width: 100px;" class="card-img-top" src="img/clasica.jpg" alt="Card image cap"></td>
 				<td>Nombre</td>
 				<td>$Precio</td>
 				<td><div class="input-group" style="width:200px;">
@@ -28,7 +28,7 @@
 				<td><button type="button" class="btn btn-outline-danger">Eliminar</button></td>
 			</tr>
 			<tr>
-				<td>Imagen</td>
+				<td><img style="width: 100px;" class="card-img-top" src="img/clasica.jpg" alt="Card image cap"></td>
 				<td>Nombre</td>
 				<td>$Precio</td>
 				<td><div class="input-group" style="width:200px;">
@@ -41,7 +41,7 @@
 				<td><button type="button" class="btn btn-outline-danger">Eliminar</button></td>
 			</tr>
 			<tr>
-				<td>Imagen</td>
+				<td><img style="width: 100px;" class="card-img-top" src="img/clasica.jpg" alt="Card image cap"></td>
 				<td>Nombre</td>
 				<td>$Precio</td>
 				<td><div class="input-group" style="width:200px;">
@@ -55,10 +55,9 @@
 			</tr>
 			</tbody>
 		</table>
+		<br>
 		<div>
-
 			<h4 class="float-left">Total $Precio</h4><button type="button" class="btn btn-primary float-right">Realizar pedido</button>
-
 		</div>
 	</div>
 </div>

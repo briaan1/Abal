@@ -12,12 +12,12 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Abal</a>
+        <a class="navbar-brand" href="/home">Abal</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -27,9 +27,9 @@
                             Categoria
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="#!">Categoria 1</a>
-                            <a class="dropdown-item" href="#!">Categoria 2</a>
-                            <a class="dropdown-item" href="#!">Categoria 3</a>
+                            <a class="dropdown-item" href="/categoria">Categoria 1</a>
+                            <a class="dropdown-item" href="/categoria">Categoria 2</a>
+                            <a class="dropdown-item" href="/categoria">Categoria 3</a>
                         </div>
                     </div>
                 </li>
@@ -53,8 +53,8 @@
                     <a class="dropdown-item" href="#!">Favoritos</a>
                 </div>
             </div>
-            <button type="button" class="btn btn-dark">Iniciar</button>
-            <button type="button" class="btn btn-dark">Registrarse</button>
+            <a href="/login"><button type="button" class="btn btn-dark">Iniciar</button></a>
+            <a href="/registrarse"><button type="button" class="btn btn-dark">Registrarse</button></a>
         </div>
     </div>
 </nav>
