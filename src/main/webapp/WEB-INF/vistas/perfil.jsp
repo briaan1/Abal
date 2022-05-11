@@ -9,7 +9,6 @@
 <%@include file="header.jsp"%>
 <html>
 <head>
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" >
     <title>$Title$</title>
 </head>
 <body>
