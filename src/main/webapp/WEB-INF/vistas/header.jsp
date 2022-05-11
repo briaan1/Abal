@@ -48,9 +48,9 @@
                     Usuario
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <a class="dropdown-item" href="#!">Perfil</a>
-                    <a class="dropdown-item" href="#!">Pedidos</a>
-                    <a class="dropdown-item" href="#!">Favoritos</a>
+                    <a class="dropdown-item" href="/perfil">Perfil</a>
+                    <a class="dropdown-item" href="/pedido">Pedidos</a>
+                    <a class="dropdown-item" href="/favorito">Favoritos</a>
                 </div>
             </div>
             <a href="/login"><button type="button" class="btn btn-dark">Iniciar</button></a>
