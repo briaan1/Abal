@@ -57,7 +57,7 @@
 		</table>
 		<br>
 		<div>
-			<h4 class="float-left">Total $Precio</h4><button type="button" class="btn btn-primary float-right">Realizar pedido</button>
+			<h4 class="float-left">Total $Precio</h4><a href="/detalle-de-pedido"><button type="button" class="btn btn-primary float-right">Realizar pedido</button></a> 
 		</div>
 	</div>
 </div>

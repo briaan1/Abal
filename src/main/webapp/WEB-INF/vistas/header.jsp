@@ -50,7 +50,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="/perfil">Perfil</a>
-                    <a class="dropdown-item" href="/pedido-realizado">Pedidos</a>
+                    <a class="dropdown-item" href="/historial-de-pedidos">Pedidos</a>
                     <a class="dropdown-item" href="/favorito">Favoritos</a>
                 </div>
             </div>
