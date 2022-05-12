@@ -3,6 +3,7 @@
 <head>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" >
+     <link href="css/estilosPerfil.css" rel="stylesheet">
     <!-- Bootstrap theme -->
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -39,7 +40,7 @@
             </ul>
             <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
-                 <a href="/carrito"><button type="button" class="btn btn-primary">Carrito <span class="badge badge-light badge-pill">0</span></button> </a>    
+                 <a href="/carrito"><button type="button" class="btn btn-primary">Carrito <span class="badge badge-light badge-pill">3</span></button> </a>    
                 </li></ul>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle"
