@@ -4,29 +4,32 @@
   <div class="row">
     <div class="col-sm">
       <div class="card" style="width: 18rem;">
+      <a href="/pizza" class="text-center text-decoration-none text-dark">
   <img class="card-img-top" src="img/clasica.jpg" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">CLASICAS</h5>
-    <a href="/categoria" class="btn btn-primary">ELEGIR</a>
+    <h5 class="card-title">PIZZA</h5>
   </div>
+  </a>
 			</div>
     </div>
     <div class="col-sm">
       <div class="card" style="width: 18rem;">
+      <a href="/categoria" class="text-center text-decoration-none text-dark">
   <img class="card-img-top" src="img/combos.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">COMBOS</h5>
-    <a href="/categoria" class="btn btn-primary">ELEGIR</a>
   </div>
+  </a>
 </div>
 		</div>
     <div class="col-sm">
       <div class="card" style="width: 18rem;">
+      <a href="/categoria" class="text-center text-decoration-none text-dark">
   <img class="card-img-top" src="img/personalizada.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">PERSONALIZADAS</h5>
-    <a href="#" class="btn btn-primary">ELEGIR</a>
   </div>
+  </a>
 </div>
     </div>
   </div>

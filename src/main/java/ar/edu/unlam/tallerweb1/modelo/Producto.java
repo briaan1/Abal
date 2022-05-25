@@ -38,11 +38,11 @@ public class Producto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public Categoria getId_categoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
-	public void setId_categoria(Categoria id_categoria) {
-		this.categoria = id_categoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	public Double getPrecio() {
 		return precio;
