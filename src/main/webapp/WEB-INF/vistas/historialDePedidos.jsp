@@ -10,6 +10,7 @@
       <th>Pedido</th>
       <th>Total</th>
       <th>Fecha</th>
+      <th>Estado de envio</th>
       <th></th>
     </tr>
   </thead>
@@ -19,13 +20,15 @@
       <td>Pedido 1</td>
       <td>$Total</td>
       <td>Fecha</td>
-      <td><a href="/pedido-realizado"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
+      <td class="text-primary">En proceso</td>
+      <td><a href="/estado-de-pedido"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Pedido 2</td>
       <td>$Total</td>
       <td>Fecha</td>
+      <td><span class="text-success">Entregado</span></td>
       <td><a href="/pedido-realizado"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
     </tr>
   </tbody>

@@ -28,11 +28,14 @@
                             Categoria
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="/categoria">Categoria 1</a>
-                            <a class="dropdown-item" href="/categoria">Categoria 2</a>
+                            <a class="dropdown-item" href="/pizza">Pizza</a>
+                            <a class="dropdown-item" href="/categoria">Combos</a>
                             <a class="dropdown-item" href="/categoria">Categoria 3</a>
                         </div>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/personalizar-pizza">Personalizado</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contacto</a>
