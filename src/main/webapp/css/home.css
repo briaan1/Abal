@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+
+.container h1{
+	justify-content: center;
+	display:flex;
+	margin-top: 40px;
+}
+
+.imagenes{
+	display: flex;
+	justify-content: space-between;
+	line-height: 400px;
+}
+
+
+
+
+.img-pizza{
+	height:300px; 
+	width:300px;	
+}
+
+.img-pizza h2{
+	margin-top:20px;
+	text-align: center;
+}
+
+img{
+	height:300px; 
+	width:300px;
+}
+
+.texto-pizza{
+	display: flex;
+	justify-content: space-between;
+}

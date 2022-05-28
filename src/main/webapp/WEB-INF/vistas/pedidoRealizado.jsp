@@ -17,7 +17,6 @@
   </li>
 </ul>
 <p class="p-total">Total: <span>$</span></p>
-<a class="btn btn-info w-25 mx-auto mt-5" href="/historial-de-pedidos" role="button">Confirmar</a>
 
 <%@include file="footer.jsp"%>
 
