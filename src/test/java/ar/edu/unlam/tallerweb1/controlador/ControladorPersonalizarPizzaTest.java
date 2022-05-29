@@ -14,11 +14,11 @@ import static org.mockito.Mockito.when;
 import ar.edu.unlam.tallerweb1.controladores.ControladorPersonalizarPizza;
 import ar.edu.unlam.tallerweb1.modelo.Categoria;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
-import ar.edu.unlam.tallerweb1.servicios.ServicioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.servicios.ServicioPersonalizarPizza;
 
 public class ControladorPersonalizarPizzaTest {
-	private ServicioCategoriaPizza servicioCategoriaPizza= mock(ServicioCategoriaPizza.class);
-	private ControladorPersonalizarPizza controladorPersonalizarPizza= new ControladorPersonalizarPizza(servicioCategoriaPizza);
+	private ServicioPersonalizarPizza servicioPersonalizarPizza= mock(ServicioPersonalizarPizza.class);
+	private ControladorPersonalizarPizza controladorPersonalizarPizza= new ControladorPersonalizarPizza(servicioPersonalizarPizza);
 	
 	@Test
 	public void alPedirPersonalizarQueMeMuestrePersonalizarPizza() {
@@ -56,7 +56,7 @@ public class ControladorPersonalizarPizzaTest {
 		for(int i=0;i<cantidadDePizzas;i++) {
 			listaDeProductos.add(new Producto());
 		}
-		when(servicioCategoriaPizza.getListaDeProductos(nombreCategoria)).thenReturn(listaDeProductos);		
+		when(servicioPersonalizarPizza.getListaDeProductos(nombreCategoria)).thenReturn(listaDeProductos);		
 	}
 	
 	@Test
@@ -72,7 +72,7 @@ public class ControladorPersonalizarPizzaTest {
 
 	private void dadoQueNoHayPizzas(String nombreCategoria) {
 		
-		when(servicioCategoriaPizza.getListaDeProductos(nombreCategoria)).thenReturn(null);	
+		when(servicioPersonalizarPizza.getListaDeProductos(nombreCategoria)).thenReturn(null);	
 		
 	}
 

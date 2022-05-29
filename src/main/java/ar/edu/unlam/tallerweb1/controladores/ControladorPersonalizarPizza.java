@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
-import ar.edu.unlam.tallerweb1.servicios.ServicioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.servicios.ServicioPersonalizarPizza;
 
 @Controller
 
 public class ControladorPersonalizarPizza {
-	private ServicioCategoriaPizza servicioCategoriaPizza;
+	private ServicioPersonalizarPizza servicioPersonalizarPizza;
 	
 	@Autowired
-	public ControladorPersonalizarPizza(ServicioCategoriaPizza servicioCategoriaPizza) {
-		this.servicioCategoriaPizza = servicioCategoriaPizza;
+	public ControladorPersonalizarPizza(ServicioPersonalizarPizza servicioPersonalizarPizza) {
+		this.servicioPersonalizarPizza = servicioPersonalizarPizza;
 	}
 
 	@RequestMapping("/personalizar-pizza")
 	public ModelAndView irAPersonalizarPizza() {
 		ModelMap model = new ModelMap();
-		List<Producto> listaDeProducto = servicioCategoriaPizza.getListaDeProductos("pizza");
+		List<Producto> listaDeProducto = servicioPersonalizarPizza.getListaDeProductos("pizza");
 		if(listaDeProducto!=null) {
 			model.put("listaDePizza", listaDeProducto);
 		}else {
