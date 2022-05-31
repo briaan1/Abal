@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +39,21 @@ public class ControladorPersonalizarPizza {
 		return new ModelAndView("personalizarPizza",model);
 	}
 	
-	@RequestMapping(path="/detalle-personalizar-pizza",method= RequestMethod.POST)
+	@RequestMapping(path="/agregar-personalizar-pizza",method= RequestMethod.POST)
 	public ModelAndView irADetallePersonalizarPizza(@ModelAttribute("datosPizzaPersonalizada") DatosPizzaPersonalizada datos ) {
 		ModelMap model = new ModelMap();
-		model.put("datosPizzaPersonalizada", datos);
-
+		
+		List<Integer> listaDePorciones=new ArrayList<Integer>();
+		listaDePorciones.add(datos.getPorcion1());
+		listaDePorciones.add(datos.getPorcion2());
+		listaDePorciones.add(datos.getPorcion3());
+		listaDePorciones.add(datos.getPorcion4());
+		listaDePorciones.add(datos.getPorcion5());
+		listaDePorciones.add(datos.getPorcion6());
+		listaDePorciones.add(datos.getPorcion7());
+		listaDePorciones.add(datos.getPorcion8());
+		
+		model.put("datosPizzaPersonalizada", listaDePorciones);
 		return new ModelAndView("detallePizzaPersonalizada",model);
 	}
 	
