@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioPersonalizarPizza;
 
+@Service @Transactional
 public class ServicioPersonalizarPizzaImpl implements ServicioPersonalizarPizza{
 	
 	private RepositorioPersonalizarPizza repositorioPersonalizarPizza;

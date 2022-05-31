@@ -72,7 +72,7 @@ public class ControladorPersonalizarPizzaTest {
 
 	private void dadoQueNoHayPizzas(String nombreCategoria) {
 		
-		when(servicioPersonalizarPizza.getListaDeProductos(nombreCategoria)).thenReturn(null);	
+		when(servicioPersonalizarPizza.getListaDeProductos(nombreCategoria)).thenReturn(new ArrayList<Producto>());	
 		
 	}
 
