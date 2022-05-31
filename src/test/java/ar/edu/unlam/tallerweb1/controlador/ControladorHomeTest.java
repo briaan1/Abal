@@ -18,11 +18,10 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ControladorHomeTest {
 	private ServicioHome servicioHome = mock(ServicioHome.class);
-	private ControladorHome controladorHome;
+	private ControladorHome controladorHome=new ControladorHome(servicioHome);
 	
 	@Test
-	public void alPedirElHomeMeMuestraElHome() {		
-		dadoQueExisteHome();
+	public void alPedirElHomeMeMuestraElHome() {
 		ModelAndView model = cuandoPidoElHome();
 		entoncesMeLlevaALaVistaHome("home",model);
 	}
@@ -34,18 +33,13 @@ public class ControladorHomeTest {
 	private ModelAndView cuandoPidoElHome() {
 		return controladorHome.irAlHome();
 	}
-
-	private void dadoQueExisteHome() {
-		controladorHome= new ControladorHome();
-		
-	}
 	
 	//COMENTARIOS
 	@Test
 	public void alAbrirHomeQueMeMuestreLaListaDeComentariosCompleta() {
 		dadoQueExistenComentarios(3);
-		//ModelAndView model = cuandoPidoLaListaDeComentarios();
-		//entoncesMeMuestraLaListaCompleta(model, 3);
+		ModelAndView model = cuandoPidoLaListaDeComentarios();
+		entoncesMeMuestraLaListaCompleta(model, 3);
 		
 	}
 
@@ -62,7 +56,7 @@ public class ControladorHomeTest {
 
 	private void dadoQueExistenComentarios(int cantidadDeComentarios) {
 		List<Comentario> listaDeComentario = new ArrayList<Comentario>();
-		for(int i=0;i<=cantidadDeComentarios;i++) {
+		for(int i=0;i<cantidadDeComentarios;i++) {
 			listaDeComentario.add(new Comentario());
 		}
 		

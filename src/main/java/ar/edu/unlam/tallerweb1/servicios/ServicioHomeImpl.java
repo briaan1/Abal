@@ -23,10 +23,10 @@ public class ServicioHomeImpl implements ServicioHome{
 	@Override
 	public List<Comentario> getListaDeComentarios() {
 		List<Comentario> listaDeComentario = repositorioHome.listar();
-		if(listaDeComentario.size()==0) {
-			return new ArrayList<Comentario>();
-		}else {
+		if(listaDeComentario!=null) {
 			return listaDeComentario;
+		}else {
+			return new ArrayList<Comentario>();
 		}
 	}
 

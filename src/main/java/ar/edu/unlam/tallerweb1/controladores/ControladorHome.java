@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +16,21 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioHome;
 @Controller
 public class ControladorHome {
 	private ServicioHome servicioHome;
-
+	
+	@Autowired
+	public ControladorHome(ServicioHome servicioHome) {
+		this.servicioHome = servicioHome;
+	}
+	
+	
 		@RequestMapping(path = "/home")
 		public ModelAndView irAlHome() {
 			ModelMap model = new ModelMap();
-			List<Comentario> listaDeComentarios = new ArrayList<Comentario>();
-			if(listaDeComentarios.size()==0) {
-				model.put("msg", "No hay comentarios");
-			}else {
+			List<Comentario> listaDeComentarios = servicioHome.getListaDeComentarios();
+			if(listaDeComentarios.size()!=0) {
 				model.put("listaDeComentarios", listaDeComentarios);
+			}else {
+				model.put("msg", "No hay comentarios");
 			}
 			
 			return new ModelAndView("home",model);
