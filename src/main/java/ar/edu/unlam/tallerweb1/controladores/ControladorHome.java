@@ -27,10 +27,10 @@ public class ControladorHome {
 		public ModelAndView irAlHome() {
 			ModelMap model = new ModelMap();
 			List<Comentario> listaDeComentarios = servicioHome.getListaDeComentarios();
-			if(listaDeComentarios.size()!=0) {
-				model.put("listaDeComentarios", listaDeComentarios);
-			}else {
+			if(listaDeComentarios.size()==0) {
 				model.put("msg", "No hay comentarios");
+			}else {
+				model.put("listaDeComentarios", listaDeComentarios);
 			}
 			
 			return new ModelAndView("home",model);
