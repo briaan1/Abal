@@ -1,4 +1,7 @@
-<%@include file="header.jsp"%>
+<%@ include file="header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <div class="container">
 	<br>
 	<br>
@@ -7,105 +10,124 @@
 		<p>Seleccione el tipo de pizza que desee por cada porción.</p>
 	</div>
 
+<form:form action="agregar-personalizar-pizza" method="POST" modelAttribute="datosPizzaPersonalizada">
 	<div class="w-75 mx-auto mt-5">
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">1
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion1" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">2
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion2" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">3
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion3" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">4
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion4" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">5
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion5" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">6
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion6" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">7
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion7" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<div class="input-group mb-3">
+		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">8
 					Porción</label>
-			</div>
-			<select class="custom-select" id="inputGroupSelect01">
-				<option selected>Pizza</option>
-				<option value="1">Pizza</option>
-				<option value="2">Pizza</option>
-				<option value="3">Pizza</option>
-			</select>
+			</div>	
+		<form:select path="porcion8" class="custom-select">
+			<c:choose>
+			<c:when test="${not empty mensaje}"><option value="0" >${mensaje}</option></c:when>
+			</c:choose>
+			<c:forEach var="lista" items="${listaDePizza}">
+				<option value="${lista.id}" >${lista.nombre}</option>
+			</c:forEach>
+			</form:select>
 		</div>
-		<button type="button" class="btn btn-primary float-right">Agregar
+
+		<button type="submit" class="btn btn-primary float-right">Agregar
 			al carrito</button>
+		</form:form>
 	</div>
 </div>
 
