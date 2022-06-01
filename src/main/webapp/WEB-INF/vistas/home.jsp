@@ -5,7 +5,7 @@
     <div class="col-sm">
       <div class="card" style="width: 18rem;">
       <a href="/pizza" class="text-center text-decoration-none text-dark">
-  <img class="card-img-top" src="img/clasica.jpg" alt="Card image cap">
+  <img class="card-img-top" src="img/pizza.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">PIZZA</h5>
   </div>
