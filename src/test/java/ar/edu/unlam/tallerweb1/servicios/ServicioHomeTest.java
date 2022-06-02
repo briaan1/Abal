@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -31,7 +32,7 @@ private ServicioHome servicioHome = new ServicioHomeImpl(repositorioHome);
 	}
 
 	private void dadoQueNoHayComentarios() {
-		when(repositorioHome.listar()).then(null);
+		when(repositorioHome.listar()).thenReturn(new ArrayList<Comentario>());
 		
 	}
 }

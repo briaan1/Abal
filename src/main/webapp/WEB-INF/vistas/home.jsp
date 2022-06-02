@@ -1,5 +1,4 @@
 <%@include file="header.jsp"%>	
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 		<div class="container">
 		<h1 class="text-center m-4" >Bienvenidos a Pizzeria ABAL</h1>
   <div class="row">
@@ -43,11 +42,8 @@
   <li class="media">
     <img class="mr-3" src="img/usuario.jpg" alt="Generic placeholder image" style="width:100px">
     <div class="media-body">
-     <c:forEach var="lista" items="${listaDeComentarios}">
-      <h5 class="mt-0 mb-1">${lista.usuario_id}</h5>
-      ${lista.comentario}
-      
-    </c:forEach>
+      <h5 class="mt-0 mb-1">GENIALES</h5>
+      Muy buenos productos
     </div>
   </li>
   <li class="media my-4">
