@@ -1,4 +1,5 @@
 <%@include file="header.jsp"%>	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 		<div class="container">
 		<h1 class="text-center m-4" >Bienvenidos a Pizzeria ABAL</h1>
   <div class="row">
@@ -39,29 +40,17 @@
 <div class="container mt-4">
 <h2 class="mb-4">Comentarios</h2>
 <ul class="list-unstyled">
+<c:forEach var="lista" items="${listaDeComentarios}">
   <li class="media">
     <img class="mr-3" src="img/usuario.jpg" alt="Generic placeholder image" style="width:100px">
     <div class="media-body">
-      <h5 class="mt-0 mb-1">GENIALES</h5>
-      Muy buenos productos
+      <h5 class="mt-0 mb-1">
+      ${lista.comentario}
+      </h5>
     </div>
   </li>
-  <li class="media my-4">
-    <img class="mr-3" src="img/usuario.jpg" alt="Generic placeholder image" style="width:100px">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">LAS MEJORES DE LA ZONA</h5>
-      La masa super fresca y crocante, los super recomiendo.
-    </div>
-  </li>
-  <li class="media">
-    <img class="mr-3" src="img/usuario.jpg" alt="Generic placeholder image" style="width:100px">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">EXCELENTE ATENCION Y COMIDA</h5>
-      Muy buena la atencion, me enviaron el pedido super rapido y exquisitas las pizzas.
-    </div>
-  </li>
+   </c:forEach>
 </ul>
-
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
