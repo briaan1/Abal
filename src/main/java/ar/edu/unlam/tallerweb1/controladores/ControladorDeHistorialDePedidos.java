@@ -10,4 +10,6 @@ public class ControladorDeHistorialDePedidos {
     public ModelAndView irAHistorialDePedidos() {
         return new ModelAndView("historialDePedidos");
     }
+
+	
 }
