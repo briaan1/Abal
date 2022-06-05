@@ -29,5 +29,11 @@ public class ServicioCategoriaPizzaImpl implements ServicioCategoriaPizza {
 			return listaDeProductos;
 		}
 	}
+
+	@Override
+	public Producto validarExistenciaProductoPor(int idProducto) {
+		
+		return null;
+	}
 	
 }
