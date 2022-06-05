@@ -27,13 +27,16 @@
               </div>
             </div>
             <div class="mt-4 overflow-auto p-1">
-              <button type="button" class="btn btn-light float-left" style="width: 100px;">Agregar a favoritos</button>
+              <button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">Agregar a favoritos</button>
               <button type="button" class="btn btn-primary float-right" style="width: 90px;">Agregar al carrito</button>
             </div>
           </div>
         </div>
       </div>
 </c:forEach>
+<form action="/agregar-favorito" id="form-favorito" method="POST">
+	
+</form>
     </div>
     
     
