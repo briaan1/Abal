@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
@@ -27,9 +28,11 @@ public class ControladorCategoriaPizza {
 		this.servicioDeFavorito = servicioDeFavorito;
 	}
 	
-	@RequestMapping("/pizza")
-	public ModelAndView irAPizza() {
+	@RequestMapping(path = "/pizza", method = RequestMethod.GET)
+	public ModelAndView irAPizza(@RequestParam(value = "idFavorito", required = false) Integer idFavorito, @RequestParam(value = "msg", required = false) String mensaje) {
 		ModelMap model=new ModelMap();
+		model.put("msg", mensaje);
+		
 		List<Producto> listaDeProductos=servicioCategoriaPizza.getListaDeProductos("pizza");
 		if(listaDeProductos.size()==0) {
 			model.put("msg", "No hay productos en esta categoria");
@@ -44,31 +47,13 @@ public class ControladorCategoriaPizza {
 	@RequestMapping(path = "/agregar-favorito", method = RequestMethod.POST)
 	public ModelAndView clickEnAgregarFavorito(@ModelAttribute("idFavorito") int idProducto ) {
 		ModelMap model=new ModelMap();
-		//Producto productoEncontrado = servicioCategoriaPizza.validarExistenciaProductoPor(idProducto);
-		
-		/*ELIMINAR ESTO*/
-		Producto productoEncontrado = new Producto();
-		/*-----------------------*/
+		Producto productoEncontrado = servicioCategoriaPizza.validarExistenciaProductoPor(idProducto);
 		
 		if(productoEncontrado!=null) {
-			//Producto productoEncontradoEnFavoritos = servicioDeFavorito.validarExistenciaProductoPor(idProducto);
-			
-			/*ELIMINAR ESTO*/
-			Producto productoEncontradoEnFavoritos = null;
-			/*-----------------------*/
+			Producto productoEncontradoEnFavoritos = servicioDeFavorito.validarExistenciaProductoPor(idProducto);
 			
 			if(productoEncontradoEnFavoritos==null) {
-				//servicioDeFavorito.agregarAFavorito(idProducto);
-				
-				/* PASARLO A UN METODO*/
-				List<Producto> listaDeProductos=servicioCategoriaPizza.getListaDeProductos("pizza");
-				if(listaDeProductos.size()==0) {
-					model.put("msg", "No hay productos en esta categoria");
-				}else {
-					model.put("listaDeProductos", listaDeProductos);
-				}
-				/*-----------------------*/
-				
+				servicioDeFavorito.agregarAFavorito(idProducto);
 				model.put("msg", "Se agrego a favoritos");
 			}else {
 				model.put("msg", "El producto ya esta agregado");
@@ -77,7 +62,7 @@ public class ControladorCategoriaPizza {
 			model.put("msg", "Producto inexistente");
 		}
 		
-		return new ModelAndView("categoriaPizza", model);
+		return new ModelAndView("redirect:/pizza", model);
 	}
 
 		

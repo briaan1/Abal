@@ -105,7 +105,7 @@ public class ControladorCategoriaPizzaTest {
 	}
 	
 	private ModelAndView cuandoPidoLaListaDeProductos(String categoria) {
-		return controladorCategoriaPizza.irAPizza();
+		return controladorCategoriaPizza.irAPizza(null, null);
 	}
 	
 	private void dadoQueNoHayProductosEnLaCategoria(String categoria) {
@@ -129,6 +129,6 @@ public class ControladorCategoriaPizzaTest {
 	}
 
 	private ModelAndView cuandoPidoLaCategoriaPizza() {
-		return controladorCategoriaPizza.irAPizza();
+		return controladorCategoriaPizza.irAPizza(null, null);
 	}
 }
