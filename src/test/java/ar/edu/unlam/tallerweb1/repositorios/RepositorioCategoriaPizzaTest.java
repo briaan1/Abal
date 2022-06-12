@@ -25,6 +25,28 @@ public class RepositorioCategoriaPizzaTest extends SpringTest{
 		entoncesMeDevuelveLaListaCompleta(listaDeProductos, 10);
 	}
 
+	
+	@Test @Transactional @Rollback
+	public void queMeDeBuelvaCeroSiNOhAYpIZZA() {
+		dadoQueNoExistenPizas("pizza",0);
+		List<Producto> listaDeProductos=cuandoListoLosProductosDeCategoriaPizza("pizza");
+		entoncesMeDevuelveLaLista(listaDeProductos,0 );
+	}
+	
+
+	private void entoncesMeDevuelveLaLista(List<Producto> listaDeProductos, int i) {
+	  assertThat(listaDeProductos).hasSize(i);
+	}
+
+
+	private void dadoQueNoExistenPizas(String string, int i) {
+		Categoria categoria=new Categoria();
+		categoria.setNombre(string);
+		
+		
+	}
+
+
 	private void entoncesMeDevuelveLaListaCompleta(List<Producto> lista, int cantidadEsperada) {
 		assertThat(lista).hasSize(cantidadEsperada);
 	}
@@ -43,4 +65,6 @@ public class RepositorioCategoriaPizzaTest extends SpringTest{
 			session().save(producto);
 		}
 	}
+	
+	
 }
