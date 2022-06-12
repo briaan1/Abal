@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>		
+<%@include file="header.jsp"%>	
 		<div class="container">
 		<h1 class="text-center m-4" >Bienvenidos a Pizzeria ABAL</h1>
   <div class="row">
@@ -42,8 +42,8 @@
   <li class="media">
     <img class="mr-3" src="img/usuario.jpg" alt="Generic placeholder image" style="width:100px">
     <div class="media-body">
-      <h5 class="mt-0 mb-1">EXCELENTE</h5>
-      Muy ricas y abundantes
+      <h5 class="mt-0 mb-1">GENIALES</h5>
+      Muy buenos productos
     </div>
   </li>
   <li class="media my-4">
