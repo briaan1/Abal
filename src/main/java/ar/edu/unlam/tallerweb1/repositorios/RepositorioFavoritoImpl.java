@@ -26,4 +26,16 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
                 .list();
 	}
 
+	@Override
+	public Producto buscarFavoritoPorId(int idProducto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean agregarAFavorito(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -29,14 +29,18 @@ public class ServicioFavoritosImpl implements ServicioFavoritos {
 
 	@Override
 	public Boolean agregarAFavorito(int idProducto) {
-		
-		return null;
+		return repositorioFavorito.agregarAFavorito(idProducto);
 	}
 
 	@Override
 	public Producto validarExistenciaProductoPor(int idProducto) {
-		// TODO Auto-generated method stub
-		return null;
+		Producto productoEncontradoEnFavoritos = repositorioFavorito.buscarFavoritoPorId(idProducto);
+		if(productoEncontradoEnFavoritos==null) {
+			return null;
+		}else {
+			return productoEncontradoEnFavoritos;
+		}
+		
 	}
 	
 	@Override

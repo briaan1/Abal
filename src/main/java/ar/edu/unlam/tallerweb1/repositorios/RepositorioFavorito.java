@@ -8,4 +8,8 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 public interface RepositorioFavorito {
 
 	List<Favorito> listarFavoritos();
+
+	Producto buscarFavoritoPorId(int idProducto);
+
+	boolean agregarAFavorito(int id);
 }
