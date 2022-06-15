@@ -1,6 +1,9 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -26,4 +29,14 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
                 .list();
 	}
 
-}
+	@Override
+	public List<Favorito> listarFavoritosPorIdUsuario(int id) {
+
+		return sessionFactory.getCurrentSession()
+				.createCriteria(Favorito.class).createAlias("idfavoritoUsuario","idfavus")
+				.add(Restrictions.eq("idfavus.usuario",id))
+				.list();
+
+}}
+
+

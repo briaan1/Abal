@@ -7,17 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-//@Entity
+@Entity
 public class Favorito {
 
-	/*@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	//@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 	
-	//@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Producto producto;
 
 	public int getId() {
