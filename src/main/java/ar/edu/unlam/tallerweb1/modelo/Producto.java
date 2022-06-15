@@ -1,10 +1,14 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,6 +21,10 @@ public class Producto {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Categoria categoria;
+	
+	@JoinTable(name = "favorito")
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Usuario> listaUsuario;
 	
 	private Double precio;
 	private String imagen;
