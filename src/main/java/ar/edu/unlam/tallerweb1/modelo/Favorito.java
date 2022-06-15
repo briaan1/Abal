@@ -11,13 +11,13 @@ import javax.persistence.ManyToOne;
 public class Favorito {
 
 	/*@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)*/
 	private int id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	//@ManyToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	//@ManyToOne(cascade = CascadeType.ALL)
 	private Producto producto;
 
 	public int getId() {
@@ -42,6 +42,6 @@ public class Favorito {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
-	}*/
+	}
 	
 }

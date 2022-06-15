@@ -12,5 +12,7 @@ public interface ServicioFavoritos {
 	Boolean agregarAFavorito(int idProducto);
 
 	Producto validarExistenciaProductoPor(int idProducto);
+	
+	List <Favorito> getListaDeFavoritos();
 
 }
