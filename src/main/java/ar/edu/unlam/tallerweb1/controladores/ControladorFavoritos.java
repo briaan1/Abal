@@ -22,4 +22,3 @@ public class ControladorFavoritos {
         return new ModelAndView("favorito");
     }
 }
-
