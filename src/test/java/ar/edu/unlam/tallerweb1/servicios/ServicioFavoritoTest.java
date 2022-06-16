@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Id;
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -24,16 +25,31 @@ public class ServicioFavoritoTest {
 
 
 
-	/*@Test
-	public void alPedirLosFavoritoDeUnUsuarioLoDevuelvo() {
-		dadoQueHayFavoritos(5);
-		List<Favorito> listaDeFavoritos = cuandoPidoLaListaDeFavoritosDeUnUsuario(5);
-		entoncesObtengoLaListaDeFavoritos(listaDeFavoritos,2);
+	@Test
+	public void alVerificarQueNoExisteUnFavoritoDeUnUsuarioLoAgrega() {
+		dadoQueElProductoNoEstaAgregadoAFavorito(5);
+		Boolean seAgrego= cuandoLoQuieroAgregar(5);
+		entoncesLoAgregoAListaDeFavoritos(seAgrego);
 	}
 
-	private void dadoQueHayFavoritos() {
-		when(repositorioFavorito.listarFavoritosPorIdUsuario()).thenReturn(new Producto());
-
+    private void entoncesLoAgregoAListaDeFavoritos( Boolean seAgrego) {
+	  assertThat(seAgrego).isTrue() ;
 	}
 
-*/}
+    private Boolean cuandoLoQuieroAgregar( int idProducto) {
+	   return   servicioFavoritos.agregarAFavorito( idProducto);
+    }
+
+    private void dadoQueElProductoNoEstaAgregadoAFavorito( int idProducto) {
+        when(repositorioFavorito.buscarFavorito(idProducto)).thenReturn(null);
+    }
+
+
+
+/*@Test
+    public void queNosePuedaAgregarUnProductoExistenteAFavorito(){
+    dadoUnFavoritoExistente(5);
+    cuandoLoQuieroAgregar(5);
+    EnTo
+}*/
+}

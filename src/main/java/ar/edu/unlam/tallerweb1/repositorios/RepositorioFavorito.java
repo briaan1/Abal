@@ -12,4 +12,5 @@ public interface RepositorioFavorito {
 	List<Favorito> listarFavoritosPorIdUsuario(int i);
 
 
+	Favorito buscarFavorito( int idProducto);
 }
