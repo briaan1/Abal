@@ -53,8 +53,10 @@ public class ControladorCategoriaPizza {
 			Producto productoEncontradoEnFavoritos = servicioDeFavorito.validarExistenciaProductoPor(idProducto);
 			
 			if(productoEncontradoEnFavoritos==null) {
-				servicioDeFavorito.agregarAFavorito(idProducto);
-				model.put("msg", "Se agrego a favoritos");
+				boolean productoAgregado=servicioDeFavorito.agregarAFavorito(idProducto);
+				if(productoAgregado==true) {
+					model.put("msg", "Se agrego a favoritos");
+				}
 			}else {
 				model.put("msg", "El producto ya esta agregado");
 			}
