@@ -12,4 +12,6 @@ public interface RepositorioFavorito {
 	Producto buscarFavoritoPorId(int idProducto);
 
 	boolean agregarAFavorito(int id);
+
+	List<Favorito> listarFavoritos(int id);
 }

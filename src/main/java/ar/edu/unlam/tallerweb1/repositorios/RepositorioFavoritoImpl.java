@@ -37,5 +37,14 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	public List<Favorito> listarFavoritos(int id) {
+		return sessionFactory.getCurrentSession()		
+				.createCriteria(Favorito.class)
+                .createAlias("usuario","usu")
+                .add(Restrictions.eq("usu.id", id))
+                .list();
+	}
 
 }
