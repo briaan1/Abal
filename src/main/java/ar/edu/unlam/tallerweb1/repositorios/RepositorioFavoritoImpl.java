@@ -35,6 +35,16 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 
 }
 
+	@Override
+	public Favorito buscarFavorito( int idProducto) {
+
+		return null;/*sessionFactory.getCurrentSession()
+				.createCriteria(Favorito.class)
+				.createAlias("usuario","usuario")
+				.add(Restrictions.eq("usuario.id",id))
+				.list();*/
+	}
+
 
 }
 
