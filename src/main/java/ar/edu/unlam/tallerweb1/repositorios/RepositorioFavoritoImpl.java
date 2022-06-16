@@ -22,7 +22,7 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 	@Override
 	public List<Favorito> listarFavoritos() {
 		return sessionFactory.getCurrentSession()
-                .createCriteria(Favorito.class)
+                .createCriteria(Favorito.class).createalias("usuario","usuario").add(restriction.eq("usuario.id",id))
                 .list();
 	}
 
