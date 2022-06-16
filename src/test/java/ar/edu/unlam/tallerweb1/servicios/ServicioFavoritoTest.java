@@ -21,26 +21,19 @@ import static org.assertj.core.api.Assertions.*;
 public class ServicioFavoritoTest {
 	private RepositorioFavorito repositorioFavorito=mock(RepositorioFavorito.class);
 	private ServicioFavoritos servicioFavoritos = new ServicioFavoritosImpl(repositorioFavorito);
-	
-	@Test
-	public void devolverUnaListaVaciaSiNoHayFavoritos() {
-		dadoQueNoHayFavoritos();
-		List<Favorito> listaDeFavoritos = cuandoPidoLaListaDeFavoritos();
-		entoncesLaListaDeFavoritosEstaVacia(listaDeFavoritos,0);
+
+
+
+	/*@Test
+	public void alPedirLosFavoritoDeUnUsuarioLoDevuelvo() {
+		dadoQueHayFavoritos(5);
+		List<Favorito> listaDeFavoritos = cuandoPidoLaListaDeFavoritosDeUnUsuario(5);
+		entoncesObtengoLaListaDeFavoritos(listaDeFavoritos,2);
 	}
 
-private void entoncesLaListaDeFavoritosEstaVacia(List<Favorito> listaDeFavoritos, int cantidadFavoritos) {
-		assertThat(listaDeFavoritos).hasSize(cantidadFavoritos);
-		
+	private void dadoQueHayFavoritos() {
+		when(repositorioFavorito.listarFavoritosPorIdUsuario()).thenReturn(new Producto());
+
 	}
 
-private List<Favorito> cuandoPidoLaListaDeFavoritos() {
-		
-		return servicioFavoritos.getListaDeFavoritos();
-	}
-
-private void dadoQueNoHayFavoritos() {
-	when(repositorioFavorito.listarFavoritos()).thenReturn(new ArrayList<Favorito>());
-	
-}
-}
+*/}

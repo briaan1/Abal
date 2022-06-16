@@ -32,7 +32,32 @@ public class RepositorioCategoriaPizzaTest extends SpringTest{
 		List<Producto> listaDeProductos=cuandoListoLosProductosDeCategoriaPizza("pizza");
 		entoncesMeDevuelveLaLista(listaDeProductos,0 );
 	}
-	
+
+
+	@Test @Transactional @Rollback
+	public void queAlBuscarUnProductoQueMeDevuelva() {
+		dadoQueNoExisteUnProductoConId(1);
+		Producto producto =cuandoBuscoUnProductoConElId(1);
+		//listaDeProducto.getId(), 1
+		entoncesMeDevuelveElProducto(producto.getId(), 8);
+	}
+
+	private void entoncesMeDevuelveElProducto(int idProductoEncontrado, int idProductoBuscado) {
+		//assertThat(producto).isNull();
+		assertThat(idProductoEncontrado).isEqualTo(idProductoBuscado);
+	}
+
+	private Producto cuandoBuscoUnProductoConElId(int idProducto) {
+		return repositorioCategoriaPizza.buscarPor(idProducto);
+	}
+
+	private void dadoQueNoExisteUnProductoConId(int idProducto) {
+		Producto producto=new Producto();
+		producto.setId(idProducto);
+		session().save(producto);
+
+	}
+
 
 	private void entoncesMeDevuelveLaLista(List<Producto> listaDeProductos, int i) {
 	  assertThat(listaDeProductos).hasSize(i);

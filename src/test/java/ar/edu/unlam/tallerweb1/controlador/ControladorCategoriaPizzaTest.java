@@ -97,7 +97,8 @@ public class ControladorCategoriaPizzaTest {
 		producto.setNombre(nombreProducto);
 		
 		when(servicioCategoriaPizza.validarExistenciaProductoPor(idProducto)).thenReturn(producto);
-		when(servicioDeFavorito.agregarAFavorito(producto.getId())).thenReturn(true);	
+
+		when(servicioDeFavorito.agregarAFavorito(producto.getId())).thenReturn(true);
 	}
 	
 	private void entoncesMeMuestraUnMensaje(String mensajeEsperado, ModelAndView model) {

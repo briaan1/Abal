@@ -7,7 +7,9 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 public interface RepositorioFavorito {
 
-	List<Favorito> listarFavoritos();
+
 
 	List<Favorito> listarFavoritosPorIdUsuario(int i);
+
+
 }

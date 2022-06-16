@@ -22,21 +22,20 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@Override
-	public List<Favorito> listarFavoritos() {
-		return sessionFactory.getCurrentSession()
-                .createCriteria(Favorito.class)
-                .list();
-	}
+
 
 	@Override
 	public List<Favorito> listarFavoritosPorIdUsuario(int id) {
 
 		return sessionFactory.getCurrentSession()
-				.createCriteria(Favorito.class).createAlias("idfavoritoUsuario","idfavus")
-				.add(Restrictions.eq("idfavus.usuario",id))
+				.createCriteria(Favorito.class)
+				.createAlias("usuario","usuario")
+				.add(Restrictions.eq("usuario.id",id))
 				.list();
 
-}}
+}
+
+
+}
 
 

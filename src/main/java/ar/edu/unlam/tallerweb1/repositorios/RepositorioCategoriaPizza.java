@@ -6,4 +6,8 @@ import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 public interface RepositorioCategoriaPizza {
 	List<Producto> listar(String categoria);
+
+    List<Producto> listarProductos();
+
+    Producto buscarPor(int idDeProducto);
 }

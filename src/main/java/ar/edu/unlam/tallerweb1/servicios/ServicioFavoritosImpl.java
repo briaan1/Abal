@@ -21,32 +21,29 @@ public class ServicioFavoritosImpl implements ServicioFavoritos {
 		this.repositorioFavorito = repositorioFavorito;
 	}
 
+
 	@Override
 	public List<Favorito> getListaDeFavoritos(int idUsuario) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Boolean agregarAFavorito(int idProducto) {
+
 		
 		return null;
 	}
 
 	@Override
 	public Producto validarExistenciaProductoPor(int idProducto) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
-	
+
 	@Override
 	public List<Favorito> getListaDeFavoritos() {
-			List<Favorito> listaDeFavoritos=repositorioFavorito.listarFavoritos();
-			if(listaDeFavoritos.size()==0) {
-				return new ArrayList<Favorito>(); 
-			}else {
-				return listaDeFavoritos;
-			}
-		}
+		return null;
+	}
+
 
 }

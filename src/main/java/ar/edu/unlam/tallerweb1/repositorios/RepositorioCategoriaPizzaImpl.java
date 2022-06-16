@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.repositorios;
 
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,24 @@ public class RepositorioCategoriaPizzaImpl implements RepositorioCategoriaPizza{
                 .add(Restrictions.eq("cate.nombre", categoria))
                 .list();
 	}
+
+	@Override
+	public List<Producto> listarProductos() {
+		return sessionFactory.getCurrentSession()
+				.createCriteria(Producto.class)
+				.list();
+	}
+
+	@Override
+	public Producto buscarPor(int idDeProducto) {
+		return (Producto) sessionFactory.getCurrentSession()
+				.createCriteria(Producto.class)
+				//.createAlias("id", "productoId")
+				.add(Restrictions.eq("id", idDeProducto))
+				.uniqueResult();
+	}
+
+
+
 
 }

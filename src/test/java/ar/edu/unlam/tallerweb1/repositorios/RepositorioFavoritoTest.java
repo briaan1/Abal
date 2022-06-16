@@ -18,28 +18,41 @@ public class RepositorioFavoritoTest  extends SpringTest {
     RepositorioFavorito repositorioFavorito;
 
     @Test @Transactional @Rollback
-     public void listarPizzasFavoritasDeUnUsuario(){
+     public void listarPizzasFavoritos(){
         Usuario usuario=new Usuario();
-        usuario.setId(1);
         Producto producto=new Producto();
-        producto.setId(2);
         Producto producto2=new Producto();
-        producto.setId(3);
+        Producto producto3 =new Producto();
         Favorito favorito=new Favorito();
         Favorito favorito1=new Favorito();
-        favorito1.setUsuario(usuario);
-        favorito.setUsuario(usuario);
+        Favorito favorito2=new Favorito();
+        producto.setId(1);
+        producto.setId(2);
+        producto3.setId(3);
+        usuario.setId(1);
 
+        favorito1.setUsuario(usuario);
+        favorito2.setUsuario(usuario);
+        favorito.setUsuario(usuario);
         favorito1.setProducto(producto2);
         favorito.setProducto(producto);
+        favorito2.setProducto(producto3);
+
         session().save(usuario);
         session().save(producto);
         session().save(producto2);
+        session().save(producto3);
         session().save(favorito);
+        session().save(favorito1);
+        session().save(favorito2);
+
 
 
         List<Favorito> resultado=repositorioFavorito.listarFavoritosPorIdUsuario(1);
+
         //validacion
         assertThat(resultado).hasSize(2);
     }
+
+
 }

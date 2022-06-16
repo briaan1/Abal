@@ -14,6 +14,8 @@ import ar.edu.unlam.tallerweb1.repositorios.RepositorioCategoriaPizza;
 @Service @Transactional
 public class ServicioCategoriaPizzaImpl implements ServicioCategoriaPizza {
 	private RepositorioCategoriaPizza repositorioCategoriaPizza;
+
+
 	
 	@Autowired
 	public ServicioCategoriaPizzaImpl(RepositorioCategoriaPizza repositorioCategoriaPizza) {
@@ -32,8 +34,9 @@ public class ServicioCategoriaPizzaImpl implements ServicioCategoriaPizza {
 
 	@Override
 	public Producto validarExistenciaProductoPor(int idProducto) {
-		
-		return null;
+		Producto productoEncontrado=repositorioCategoriaPizza.buscarPor(idProducto);
+		return productoEncontrado ;
 	}
-	
+
+
 }
