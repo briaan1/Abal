@@ -1,18 +1,21 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.List;
+import java.util.Set;
 
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface ServicioFavoritos {
 
 	List <Favorito> getListaDeFavoritos(int idUsuario);
 
-	Boolean agregarAFavorito(int idProducto);
+	boolean agregarAFavorito(Usuario usuario, Producto producto);
 
-	Producto validarExistenciaProductoPor(int idProducto);
+	Favorito validarExistenciaProductoPor(Usuario usuario, Producto producto);
 	
 	List <Favorito> getListaDeFavoritos();
-
+	
+	List<Producto> listarFavoritos(Usuario usuario);
 }
