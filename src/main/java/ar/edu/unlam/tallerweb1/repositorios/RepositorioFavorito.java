@@ -9,11 +9,22 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface RepositorioFavorito {
 
+<<<<<<< Updated upstream
 	List<Favorito> listarFavoritos();
 
 	boolean agregarAFavorito(Favorito favorito);
+=======
+	Producto buscarFavoritoPorId(int idProducto);
+>>>>>>> Stashed changes
 
 	Favorito buscarFavorito(int idUsuario, int idProducto);
 
+<<<<<<< Updated upstream
 	List<Producto> listarFavoritos(Usuario usuario);
 }
+=======
+	List<Favorito> listarFavoritosPorId(int id);
+
+	List<Favorito> listarFavoritos();
+}
+>>>>>>> Stashed changes
