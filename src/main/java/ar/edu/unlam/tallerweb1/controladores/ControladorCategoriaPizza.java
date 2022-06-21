@@ -11,21 +11,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioCategoriaPizza;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
+import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 
 @Controller
 public class ControladorCategoriaPizza {
 	
 	private ServicioCategoriaPizza servicioCategoriaPizza;
-	private  ServicioFavoritos servicioDeFavorito; 
+	private ServicioFavoritos servicioDeFavorito; 
+	private ServicioUsuario servicioUsuario;
 	
 	
 	@Autowired
-	public ControladorCategoriaPizza(ServicioCategoriaPizza servicioCategoriaPizza, ServicioFavoritos servicioDeFavorito) {
+	public ControladorCategoriaPizza(ServicioCategoriaPizza servicioCategoriaPizza, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario) {
 		this.servicioCategoriaPizza = servicioCategoriaPizza;
 		this.servicioDeFavorito = servicioDeFavorito;
+		this.servicioUsuario = servicioUsuario;
 	}
 	
 	@RequestMapping(path = "/pizza", method = RequestMethod.GET)
@@ -47,13 +52,16 @@ public class ControladorCategoriaPizza {
 	@RequestMapping(path = "/agregar-favorito", method = RequestMethod.POST)
 	public ModelAndView clickEnAgregarFavorito(@ModelAttribute("idFavorito") int idProducto ) {
 		ModelMap model=new ModelMap();
+		
+		Usuario usuario=servicioUsuario.getUsuario();
 		Producto productoEncontrado = servicioCategoriaPizza.validarExistenciaProductoPor(idProducto);
 		
 		if(productoEncontrado!=null) {
-			Producto productoEncontradoEnFavoritos = servicioDeFavorito.validarExistenciaProductoPor(idProducto);
+			Favorito favorito = servicioDeFavorito.validarExistenciaProductoPor(usuario, productoEncontrado);
 			
-			if(productoEncontradoEnFavoritos==null) {
-				boolean productoAgregado=servicioDeFavorito.agregarAFavorito(idProducto);
+			if(favorito==null) {
+				model.put("msg", "Se agrego a favoritos");
+				boolean productoAgregado=servicioDeFavorito.agregarAFavorito(usuario, productoEncontrado);
 				if(productoAgregado==true) {
 					model.put("msg", "Se agrego a favoritos");
 				}

@@ -1,6 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Producto {
@@ -22,12 +24,18 @@ public class Producto {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Categoria categoria;
 	
-	@JoinTable(name = "favorito")
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Usuario> listaUsuario;
+	@OneToMany(mappedBy = "producto")
+	private Set<Favorito> favoritos = new HashSet();
 	
 	private Double precio;
 	private String imagen;
+	
+	public Set<Favorito> getFavoritos() {
+		return favoritos;
+	}
+	public void setFavoritos(Set<Favorito> favoritos) {
+		this.favoritos = favoritos;
+	}
 	
 	public int getId() {
 		return id;

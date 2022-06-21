@@ -27,4 +27,12 @@ public class RepositorioCategoriaPizzaImpl implements RepositorioCategoriaPizza{
                 .list();
 	}
 
+	@Override
+	public Producto validarExistenciaProductoPor(int idProducto) {
+		return (Producto) sessionFactory.getCurrentSession()
+                .createCriteria(Producto.class)
+                .add(Restrictions.eq("id", idProducto))
+                .uniqueResult();
+	}
+
 }

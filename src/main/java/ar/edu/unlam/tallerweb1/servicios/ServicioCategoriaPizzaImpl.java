@@ -32,8 +32,7 @@ public class ServicioCategoriaPizzaImpl implements ServicioCategoriaPizza {
 
 	@Override
 	public Producto validarExistenciaProductoPor(int idProducto) {
-		
-		return null;
+		return repositorioCategoriaPizza.validarExistenciaProductoPor(idProducto);
 	}
 	
 }
