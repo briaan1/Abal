@@ -9,20 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
-import ar.edu.unlam.tallerweb1.repositorios.RepositorioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioProducto;
 
 @Service @Transactional
-public class ServicioCategoriaPizzaImpl implements ServicioCategoriaPizza {
-	private RepositorioCategoriaPizza repositorioCategoriaPizza;
+public class ServicioProductoImpl implements ServicioProducto {
+	private RepositorioProducto repositorioProducto;
 	
 	@Autowired
-	public ServicioCategoriaPizzaImpl(RepositorioCategoriaPizza repositorioCategoriaPizza) {
-		this.repositorioCategoriaPizza=repositorioCategoriaPizza;
+	public ServicioProductoImpl(RepositorioProducto repositorioProducto) {
+		this.repositorioProducto=repositorioProducto;
 	}
 
 	@Override
 	public List<Producto> getListaDeProductos(String categoria) {
-		List<Producto> listaDeProductos=repositorioCategoriaPizza.listar(categoria);
+		List<Producto> listaDeProductos=repositorioProducto.listar(categoria);
 		if(listaDeProductos.size()==0) {
 			return new ArrayList<Producto>(); 
 		}else {
@@ -32,7 +32,7 @@ public class ServicioCategoriaPizzaImpl implements ServicioCategoriaPizza {
 
 	@Override
 	public Producto validarExistenciaProductoPor(int idProducto) {
-		return repositorioCategoriaPizza.validarExistenciaProductoPor(idProducto);
+		return repositorioProducto.validarExistenciaProductoPor(idProducto);
 	}
 	
 }

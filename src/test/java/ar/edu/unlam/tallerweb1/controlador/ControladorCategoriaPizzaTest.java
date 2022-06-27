@@ -15,7 +15,7 @@ import ar.edu.unlam.tallerweb1.modelo.Categoria;
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
-import ar.edu.unlam.tallerweb1.servicios.ServicioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 
@@ -24,9 +24,9 @@ import static org.assertj.core.api.Assertions.*;
 public class ControladorCategoriaPizzaTest {
 	
 	private ServicioFavoritos servicioDeFavorito=mock(ServicioFavoritos.class);
-	private ServicioCategoriaPizza servicioCategoriaPizza=mock(ServicioCategoriaPizza.class);
+	private ServicioProducto servicioProducto=mock(ServicioProducto.class);
 	private ServicioUsuario servicioUsuario=mock(ServicioUsuario.class);
-	private ControladorCategoriaPizza controladorCategoriaPizza=new ControladorCategoriaPizza(servicioCategoriaPizza, servicioDeFavorito, servicioUsuario);
+	private ControladorCategoriaPizza controladorCategoriaPizza=new ControladorCategoriaPizza(servicioProducto, servicioDeFavorito, servicioUsuario);
 	
 	@Test
     public void alPedirLaCategoriaPizzaMeMuestraLaCategoria(){
@@ -72,21 +72,21 @@ public class ControladorCategoriaPizzaTest {
 		
 		ModelAndView model = cuandoLoAgregoAFavorito(1);
 		
-		entoncesMeMuestraUnMensaje("El producto ya esta agregado", model);
+		entoncesMeMuestraUnMensaje("El producto fue eliminado de favoritos", model);
 	}
 	
 	private void dadoQueExisteUnProductoAgregadoEnFavorito(Usuario usuario, Producto producto) {
 		when(servicioUsuario.getUsuario()).thenReturn(usuario);
-		when(servicioCategoriaPizza.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
+		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
 		when(servicioDeFavorito.validarExistenciaProductoPor(usuario, producto)).thenReturn(new Favorito());	
 	}
 	
 	private void dadoQueNoExisteUnProducto(int idProducto, String nombreProducto) {
-		when(servicioCategoriaPizza.validarExistenciaProductoPor(idProducto)).thenReturn(null);
+		when(servicioProducto.validarExistenciaProductoPor(idProducto)).thenReturn(null);
 	}
 	
 	private ModelAndView cuandoLoAgregoAFavorito(int idProducto) {
-		return controladorCategoriaPizza.clickEnAgregarFavorito(idProducto);
+		return controladorCategoriaPizza.clicEnAgregarFavorito(idProducto);
 	}
 	
 	private void entoncesMeMuestraUnMensaje(String mensajeEsperado, ModelAndView model) {
@@ -94,7 +94,7 @@ public class ControladorCategoriaPizzaTest {
 	}
 
 	private ModelAndView cuandoLoAgregoAFavorito(int idProducto, String nombreProducto) {
-		return controladorCategoriaPizza.clickEnAgregarFavorito(idProducto);
+		return controladorCategoriaPizza.clicEnAgregarFavorito(idProducto);
 	}
 	
 	private void dadoQueExisteUnProducto(int idProducto, String nombreProducto) {
@@ -103,7 +103,7 @@ public class ControladorCategoriaPizzaTest {
 		producto.setId(idProducto);
 		producto.setNombre(nombreProducto);
 		when(servicioUsuario.getUsuario()).thenReturn(usuario);
-		when(servicioCategoriaPizza.validarExistenciaProductoPor(idProducto)).thenReturn(producto);
+		when(servicioProducto.validarExistenciaProductoPor(idProducto)).thenReturn(producto);
 		when(servicioDeFavorito.validarExistenciaProductoPor(usuario, producto)).thenReturn(null);
 		when(servicioDeFavorito.agregarAFavorito(usuario, producto)).thenReturn(true);
 	}
@@ -113,7 +113,7 @@ public class ControladorCategoriaPizzaTest {
 	}
 	
 	private void dadoQueNoHayProductosEnLaCategoria(String categoria) {
-		when(servicioCategoriaPizza.getListaDeProductos(categoria)).thenReturn(new ArrayList<Producto>());
+		when(servicioProducto.getListaDeProductos(categoria)).thenReturn(new ArrayList<Producto>());
 	}
 	
 	private void entoncesMeMuestraLaListaCompleta(ModelAndView model, int cantidadEsperada) {
@@ -125,7 +125,7 @@ public class ControladorCategoriaPizzaTest {
 		for(int i=0;i<cantidadDeproductos;i++) {
 			listaDeProductos.add(new Producto());
 		}
-		when(servicioCategoriaPizza.getListaDeProductos(categoria)).thenReturn(listaDeProductos);
+		when(servicioProducto.getListaDeProductos(categoria)).thenReturn(listaDeProductos);
 	}
 	
 	private void entoncesMeLlevaALaVistaCategoria(String vistaEsperada, ModelAndView model) {

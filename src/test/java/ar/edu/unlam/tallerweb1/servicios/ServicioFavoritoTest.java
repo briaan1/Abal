@@ -14,7 +14,7 @@ import org.springframework.test.annotation.Rollback;
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
-import ar.edu.unlam.tallerweb1.repositorios.RepositorioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioProducto;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioFavorito;
 
 import static org.assertj.core.api.Assertions.*;
