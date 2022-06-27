@@ -1,6 +1,5 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-<<<<<<< Updated upstream
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-=======
-import javax.persistence.*;
->>>>>>> Stashed changes
 
 @Entity
 public class Favorito {
@@ -19,7 +15,6 @@ public class Favorito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-<<<<<<< Updated upstream
 	@ManyToOne()
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
@@ -51,7 +46,5 @@ public class Favorito {
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
-=======
->>>>>>> Stashed changes
 	
 }

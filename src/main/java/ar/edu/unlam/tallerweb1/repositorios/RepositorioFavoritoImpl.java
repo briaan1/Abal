@@ -20,7 +20,6 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 	public RepositorioFavoritoImpl(SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
-<<<<<<< Updated upstream
 	
 	@Override
 	public List<Favorito> listarFavoritos() {
@@ -29,8 +28,6 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
                 .list();*/
 		return null;
 	}
-=======
->>>>>>> Stashed changes
 
 	@Override
 	public Favorito buscarFavorito(int idUsuario, int idProducto) {
@@ -48,7 +45,6 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 	}
 
 	@Override
-<<<<<<< Updated upstream
 	public List<Producto> listarFavoritos(Usuario usuario) {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(Producto.class)
@@ -58,20 +54,3 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
 	}
 
 }
-=======
-	public List<Favorito> listarFavoritosPorId(int id) {
-		return sessionFactory.getCurrentSession()		
-				.createCriteria(Favorito.class)
-                .createAlias("usuario","usu")
-                .add(Restrictions.eq("usu.id", id))
-                .list();
-	}
-
-	@Override
-	public List<Favorito> listarFavoritos() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-}
->>>>>>> Stashed changes

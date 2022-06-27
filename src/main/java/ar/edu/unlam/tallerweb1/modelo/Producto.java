@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-<<<<<<< Updated upstream
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-=======
-import javax.persistence.*;
->>>>>>> Stashed changes
 
 @Entity
 public class Producto {
@@ -28,7 +24,6 @@ public class Producto {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Categoria categoria;
 	
-<<<<<<< Updated upstream
 	@OneToMany(mappedBy = "producto")
 	private Set<Favorito> favoritos = new HashSet();
 	
@@ -78,7 +73,4 @@ public class Producto {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-=======
-	
->>>>>>> Stashed changes
 }
