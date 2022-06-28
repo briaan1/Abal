@@ -13,7 +13,8 @@ import org.springframework.test.annotation.Rollback;
 
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
-import ar.edu.unlam.tallerweb1.repositorios.RepositorioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioProducto;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioFavorito;
 
 import static org.assertj.core.api.Assertions.*;
@@ -29,54 +30,29 @@ public class ServicioFavoritoTest {
 		entoncesLaListaDeFavoritosEstaVacia(listaDeFavoritos,0);
 	}
 	@Test
-	public void alBuscarUnProductoQueNoEstaAgregadoEnfavoritosMeDevuelveNull() {
-		Producto producto=dadoQueNoExisteUnProductoAgregadoConId(1);
-		Producto productoEncontrado=cuandoValidoLaExistenciaDelProductoEnFavoritos(producto);
-		entoncesNoEncuentraElProductoYDevuelveNull(productoEncontrado);
-	}
-	@Test
-	public void alBuscarUnProductoQueEstaAgregadoEnfavoritosMeDevuelveElProducto() {
-		Producto producto=dadoQueExisteUnProductoAgregadoConId(1);
-		Producto productoEncontrado=cuandoValidoLaExistenciaDelProductoEnFavoritos(producto);
-		entoncesEncuentraElProductoYDevuelveElProducto(producto, productoEncontrado);
-	}
-	@Test
 	public void alAgregarUnFavoritoLoAgrega() {
-		Producto producto=dadoQueExisteUnProductoConId(1);
-		boolean productoAgregado=cuandoLoAgregoAFavoritos(producto);
-		entoncesLoAgrega(productoAgregado);
+		Usuario usuario=new Usuario();
+		usuario.setId(1);
+		Producto producto=dadoQueExisteUnProductoConId(1, usuario);
+		boolean productoAgregado=cuandoLoAgregoAFavoritos(producto, usuario);
+		entoncesLoAgrega(usuario, producto);
 	}
-	private void entoncesLoAgrega(boolean productoAgregado) {
-		assertThat(productoAgregado).isEqualTo(true);
+	private void entoncesLoAgrega(Usuario usuario, Producto producto) {
+		Favorito favorito=servicioFavoritos.validarExistenciaProductoPor(usuario, producto);
+		assertThat(favorito.getUsuario().getId()).isEqualTo(usuario.getId());
+		assertThat(favorito.getProducto().getId()).isEqualTo(producto.getId());
 	}
-	private boolean cuandoLoAgregoAFavoritos(Producto producto) {
-		return servicioFavoritos.agregarAFavorito(producto.getId());
+	private boolean cuandoLoAgregoAFavoritos(Producto producto, Usuario usuario) {
+		return servicioFavoritos.agregarAFavorito(usuario, producto);
 	}
-	private Producto dadoQueExisteUnProductoConId(int idProducto) {
+	private Producto dadoQueExisteUnProductoConId(int idProducto, Usuario usuario) {
 		Producto producto=new Producto();
 		producto.setId(idProducto);
-		when(repositorioFavorito.agregarAFavorito(producto.getId())).thenReturn(true);
-		return producto;
-	}
-	private void entoncesEncuentraElProductoYDevuelveElProducto(Producto productoBuscado, Producto productoEncontrado) {
-		assertThat(productoEncontrado.getId()).isEqualTo(productoBuscado.getId());
-	}
-	private void entoncesNoEncuentraElProductoYDevuelveNull(Producto productoEncontrado) {
-		assertThat(productoEncontrado).isEqualTo(null);
-	}
-	private Producto cuandoValidoLaExistenciaDelProductoEnFavoritos(Producto producto) {
-		return servicioFavoritos.validarExistenciaProductoPor(producto.getId());
-	}
-	private Producto dadoQueNoExisteUnProductoAgregadoConId(int idProducto) {
-		when(repositorioFavorito.buscarFavoritoPorId(idProducto)).thenReturn(null);
-		Producto producto=new Producto();
-		producto.setId(idProducto);
-		return producto;
-	}
-	private Producto dadoQueExisteUnProductoAgregadoConId(int idProducto) {
-		Producto producto=new Producto();
-		producto.setId(idProducto);
-		when(repositorioFavorito.buscarFavoritoPorId(idProducto)).thenReturn(producto);
+		Favorito favorito=new Favorito();
+		favorito.setUsuario(usuario);
+		favorito.setProducto(producto);
+		when(repositorioFavorito.agregarAFavorito(favorito)).thenReturn(true);
+		when(repositorioFavorito.buscarFavorito(usuario.getId(), producto.getId())).thenReturn(favorito);
 		return producto;
 	}
 	

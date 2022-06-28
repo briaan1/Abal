@@ -12,12 +12,12 @@ import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
-import ar.edu.unlam.tallerweb1.repositorios.RepositorioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioProducto;
 import static org.assertj.core.api.Assertions.*;
 
 public class ServicioCategoriaPizzaTest {
-	private RepositorioCategoriaPizza repositorioCategoriaPizza=mock(RepositorioCategoriaPizza.class);
-	private ServicioCategoriaPizza servicioCategoriaPizza=new ServicioCategoriaPizzaImpl(repositorioCategoriaPizza);
+	private RepositorioProducto repositorioProducto=mock(RepositorioProducto.class);
+	private ServicioProducto servicioProducto=new ServicioProductoImpl(repositorioProducto);
 	
 	@Test
 	public void devolverUnaListaVaciaSiNohayproductosEnLaCategoriaPizza() {
@@ -31,10 +31,10 @@ public class ServicioCategoriaPizzaTest {
 	}
 
 	private List<Producto> cuandoPidoLaListaDeProductos(String categoria) {
-		return servicioCategoriaPizza.getListaDeProductos(categoria);
+		return servicioProducto.getListaDeProductos(categoria);
 	}
 
 	private void dadoQueNoHayProductosEnLaCategoria(String categoria) {
-		when(repositorioCategoriaPizza.listar(categoria)).thenReturn(new ArrayList<Producto>());
+		when(repositorioProducto.listar(categoria)).thenReturn(new ArrayList<Producto>());
 	}
 }

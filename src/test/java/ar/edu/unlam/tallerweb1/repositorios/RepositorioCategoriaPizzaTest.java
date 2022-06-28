@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class RepositorioCategoriaPizzaTest extends SpringTest{
 	@Autowired
-	RepositorioCategoriaPizza repositorioCategoriaPizza;
+	RepositorioProducto repositorioProducto;
 	
 	@Test @Transactional @Rollback
 	public void listarLosProductosDeLaCategoriaPizza() {
@@ -52,7 +52,7 @@ public class RepositorioCategoriaPizzaTest extends SpringTest{
 	}
 
 	private List<Producto> cuandoListoLosProductosDeCategoriaPizza(String categoria) {
-		return repositorioCategoriaPizza.listar(categoria);
+		return repositorioProducto.listar(categoria);
 	}
 
 	private void dadoQueExistenProductosDeCategoriaPizza(String nombre, int cantidadDeProductos) {

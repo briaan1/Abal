@@ -12,6 +12,39 @@
 </c:choose>
     
     <div class="row mb-5">
+    <c:forEach var="lista" items="${listaDeFavoritos}">
+    <div class="col-lg-3 col-md-4 mb-4">
+        <div class="card">
+          <img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${lista.nombre}</h5>
+            <h5>$${lista.precio}</h5>
+            <p class="card-text">${lista.descripcion}</p>
+            <div class="input-group" style="width:200px;">
+              <input type="number" class="form-control text-center" value="1">
+              <div class="input-group-append">
+                <span class="input-group-text">Cantidad</span>
+              </div>
+            </div>
+            <div class="mt-4 overflow-auto p-1">
+            <c:choose>
+			<c:when test="${not empty eliminarDeFavoritos}">
+     		<button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
+			</c:when>
+			<c:otherwise>
+           		<button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">Agregar a favoritos</button>
+         	</c:otherwise>
+			</c:choose>
+			
+              
+              <button type="button" class="btn btn-primary float-right" style="width: 90px;">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+	</c:forEach>
+    
+    
       <c:forEach var="lista" items="${listaDeProductos}">
     <div class="col-lg-3 col-md-4 mb-4">
         <div class="card">

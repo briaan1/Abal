@@ -49,16 +49,15 @@
                 <button class="btn btn-secondary dropdown-toggle"
                         type="button" id="dropdownMenu1" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                    Usuario
+                    Usuario ${usuario}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="/perfil">Perfil</a>
                     <a class="dropdown-item" href="/historial-de-pedidos">Pedidos</a>
                     <a class="dropdown-item" href="/favorito">Favoritos</a>
+                    <a class="dropdown-item border-top" href="/usuarios">Cerrar Sesion</a>
                 </div>
             </div>
-            <a href="/login"><button type="button" class="btn btn-dark">Iniciar</button></a>
-            <a href="/registrarse"><button type="button" class="btn btn-dark">Registrarse</button></a>
         </div>
     </div>
 </nav>

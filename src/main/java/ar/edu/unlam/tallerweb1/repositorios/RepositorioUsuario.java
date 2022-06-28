@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
+import ar.edu.unlam.tallerweb1.modelo.Login;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 import java.util.List;
@@ -11,4 +12,8 @@ public interface RepositorioUsuario {
 	void guardar(Usuario usuario);
     Usuario buscar(String email);
 	void modificar(Usuario usuario);
+	Usuario getUsuario();
+	List<Usuario> listaDeUsuarios();
+	void cambiarUsuario(int idUsuario);
+	Login getLogin();
 }
