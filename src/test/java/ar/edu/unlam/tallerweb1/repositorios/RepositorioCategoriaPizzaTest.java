@@ -27,7 +27,7 @@ public class RepositorioCategoriaPizzaTest extends SpringTest{
 
 	
 	@Test @Transactional @Rollback
-	public void queMeDeBuelvaCeroSiNOhAYpIZZA() {
+	public void queMeDevuelvaUnaListaVaciaSiNoHayPizzasDeCategortiaPizza() {
 		dadoQueNoExistenPizas("pizza",0);
 		List<Producto> listaDeProductos=cuandoListoLosProductosDeCategoriaPizza("pizza");
 		entoncesMeDevuelveLaLista(listaDeProductos,0 );
@@ -39,12 +39,17 @@ public class RepositorioCategoriaPizzaTest extends SpringTest{
 	}
 
 
-	private void dadoQueNoExistenPizas(String string, int i) {
+	private void dadoQueNoExistenPizas(String nombre, int cantidadDeProductos) {
 		Categoria categoria=new Categoria();
-		categoria.setNombre(string);
-		
-		
+		categoria.setNombre(nombre);
+
+		for(int i=0;i<cantidadDeProductos;i++) {
+			Producto producto=new Producto();
+			producto.setCategoria(categoria);
+			session().save(producto);
+		}
 	}
+
 
 
 	private void entoncesMeDevuelveLaListaCompleta(List<Producto> lista, int cantidadEsperada) {

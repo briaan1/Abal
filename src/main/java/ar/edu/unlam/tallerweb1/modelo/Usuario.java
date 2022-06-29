@@ -24,6 +24,8 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	private Set<Favorito> favoritos = new HashSet();
+
+
 	
 	public Set<Favorito> getFavoritos() {
 		return favoritos;

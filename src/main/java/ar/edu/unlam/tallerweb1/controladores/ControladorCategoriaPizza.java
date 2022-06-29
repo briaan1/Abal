@@ -35,7 +35,8 @@ public class ControladorCategoriaPizza {
 	}
 	
 	@RequestMapping(path = "/pizza", method = RequestMethod.GET)
-	public ModelAndView irAPizza(@RequestParam(value = "idFavorito", required = false) Integer idFavorito, @RequestParam(value = "msg", required = false) String mensaje) {
+	public ModelAndView irAPizza(@RequestParam(value = "idFavorito", required = false) Integer idFavorito,
+                                 @RequestParam(value = "msg", required = false) String mensaje) {
 		ModelMap model=new ModelMap();
 		model.put("msg", mensaje);
 		
