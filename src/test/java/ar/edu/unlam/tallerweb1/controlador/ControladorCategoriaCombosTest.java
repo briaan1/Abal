@@ -45,8 +45,8 @@ public class ControladorCategoriaCombosTest {
     }
     @Test
     public void alPedirLaListaDeProductosDeCategoriaCombosDevuelveLalistaCompleta() {
-        dadoQueExistenLosProductosDeCategoria("combos", 10);
-        ModelAndView model=cuandoPidoLaListaDeProductos("combos");
+        dadoQueExistenLosProductosDeCategoria("combo", 10);
+        ModelAndView model=cuandoPidoLaListaDeProductos("combo");
         entoncesMeMuestraLaListaCompleta(model, 10);
     }
 
