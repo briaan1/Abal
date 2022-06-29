@@ -40,14 +40,14 @@ public class ControladorCategoriaCombos {
         Usuario usuario=servicioUsuario.getUsuario();
         List<Producto> listaDeProductos=new LinkedList<>();
         if(usuario != null) {
-            List<Producto> listaDeFavoritos=servicioDeFavorito.listarFavoritos(usuario, "combos");
-            listaDeProductos=servicioDeFavorito.listarProductosSinFavoritos(usuario, "combos");
+            List<Producto> listaDeFavoritos=servicioDeFavorito.listarFavoritos(usuario, "combo");
+            listaDeProductos=servicioDeFavorito.listarProductosSinFavoritos(usuario, "combo");
             model.put("listaDeFavoritos", listaDeFavoritos);
             model.put("usuario", usuario.getNombre());
             model.put("eliminarDeFavoritos", "Eliminar de favoritos");
         }
         else {
-            listaDeProductos=servicioProducto.getListaDeProductos("combos");
+            listaDeProductos=servicioProducto.getListaDeProductos("combo");
         }
 
         if(listaDeProductos.size()==0) {
@@ -56,7 +56,7 @@ public class ControladorCategoriaCombos {
             model.put("listaDeProductos", listaDeProductos);
         }
 
-        model.put("titulo","combo");
+        model.put("titulo","Combos");
 
         return new ModelAndView("categoriaCombos",model);
     }

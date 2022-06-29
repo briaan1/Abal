@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -84,7 +85,7 @@ public class ServicioFavoritosImpl implements ServicioFavoritos {
 		if(listaDeFavoritos.size()!=0) {
 			return listaDeFavoritos; 
 		}else {
-			return null;
+			return new LinkedList<>();
 		}
 	}
 

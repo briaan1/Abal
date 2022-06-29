@@ -14,7 +14,7 @@
 		<c:forEach var="lista" items="${listaDeFavoritos}">
 			<div class="col-lg-3 col-md-4 mb-4">
 				<div class="card">
-					<img class="card-img-top" src="img/${lista.imagen}" alt="Card image cap">
+					<img class="card-img-top" src="img/${lista.categoria.nombre}/${lista.imagen}" alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title">${lista.nombre}</h5>
 						<h5>$${lista.precio}</h5>
@@ -30,9 +30,6 @@
 								<c:when test="${not empty eliminarDeFavoritos}">
 									<button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
 								</c:when>
-								<c:otherwise>
-									<button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">Agregar a favoritos</button>
-								</c:otherwise>
 							</c:choose>
 
 
@@ -42,7 +39,7 @@
 				</div>
 			</div>
 		</c:forEach>
-		<form action="/eliminar-favorito" id="form-favorito" method="POST"></form>>
+		<form action="/eliminar-favorito" id="form-favorito" method="POST"></form>
 	</div>
 </div>
 
