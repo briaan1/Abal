@@ -1,36 +1,63 @@
-@charset "ISO-8859-1";
-
-.container h1{
-	justify-content: center;
-	display:flex;
-	margin-top: 40px;
+html{
+	font-size: 1em;
 }
-
-.imagenes{
+.inicio{
+    padding: 13rem;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    width: 98%;
+    margin: auto;
+    background: url(../img/img-pizza-principal.jpg) no-repeat top;
+    background-size: cover;
+}
+.logo{
+	 font-family: 'Dancing Script', cursive;
+	 font-size: 1.5rem;
+}
+.logo-img{
+	padding-bottom: 0.4em;
+}
+.titulo{
+	 text-align: center;
+	 padding: 2rem 0;
+	 font-size: 1.5rem;
+}
+.subtitulo{
+	font-size: 1.2rem;
+	padding: 1em 0;
+}
+#contacto, #nosotros{
+	height: 80vh;
+}
+.contenedor-redes{
 	display: flex;
-	justify-content: space-between;
-	line-height: 400px;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 1rem 0;
 }
-
-
-
-
-.img-pizza{
-	height:300px; 
-	width:300px;	
+.contenedor-redes a{
+	color: #000;
 }
-
-.img-pizza h2{
-	margin-top:20px;
+.contenedor-redes a:hover{
+	text-decoration: none;
+}
+.contenedor-redes div{
+	width: calc(50% - 1em);
+}
+.contenedor-redes p{
 	text-align: center;
+	width: 55%;
+	margin: 1.5rem auto;
+	padding: 0.5rem 0;
+	border-radius: 0.5rem;
+	transition: 0.2s linear;
+	outline: none;
+	box-shadow: 1px 1px 14px 3px rgba(216,219,224,0.93);
+	-webkit-box-shadow: 1px 1px 14px 3px rgba(216,219,224,0.93);
+	-moz-box-shadow: 1px 1px 14px 3px rgba(216,219,224,0.93);
+	cursor: pointer;
 }
-
-img{
-	height:300px; 
-	width:300px;
-}
-
-.texto-pizza{
-	display: flex;
-	justify-content: space-between;
+.contenedor-redes p:hover{
+	transform: scale(103%);
 }

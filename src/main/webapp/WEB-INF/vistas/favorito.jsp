@@ -10,7 +10,7 @@
 </c:when>
 </c:choose>
 
-	<div class="row row-cols-1 row-cols-md-3 mt-5 w-75">
+	<div class="row row-cols-1 row-cols-md-3 mt-5">
 		<c:forEach var="lista" items="${listaDeFavoritos}">
 			<div class="col-lg-3 col-md-4 mb-4">
 				<div class="card">
@@ -25,16 +25,11 @@
 								<span class="input-group-text">Cantidad</span>
 							</div>
 						</div>
-						<div class="mt-4 overflow-auto p-1">
-							<c:choose>
-								<c:when test="${not empty eliminarDeFavoritos}">
-									<button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
-								</c:when>
-							</c:choose>
-
-
-							<button type="button" class="btn btn-primary float-right" style="width: 90px;">Agregar al carrito</button>
-						</div>
+						<div class="card-footer mt-3 text-center">
+              			<button type="submit" class="btn btn-danger btn-sm text-center" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
+              
+              			<button type="button" class="btn btn-primary btn-sm"><img src="img/shopping-cart.png" class="px-1 py-1"></button>
+            		</div>
 					</div>
 				</div>
 			</div>

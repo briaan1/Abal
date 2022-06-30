@@ -12,61 +12,64 @@
     </c:choose>
 
     <div class="row mb-5">
-      <c:forEach var="lista" items="${listaDeFavoritos}">
-        <div class="col-lg-3 col-md-4 mb-4">
-          <div class="card">
-            <img class="card-img-top" src="img/combo/${lista.imagen}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">${lista.nombre}</h5>
-              <h5>$${lista.precio}</h5>
-              <p class="card-text">${lista.descripcion}</p>
-              <div class="input-group" style="width:200px;">
-                <input type="number" class="form-control text-center" value="1">
-                <div class="input-group-append">
-                  <span class="input-group-text">Cantidad</span>
-                </div>
-              </div>
-              <div class="mt-4 overflow-auto p-1">
-                <c:choose>
-                  <c:when test="${not empty eliminarDeFavoritos}">
-                    <button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
-                  </c:when>
-                </c:choose>
-
-
-                <button type="button" class="btn btn-primary float-right" style="width: 90px;">Agregar al carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </c:forEach>
-
-
+    <c:forEach var="lista" items="${listaDeFavoritos}">
+    <div class="card-group col-3 mb-3">
+        	<div class="card h-100">
+          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo">
+          		
+          		<div class="card-body">
+            		<h5 class="card-title">${lista.nombre}</h5>
+            		<h5>$${lista.precio}</h5>
+            		<p class="card-text">${lista.descripcion}</p>
+            		
+            		<div class="input-group" >
+              			<input type="number" class="form-control text-center" value="0" style="width:80px;">
+              			<div class="input-group-append">
+                			<span class="input-group-text">Cantidad</span>
+              			</div>
+            		</div>
+            
+            		<div class="card-footer mt-3 text-center">
+              			<button type="submit" class="btn btn-danger btn-sm text-center" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
+              
+              			<button type="button" class="btn btn-primary btn-sm"><img src="img/shopping-cart.png" class="px-1 py-1"></button>
+            		</div>
+         	 	</div>
+        	</div>
+      	</div>
+	</c:forEach>
+    
+    
       <c:forEach var="lista" items="${listaDeProductos}">
-        <div class="col-lg-3 col-md-4 mb-4">
-          <div class="card">
-            <img class="card-img-top" src="img/combo/${lista.imagen}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">${lista.nombre}</h5>
-              <h5>$${lista.precio}</h5>
-              <p class="card-text">${lista.descripcion}</p>
-              <div class="input-group" style="width:200px;">
-                <input type="number" class="form-control text-center" value="1">
-                <div class="input-group-append">
-                  <span class="input-group-text">Cantidad</span>
-                </div>
-              </div>
-              <div class="mt-4 overflow-auto p-1">
-                <button type="submit" class="btn btn-light float-left" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">Agregar a favoritos</button>
-                <button type="button" class="btn btn-primary float-right" style="width: 90px;">Agregar al carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </c:forEach>
-      <form action="/agregar-favorito" id="form-favorito" method="get">
+      
+    	<div class="card-group col-3 mb-3">
+        	<div class="card h-100">
+          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo">
+          		
+          		<div class="card-body">
+            		<h5 class="card-title">${lista.nombre}</h5>
+            		<h5>$${lista.precio}</h5>
+            		<p class="card-text" style="height:80px;">${lista.descripcion}</p>
+            		
+            		<div class="input-group" >
+              			<input type="number" class="form-control text-center" value="0" style="width:80px;">
+              			<div class="input-group-append">
+                			<span class="input-group-text">Cantidad</span>
+              			</div>
+            		</div>
+            
+            		<div class="card-footer mt-3 text-center">
+              			<button type="submit" class="btn btn-danger btn-sm text-center" form="form-favorito" value="${lista.id}" name="idFavorito"><img src="img/favorite.png" class="px-1 py-1"></button>
+              
+              			<button type="button" class="btn btn-primary btn-sm"><img src="img/shopping-cart.png" class="px-1 py-1"></button>
+            		</div>
+         	 	</div>
+        	</div>
+      	</div>
+	</c:forEach>
+<form action="/agregar-favorito-combo" id="form-favorito" method="POST"></form>
 
-      </form>
+
     </div>
 
 

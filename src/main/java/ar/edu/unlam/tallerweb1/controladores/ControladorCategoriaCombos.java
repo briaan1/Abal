@@ -64,7 +64,7 @@ public class ControladorCategoriaCombos {
 
 
 
-    @RequestMapping(path = "/agregar-favorito", method = RequestMethod.GET)
+    @RequestMapping(path = "/agregar-favorito-combo", method = RequestMethod.POST)
     public ModelAndView clicEnAgregarFavorito(@ModelAttribute("idFavorito") int idProducto ) {
         ModelMap model=new ModelMap();
 
