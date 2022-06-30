@@ -6,11 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
@@ -58,6 +60,33 @@ public class ControladorCategoriaBebida {
 
         return new ModelAndView("categoriaBebida",model);
     }
+    
+	@RequestMapping(path = "/agregar-favorito-bebida", method = RequestMethod.POST)
+	public ModelAndView clicEnAgregarFavorito(@ModelAttribute("idFavorito") int idProducto ) {
+		ModelMap model=new ModelMap();
+		
+		Usuario usuario=servicioUsuario.getUsuario();
+		Producto productoEncontrado = servicioProducto.validarExistenciaProductoPor(idProducto);
+		
+		if(productoEncontrado!=null) {
+			Favorito favorito = servicioDeFavorito.validarExistenciaProductoPor(usuario, productoEncontrado);
+			
+			if(favorito==null) {
+				model.put("msg", "Se agrego a favoritos");
+				boolean productoAgregado=servicioDeFavorito.agregarAFavorito(usuario, productoEncontrado);
+				if(productoAgregado==true) {
+					model.put("msg", "Se agrego a favoritos");
+				}
+			}else {
+				servicioDeFavorito.eliminarFavorito(favorito);
+				model.put("msg", "El producto fue eliminado de favoritos");
+			}
+		}else {
+			model.put("msg", "Producto inexistente");
+		}
+		
+		return new ModelAndView("redirect:/categoriaBebida", model);
+	}
 	
 	
 }

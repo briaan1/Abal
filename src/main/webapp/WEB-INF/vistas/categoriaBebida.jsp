@@ -67,7 +67,7 @@
         	</div>
       	</div>
 	</c:forEach>
-<form action="/agregar-favorito" id="form-favorito" method="POST">
+<form action="/agregar-favorito-bebida" id="form-favorito" method="POST">
 	
 </form>
     </div>
