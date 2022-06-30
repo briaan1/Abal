@@ -1,26 +1,29 @@
 <%@include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class="container mt-5 mb-5">
-	<h2 class="h2-titulo">Mis Favoritos</h2>
+<div class="container">
+	<div class="modal-body"></div>
 	
+	<h1 class="my-4">Mis favoritos</h1>
+  
 	<c:choose>
 <c:when test="${not empty msg}">
      <div class="alert alert-primary"><h4>${msg}</h4></div>
 </c:when>
 </c:choose>
 
-	<div class="row row-cols-1 row-cols-md-3 mt-5">
+	 <div class="row row-cols-1 row-cols-md-3 g-4">
 		<c:forEach var="lista" items="${listaDeFavoritos}">
-			<div class="col-lg-3 col-md-4 mb-4">
-				<div class="card">
-					<img class="card-img-top" src="img/${lista.categoria.nombre}/${lista.imagen}" alt="Card image cap">
+			<div class="card-group col-3 mb-3">
+				<div class="card h-100">
+					<img class="card-img-top" src="img/${lista.categoria.nombre}/${lista.imagen}" alt="Imagen de producto" style="height:180px">
 					<div class="card-body">
 						<h5 class="card-title">${lista.nombre}</h5>
 						<h5>$${lista.precio}</h5>
-						<p class="card-text">${lista.descripcion}</p>
-						<div class="input-group" style="width:200px;">
-							<input type="number" class="form-control text-center" value="1">
+						<p class="card-text" style="height:80px;">${lista.descripcion}</p>
+						
+						<div class="input-group">
+							<input type="number" class="form-control text-center" value="1" style="width:80px;">
 							<div class="input-group-append">
 								<span class="input-group-text">Cantidad</span>
 							</div>
@@ -40,4 +43,3 @@
 
 
 <%@include file="footer.jsp"%>
-

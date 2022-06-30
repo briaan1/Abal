@@ -1,9 +1,10 @@
 <%@include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div class = "container"><br>
-  <div class="modal-body">
-    <h1>${titulo}</h1><br>
+<div class = "container">
+  <div class="modal-body"></div>
+  
+  <h1 class="my-4">${titulo}</h1>
 
 <c:choose>
 <c:when test="${not empty msg}">
@@ -11,7 +12,7 @@
 </c:when>
 </c:choose>
     
-    <div class="row mb-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
     <c:forEach var="lista" items="${listaDeFavoritos}">
     <div class="card-group col-3 mb-3">
         	<div class="card h-100">
@@ -20,7 +21,7 @@
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
             		<h5>$${lista.precio}</h5>
-            		<p class="card-text">${lista.descripcion}</p>
+            		<p class="card-text" style="height:80px;">${lista.descripcion}</p>
             		
             		<div class="input-group" >
               			<input type="number" class="form-control text-center" value="0" style="width:80px;">
@@ -67,13 +68,10 @@
         	</div>
       	</div>
 	</c:forEach>
-<form action="/agregar-favorito" id="form-favorito" method="POST"></form>
-
+	<form action="/agregar-favorito" id="form-favorito" method="POST"></form>
 
     </div>
     
-    
-  </div>
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->

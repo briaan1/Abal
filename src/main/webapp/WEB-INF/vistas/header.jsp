@@ -79,6 +79,10 @@
                     <a class="dropdown-item border-top" href="/usuarios">Cerrar Sesion</a>
                 </div>
             </div>
+
+            <a href="/login"><button type="button" class="btn btn-light bg-light border-0 py-2 mr-2">Iniciar</button></a>
+            <a href="/registrarse"><button type="button" class="btn btn-light bg-light border-0 py-2">Registrarse</button></a>
+
         </div>
     </div>
 </nav>
