@@ -19,9 +19,6 @@ VALUES  ("Faina", "Harina de garbanzos y aceite de oliva", "pizza_faina.jpg", 50
 		("Pizza Vegana", "Queso vegano, champiñones y rucula", "pizza_vegana.jpg", 650.00, 1),
         ("Pizza Vegetariana", "Morron verde, cebolla morada, aceitunas negras y mozzarella", "pizza_vegetariana.jpg", 600.00, 1);
 
--- Esto iria en una tabla bebida si es que hacemos una tabla combos que sale de la relacion N a N entre 
--- la tabla producto y la de bebida. Sino insertamos todo en producto (bebidas y pizzas) y lo mostramos en 
--- cada pagina haciendo el join con categoria y trayendo los productos 
 INSERT INTO producto (nombre, descripcion, imagen, precio, categoria_id)
 VALUES  ("Coca Cola 500ml", "Bebida gasificada sabor Cola", "bebida_coca.jpg", 150.00, 2),
         ("Fanta 500ml", "Bebida gasificada sabor naranja", "bebida_naranja.jpg", 150.00, 2),
@@ -33,4 +30,13 @@ VALUES  ("Coca Cola 500ml", "Bebida gasificada sabor Cola", "bebida_coca.jpg", 1
 		("Combo 2", "Pizza Napolitana y especial con atun", "combo_dos.jpg", 1350.00, 3),
 		("Combo 3", "Pizza Vegana y especial con tomate y peperoni", "combo_tres.jpg", 1250.00, 3);
         
+INSERT INTO usuario (activo, email, password, rol, nombre)
+VALUES (true, 'user@mail.com', '123456', 'usuario', 'Abal');
 
+INSERT INTO login (usuario_id)
+VALUES (1);
+
+INSERT INTO comentario(comentario, usuario_id)
+VALUES ('Las mejores pizzas de la zona. Muy recomendadas.' ,1),
+		('¡Excelente calidad!. Los recomiendo.' ,1),
+		('Riquisimas :)' ,1);
