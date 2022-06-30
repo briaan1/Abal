@@ -46,18 +46,20 @@
 <div class="container mt-4">
 <h2 class="titulo">Comentarios</h2>
 <h3 class="subtitulo">Opiniones de nuestros clientes</h3>
-<ul class="list-unstyled">
 <c:forEach var="lista" items="${listaDeComentarios}">
-  <li class="media">
-    <img class="mr-3" src="img/usuario.jpg" alt="Generic placeholder image" style="width:100px">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">
-      ${lista.comentario}
-      </h5>
+<div class="card mb-3 mx-auto" style="width: 60%;">
+  <div class="row">
+    <div class="col-md-2">
+    	<img class="img-fluid rounded-start" src="img/user-image.png" alt="Imagen de perfil usuario" style="width:80px; height:80px;">
     </div>
-  </li>
-   </c:forEach>
-</ul>
+    <div class="col-md-10">
+      <div class="card-body  text-left">
+        <p class="card-text">${lista.comentario}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</c:forEach>
 </div>
 
 <div id="nosotros" class="container">

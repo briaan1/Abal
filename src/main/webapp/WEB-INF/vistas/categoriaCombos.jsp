@@ -15,7 +15,7 @@
     <c:forEach var="lista" items="${listaDeFavoritos}">
     <div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo">
+          		<img class="card-img-top" src="img/combo/${lista.imagen}" style="height:180px" alt="Imagen de combo">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
