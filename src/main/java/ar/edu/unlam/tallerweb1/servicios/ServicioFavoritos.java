@@ -18,4 +18,10 @@ public interface ServicioFavoritos {
 	List <Favorito> getListaDeFavoritos();
 	
 	List<Producto> listarFavoritos(Usuario usuario);
+
+	List<Producto> listarFavoritos(Usuario usuario, String categoria);
+
+	List<Producto> listarProductosSinFavoritos(Usuario usuario, String string);
+
+	boolean eliminarFavorito(Favorito favorito);
 }

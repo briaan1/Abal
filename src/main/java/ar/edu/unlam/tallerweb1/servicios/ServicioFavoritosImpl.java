@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -66,6 +67,31 @@ public class ServicioFavoritosImpl implements ServicioFavoritos {
 		}else {
 			return null;
 		}
+	}
+
+	@Override
+	public List<Producto> listarFavoritos(Usuario usuario, String categoria) {
+		List<Producto> listaDeFavoritos = repositorioFavorito.listarFavoritos(usuario, categoria);
+		if(listaDeFavoritos.size()!=0) {
+			return listaDeFavoritos; 
+		}else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Producto> listarProductosSinFavoritos(Usuario usuario, String categoria) {
+		List<Producto> listaDeFavoritos = repositorioFavorito.listarProductosSinFavoritos(usuario, categoria);
+		if(listaDeFavoritos.size()!=0) {
+			return listaDeFavoritos; 
+		}else {
+			return new LinkedList<>();
+		}
+	}
+
+	@Override
+	public boolean eliminarFavorito(Favorito favorito) {
+		return repositorioFavorito.eliminarFavorito(favorito);
 	}
 	
 

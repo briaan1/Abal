@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 @Repository
-public class RepositorioCategoriaPizzaImpl implements RepositorioCategoriaPizza{
+public class RepositorioProductoImpl implements RepositorioProducto{
 	private SessionFactory sessionFactory;
 
     @Autowired
-	public RepositorioCategoriaPizzaImpl(SessionFactory sessionFactory){
+	public RepositorioProductoImpl(SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
 

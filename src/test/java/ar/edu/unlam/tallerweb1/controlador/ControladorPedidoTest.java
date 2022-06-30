@@ -1,12 +1,10 @@
 package ar.edu.unlam.tallerweb1.controlador;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unlam.tallerweb1.controladores.ControladorCategoria;
 import ar.edu.unlam.tallerweb1.controladores.ControladorDeHistorialDePedidos;
 
 public class ControladorPedidoTest {

@@ -16,4 +16,10 @@ public interface RepositorioFavorito {
 	Favorito buscarFavorito(int idUsuario, int idProducto);
 
 	List<Producto> listarFavoritos(Usuario usuario);
+
+	List<Producto> listarFavoritos(Usuario usuario, String categoria);
+
+	List<Producto> listarProductosSinFavoritos(Usuario usuario, String categoria);
+
+	boolean eliminarFavorito(Favorito favorito);
 }

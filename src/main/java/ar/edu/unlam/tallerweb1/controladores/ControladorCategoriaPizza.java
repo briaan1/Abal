@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +15,45 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
-import ar.edu.unlam.tallerweb1.servicios.ServicioCategoriaPizza;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 
 @Controller
 public class ControladorCategoriaPizza {
 	
-	private ServicioCategoriaPizza servicioCategoriaPizza;
+	private ServicioProducto servicioProducto;
 	private ServicioFavoritos servicioDeFavorito; 
 	private ServicioUsuario servicioUsuario;
 	
 	
 	@Autowired
-	public ControladorCategoriaPizza(ServicioCategoriaPizza servicioCategoriaPizza, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario) {
-		this.servicioCategoriaPizza = servicioCategoriaPizza;
+	public ControladorCategoriaPizza(ServicioProducto servicioProducto, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario) {
+		this.servicioProducto = servicioProducto;
 		this.servicioDeFavorito = servicioDeFavorito;
 		this.servicioUsuario = servicioUsuario;
 	}
 	
 	@RequestMapping(path = "/pizza", method = RequestMethod.GET)
-	public ModelAndView irAPizza(@RequestParam(value = "idFavorito", required = false) Integer idFavorito, @RequestParam(value = "msg", required = false) String mensaje) {
+	public ModelAndView irAPizza(@RequestParam(value = "idFavorito", required = false) Integer idFavorito,
+                                 @RequestParam(value = "msg", required = false) String mensaje) {
 		ModelMap model=new ModelMap();
 		model.put("msg", mensaje);
 		
-		List<Producto> listaDeProductos=servicioCategoriaPizza.getListaDeProductos("pizza");
+		Usuario usuario=servicioUsuario.getUsuario();
+		List<Producto> listaDeProductos=new ArrayList<Producto>();
+		if(usuario != null) {
+			List<Producto> listaDeFavoritos=servicioDeFavorito.listarFavoritos(usuario, "pizza");
+			listaDeProductos=servicioDeFavorito.listarProductosSinFavoritos(usuario, "pizza");
+			model.put("listaDeFavoritos", listaDeFavoritos);
+			model.put("usuario", usuario.getNombre());
+			model.put("eliminarDeFavoritos", "Eliminar de favoritos");
+		}
+		else {
+			listaDeProductos=servicioProducto.getListaDeProductos("pizza");
+		}
+		
+		
 		if(listaDeProductos.size()==0) {
 			model.put("msg", "No hay productos en esta categoria");
 		}else {
@@ -50,11 +65,11 @@ public class ControladorCategoriaPizza {
 	}
 
 	@RequestMapping(path = "/agregar-favorito", method = RequestMethod.POST)
-	public ModelAndView clickEnAgregarFavorito(@ModelAttribute("idFavorito") int idProducto ) {
+	public ModelAndView clicEnAgregarFavorito(@ModelAttribute("idFavorito") int idProducto ) {
 		ModelMap model=new ModelMap();
 		
 		Usuario usuario=servicioUsuario.getUsuario();
-		Producto productoEncontrado = servicioCategoriaPizza.validarExistenciaProductoPor(idProducto);
+		Producto productoEncontrado = servicioProducto.validarExistenciaProductoPor(idProducto);
 		
 		if(productoEncontrado!=null) {
 			Favorito favorito = servicioDeFavorito.validarExistenciaProductoPor(usuario, productoEncontrado);
@@ -66,7 +81,8 @@ public class ControladorCategoriaPizza {
 					model.put("msg", "Se agrego a favoritos");
 				}
 			}else {
-				model.put("msg", "El producto ya esta agregado");
+				servicioDeFavorito.eliminarFavorito(favorito);
+				model.put("msg", "El producto fue eliminado de favoritos");
 			}
 		}else {
 			model.put("msg", "Producto inexistente");

@@ -5,17 +5,17 @@
   <div class="modal-body">
     <h1>${titulo}</h1><br>
 
-<c:choose>
-<c:when test="${not empty msg}">
-     <div class="alert alert-primary"><h4>${msg}</h4></div>
-</c:when>
-</c:choose>
-    
+    <c:choose>
+      <c:when test="${not empty msg}">
+        <div class="alert alert-primary"><h4>${msg}</h4></div>
+      </c:when>
+    </c:choose>
+
     <div class="row mb-5">
     <c:forEach var="lista" items="${listaDeFavoritos}">
     <div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
+          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -44,7 +44,7 @@
       
     	<div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
+          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -67,17 +67,17 @@
         	</div>
       	</div>
 	</c:forEach>
-<form action="/agregar-favorito" id="form-favorito" method="POST"></form>
+<form action="/agregar-favorito-combo" id="form-favorito" method="POST"></form>
 
 
     </div>
-    
-    
+
+
   </div>
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
 <%@include file="footer.jsp"%>

@@ -51,9 +51,9 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="/pizza">Pizzas</a>
-                            <a class="dropdown-item" href="/categoria">Combos</a>
+                            <a class="dropdown-item" href="/categoriaCombos">Combos</a>
                             <a class="dropdown-item" href="/personalizar-pizza">Personalizadas</a>
-                            <a class="dropdown-item" href="#">Bebidas</a>
+                            <a class="dropdown-item" href="/categoriaBebida">Bebidas</a>
                         </div>
                     </div>
                 </li>

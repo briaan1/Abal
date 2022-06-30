@@ -15,7 +15,7 @@
     <c:forEach var="lista" items="${listaDeFavoritos}">
     <div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
+          		<img class="card-img-top" src="img/bebida/${lista.imagen}" alt="Imagen de bebida">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -44,7 +44,7 @@
       
     	<div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
+          		<img class="card-img-top" src="img/bebida/${lista.imagen}" alt="Imagen de bebida">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -67,9 +67,9 @@
         	</div>
       	</div>
 	</c:forEach>
-<form action="/agregar-favorito" id="form-favorito" method="POST"></form>
-
-
+<form action="/agregar-favorito-bebida" id="form-favorito" method="POST">
+	
+</form>
     </div>
     
     

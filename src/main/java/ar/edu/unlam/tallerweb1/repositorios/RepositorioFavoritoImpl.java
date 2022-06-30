@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.sql.JoinType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -51,6 +52,34 @@ public class RepositorioFavoritoImpl implements RepositorioFavorito{
                 .createAlias("favoritos","favoritos")
                 .add(Restrictions.eq("favoritos.usuario.id", usuario.getId()))
                 .list();
+	}
+
+	@Override
+	public List<Producto> listarFavoritos(Usuario usuario, String categoria) {
+		return sessionFactory.getCurrentSession()
+				.createCriteria(Producto.class)
+                .createAlias("favoritos","favoritos")
+                .createAlias("categoria","categoria")
+                .add(Restrictions.eq("favoritos.usuario.id", usuario.getId()))
+                .add(Restrictions.eq("categoria.nombre", categoria))
+                .list();
+	}
+
+	@Override
+	public List<Producto> listarProductosSinFavoritos(Usuario usuario, String categoria) {
+		return sessionFactory.getCurrentSession()
+                .createCriteria(Producto.class)
+                .createAlias("categoria","cate")
+                .createAlias("favoritos","favoritos",JoinType.LEFT_OUTER_JOIN,Restrictions.eq("favoritos.usuario.id", usuario.getId()))
+                .add(Restrictions.eq("cate.nombre", categoria))
+                .add(Restrictions.isNull("favoritos.producto.id"))
+                .list();
+	}
+
+	@Override
+	public boolean eliminarFavorito(Favorito favorito) {
+		sessionFactory.getCurrentSession().delete(favorito);
+		return true;
 	}
 
 }

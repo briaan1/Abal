@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
+	private int id;
 	public int getId() {
 		return id;
 	}
