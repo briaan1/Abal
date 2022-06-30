@@ -30,7 +30,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="/pizza">Pizza</a>
                             <a class="dropdown-item" href="/categoriaCombos">Combos</a>
-                            <a class="dropdown-item" href="/categoria">Categoria 3</a>
+                            <a class="dropdown-item" href="/categoriaBebida">Bebida</a>
                         </div>
                     </div>
                 </li>
