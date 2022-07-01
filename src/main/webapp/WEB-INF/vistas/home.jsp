@@ -80,16 +80,16 @@
 		<div>
 		<h3 class="subtitulo">Encontranos en:</h3>
 			<p>
-	 			<a href="https://www.instagram.com"><img class="mr-3" src="img/instagram.png" alt="Logo de aplicacion instagram" 				style="width:75px;height:75px">Nuestro Instagram</a>
+	 			<a href="https://www.instagram.com"><img class="mr-3" src="img/instagram.png" alt="Logo de aplicacion instagram" 				style="width:75px;height:75px" target="_blank">Nuestro Instagram</a>
 	 		</p>
 	 		<p>
-	 			<a href="https://www.google.com/intl/es/gmail/about/"><img class="mr-3" src="img/email.png" alt="Logo de email" 				style="width:75px;height:75px">Correo electrónico</a>
+	 			<a href="https://www.google.com/intl/es/gmail/about/"><img class="mr-3" src="img/email.png" alt="Logo de email" 				style="width:75px;height:75px" target="_blank">Correo electrónico</a>
 	 		</p>
 		</div>
 		<div>
 		<h3 class="subtitulo">Y también en...</h3>
 			<p>
-	 			<a href="https://www.google.com/maps"><img class="mr-3" src="img/location.png" alt="Simbolo de ubicacion" 				style="width:75px;height:75px">Nuestros locales</a>
+	 			<a href="https://www.google.com/maps"><img class="mr-3" src="img/location.png" alt="Simbolo de ubicacion" 				style="width:75px;height:75px" target="_blank">Nuestros locales</a>
 	 		</p>
 		</div>
 	</div>
