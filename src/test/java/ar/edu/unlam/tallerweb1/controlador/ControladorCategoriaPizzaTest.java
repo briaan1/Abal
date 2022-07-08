@@ -66,8 +66,10 @@ public class ControladorCategoriaPizzaTest {
 	
 	@Test
 	public void alAgregarUnProductoQueYaExisteEnFavoritosMeMuestraUnMensaje() {
-		Usuario usuario=new Usuario();usuario.setId(1);
-		Producto producto = new Producto();producto.setId(1);
+		Usuario usuario=new Usuario();
+		usuario.setId(1);
+		Producto producto = new Producto();
+		producto.setId(1);
 		dadoQueExisteUnProductoAgregadoEnFavorito(usuario, producto);
 		
 		ModelAndView model = cuandoLoAgregoAFavorito(1);

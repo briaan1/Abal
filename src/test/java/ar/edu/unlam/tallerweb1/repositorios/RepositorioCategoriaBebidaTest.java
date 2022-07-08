@@ -30,7 +30,7 @@ public class RepositorioCategoriaBebidaTest extends SpringTest{
 	@Test @Transactional @Rollback
 	public void queMeDevuelvaUnaListaVaciaSiNoHayBebidasEnEsaCategoria() {
 		dadoQueNoExistenBebidas("bebida",0);
-		List<Producto> listaDeProductos=cuandoListoLosProductosDeCategoriaBebida("pizza");
+		List<Producto> listaDeProductos=cuandoListoLosProductosDeCategoriaBebida("bebida");
 		entoncesMeDevuelveLaLista(listaDeProductos,0 );
 	}
 
