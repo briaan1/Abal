@@ -16,7 +16,7 @@
     <c:forEach var="lista" items="${listaDeFavoritos}">
     <div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
+          		<img class="card-img-top" src="img/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -24,7 +24,9 @@
             		<p class="card-text" style="height:80px;">${lista.descripcion}</p>
             		
             		<div class="input-group" >
-              			<input type="number" class="form-control text-center" value="0" style="width:80px;">
+						<form action="/agregar-carrito-cate-pizza" id="form-carrito1" method="POST" >
+							<input type="number" class="form-control text-center"  value="0"   name=" cantDeProducto"style="width:80px;">
+						</form>
               			<div class="input-group-append">
                 			<span class="input-group-text">Cantidad</span>
               			</div>
@@ -33,7 +35,7 @@
             		<div class="card-footer mt-3 text-center">
               			<button type="submit" class="btn btn-danger btn-sm text-center" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
               
-              			<button type="button" class="btn btn-primary btn-sm"><img src="img/shopping-cart.png" class="px-1 py-1"></button>
+              			<button type="submit" class="btn btn-primary btn-sm" form="form-carrito1" value="${lista.id}" name="idProductoParaCarrito"><img  src="img/shopping-cart.png" class="px-1 py-1"></button>
             		</div>
          	 	</div>
         	</div>
@@ -45,7 +47,7 @@
       
     	<div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
+          		<img class="card-img-top" src="img/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -53,7 +55,9 @@
             		<p class="card-text" style="height:80px;">${lista.descripcion}</p>
             		
             		<div class="input-group" >
-              			<input type="number" class="form-control text-center" value="0" style="width:80px;">
+						<form action="/agregar-carrito-cate-pizza" id="form-carrito2" method="POST" >
+              			<input type="number" class="form-control text-center"  value="0"  name="cantDeProducto" style="width:80px;">
+						</form>
               			<div class="input-group-append">
                 			<span class="input-group-text">Cantidad</span>
               			</div>
@@ -61,8 +65,8 @@
             
             		<div class="card-footer mt-3 text-center">
               			<button type="submit" class="btn btn-danger btn-sm text-center" form="form-favorito" value="${lista.id}" name="idFavorito"><img src="img/favorite.png" class="px-1 py-1"></button>
-              
-              			<button type="button" class="btn btn-primary btn-sm"><img src="img/shopping-cart.png" class="px-1 py-1"></button>
+
+						<button type="submit" class="btn btn-primary btn-sm" form="form-carrito2" value="${lista.id}" name="idProductoParaCarrito"><img  src="img/shopping-cart.png" class="px-1 py-1"></button>
             		</div>
          	 	</div>
         	</div>

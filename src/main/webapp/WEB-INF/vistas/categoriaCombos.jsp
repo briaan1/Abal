@@ -16,7 +16,7 @@
     <c:forEach var="lista" items="${listaDeFavoritos}">
     <div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo" style="height:180px">
+          		<img class="card-img-top" src="img/${lista.imagen}" alt="Imagen de combo" style="height:180px">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>
@@ -45,7 +45,7 @@
       
     	<div class="card-group col-3 mb-3">
         	<div class="card h-100">
-          		<img class="card-img-top" src="img/combo/${lista.imagen}" alt="Imagen de combo" style="height:180px">
+          		<img class="card-img-top" src="img/${lista.imagen}" alt="Imagen de combo" style="height:180px">
           		
           		<div class="card-body">
             		<h5 class="card-title">${lista.nombre}</h5>

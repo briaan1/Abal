@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controlador;
 
+import ar.edu.unlam.tallerweb1.modelo.*;
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 import static org.mockito.Matchers.anyString;
@@ -11,10 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.controladores.ControladorCategoriaPizza;
-import ar.edu.unlam.tallerweb1.modelo.Categoria;
-import ar.edu.unlam.tallerweb1.modelo.Favorito;
-import ar.edu.unlam.tallerweb1.modelo.Producto;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
@@ -26,7 +24,9 @@ public class ControladorCategoriaPizzaTest {
 	private ServicioFavoritos servicioDeFavorito=mock(ServicioFavoritos.class);
 	private ServicioProducto servicioProducto=mock(ServicioProducto.class);
 	private ServicioUsuario servicioUsuario=mock(ServicioUsuario.class);
-	private ControladorCategoriaPizza controladorCategoriaPizza=new ControladorCategoriaPizza(servicioProducto, servicioDeFavorito, servicioUsuario);
+	private ServicioCarrito servicioCarrito=mock(ServicioCarrito.class);
+
+	private ControladorCategoriaPizza controladorCategoriaPizza=new ControladorCategoriaPizza(servicioProducto, servicioDeFavorito, servicioUsuario,servicioCarrito);
 	
 	@Test
     public void alPedirLaCategoriaPizzaMeMuestraLaCategoria(){
@@ -76,7 +76,51 @@ public class ControladorCategoriaPizzaTest {
 		
 		entoncesMeMuestraUnMensaje("El producto fue eliminado de favoritos", model);
 	}
-	
+
+
+	@Test
+	public void alAgregarUnProductoAlCarritoDeComprasQueMeMuestraUnMensajeQueSeAgregoCorrectamente(){
+		Usuario usuario=new Usuario();
+		usuario.setId(2);
+		Producto producto = new Producto();
+		producto.setId(2);
+		dadoQueExisteUnProductoParaElCarrito(producto, "pizza",usuario);
+		ModelAndView model = cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(producto, "pizza",usuario,1);
+		entoncesMeMuestraUnMensaje("Se agrego al carrito de compras el producto ", model);
+	}
+
+
+
+	//@Test
+	//public void alAgregarMasDeUnProductoAlCarritoDeComprasQueMeMuestraUnMensajeQueSeAgregoCorrectamente(){
+	//dadoQueExisteUnProducto();
+	//	ModelAndView model = cuandoLosAgregoAlCarritoDeCompras(2, "pizza",2,1);
+	//	entoncesMeMuestraUnMensaje("Se agregaron  los productos al carrito de compras de compras", model);
+	//}
+	private void dadoQueExisteUnProductoParaElCarrito(Producto producto, String categoria, Usuario usuario) {
+		when(servicioUsuario.getUsuario()).thenReturn(usuario);
+		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
+		when(servicioCarrito.agregarProductoAlCarrito(usuario,producto)).thenReturn(true);
+
+	}
+/*	private ModelAndView cuandoLosAgregoAlCarritoDeCompras(Producto producto, String pizza, int cantidad,Usuario usuario) {
+		Usuario usuario=new Usuario();
+		usuario.setId(IdUsario);
+		Producto producto = new Producto();
+		producto.setId(idProducto);
+		Carrito carrito=new Carrito();
+		carrito.setProducto(producto);
+		carrito.setUsuario(usuario);
+
+		servicioCarrito.agregarProductoAlCarrito(carrito.getUsuario(),carrito.getProducto());
+		return controladorCategoriaPizza.clickEnAgregarAlCarritoDeCompras(idProducto,cantidad);
+	}*/
+
+	private ModelAndView cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(Producto producto, String categoria,Usuario usuario,int cant ) {
+		return controladorCategoriaPizza.clickEnAgregarAlCarritoDeCompras(producto.getId(),cant);
+	}
+
+
 	private void dadoQueExisteUnProductoAgregadoEnFavorito(Usuario usuario, Producto producto) {
 		when(servicioUsuario.getUsuario()).thenReturn(usuario);
 		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
