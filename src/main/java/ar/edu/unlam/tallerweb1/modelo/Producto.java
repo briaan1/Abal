@@ -20,13 +20,20 @@ public class Producto {
 	private int id;
 	private String nombre;
 	private String descripcion;
-	
+
+
+
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Categoria categoria;
 	
 	@OneToMany(mappedBy = "producto")
 	private Set<Favorito> favoritos = new HashSet();
-	
+
+	@OneToMany(mappedBy = "productoCarrito")
+	private Set<Carrito> carrito = new HashSet();
+
+
 	private Double precio;
 	private String imagen;
 	
@@ -35,6 +42,14 @@ public class Producto {
 	}
 	public void setFavoritos(Set<Favorito> favoritos) {
 		this.favoritos = favoritos;
+	}
+
+
+	public Set<Carrito> getCarrito() {
+		return carrito;
+	}
+	public void setCarrito(Set<Carrito> carritos) {
+		this.carrito = carritos;
 	}
 	
 	public int getId() {

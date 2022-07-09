@@ -21,14 +21,21 @@ public class Usuario {
 	private String password;
 	private String rol;
 	private Boolean activo = false;
-	
+
 	@OneToMany(mappedBy = "usuario")
 	private Set<Favorito> favoritos = new HashSet();
 
-
+	@OneToMany(mappedBy = "usuarioCarrito")
+	private Set<Carrito> carrito = new HashSet();
 	
 	public Set<Favorito> getFavoritos() {
 		return favoritos;
+	}
+	public void setCarrito(Set<Carrito> carrito) {
+		this.carrito = carrito;
+	}
+	public Set<Carrito> getCarrito() {
+		return carrito;
 	}
 	public void setFavoritos(Set<Favorito> favoritos) {
 		this.favoritos = favoritos;

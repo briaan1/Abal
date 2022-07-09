@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,13 +26,15 @@ public class ControladorCategoriaPizza {
 	private ServicioProducto servicioProducto;
 	private ServicioFavoritos servicioDeFavorito; 
 	private ServicioUsuario servicioUsuario;
+	private ServicioCarrito servicioCarrito;
 	
 	
 	@Autowired
-	public ControladorCategoriaPizza(ServicioProducto servicioProducto, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario) {
+	public ControladorCategoriaPizza(ServicioProducto servicioProducto, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario, ServicioCarrito servicioCarrito) {
 		this.servicioProducto = servicioProducto;
 		this.servicioDeFavorito = servicioDeFavorito;
 		this.servicioUsuario = servicioUsuario;
+		this.servicioCarrito=servicioCarrito;
 	}
 	
 	@RequestMapping(path = "/pizza", method = RequestMethod.GET)
@@ -91,5 +94,30 @@ public class ControladorCategoriaPizza {
 		return new ModelAndView("redirect:/pizza", model);
 	}
 
-		
+
+	@RequestMapping(path = "/agregar-carrito-cate-pizza", method = RequestMethod.POST)
+	public ModelAndView clickEnAgregarAlCarritoDeCompras(  @ModelAttribute("idProductoParaCarrito") int idProducto,
+														   @ModelAttribute("cantDeProducto")int cantidad ) {
+		ModelMap model=new ModelMap();
+		Usuario usuario=servicioUsuario.getUsuario();
+		Producto productoEncontrado = servicioProducto.validarExistenciaProductoPor(idProducto);
+		if(productoEncontrado!=null) {
+			boolean  seAgrego= servicioCarrito.agregarProductoAlCarrito(usuario,productoEncontrado);
+            if (seAgrego){
+			if (cantidad > 1) {
+				model.put("msg", "Se agregaron  los productos al carrito de compras de compras");
+
+			} else  {
+				model.put("msg", "Se agrego al carrito de compras el producto ");
+		      	}
+
+
+			}else {
+				model.put("msg", "el producto no se pudo agregar al carrito");
+			}
+		}else {
+			model.put("msg", "Producto inexistente");
+		}
+		return new ModelAndView("redirect:/pizza", model);
+	}
 }

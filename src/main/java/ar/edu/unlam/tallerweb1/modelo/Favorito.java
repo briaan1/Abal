@@ -43,7 +43,8 @@ public class Favorito {
 		return producto;
 	}
 
-	public void setProducto(Producto producto) {
+	public void setProducto(Producto producto)
+    {
 		this.producto = producto;
 	}
 	
