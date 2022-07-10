@@ -24,8 +24,8 @@ public class ServicioCarritoImpl implements ServicioCarrito {
 
 
     @Override
-    public List<Carrito> getListaDeProductosDelCarrito() {
-        List<Carrito> listaDeCarritos=repositorioCarrito.listarLosProductosDelCarrito();
+    public List<Carrito> getListaDeProductosDelCarrito(Usuario usuario) {
+        List<Carrito> listaDeCarritos=repositorioCarrito.listarLosProductosDelCarrito(usuario);
         if(listaDeCarritos.size()==0) {
             return new ArrayList<Carrito>();
         }else {
@@ -35,9 +35,10 @@ public class ServicioCarritoImpl implements ServicioCarrito {
 
 
 
+
     @Override
-    public Carrito validarExistenciaProductoPor(Usuario usuario, Producto producto) {
-       Carrito carrito = repositorioCarrito.buscarCarrito(usuario.getId(),producto.getId());
+    public Carrito validarExistenciaProductoPor(int idCarrito) {
+       Carrito carrito = repositorioCarrito.buscarCarrito(idCarrito);
         if(carrito==null){
             return null;
         }else{
@@ -47,17 +48,34 @@ public class ServicioCarritoImpl implements ServicioCarrito {
     }
 
     @Override
-    public boolean agregarProductoAlCarrito(Usuario usuario, Producto producto) {
+    public boolean agregarProductoAlCarrito(Usuario usuario, Producto producto, int cantidadProducto) {
         Carrito carrito=new Carrito();
         carrito.setUsuario(usuario);
         carrito.setProducto(producto);
+        carrito.setCantidad(cantidadProducto);
         return repositorioCarrito.agregarUnProductoAlCarrito(carrito);
-
     }
+
+
 
     @Override
     public boolean agregarProductoAlCarrito1(Carrito carrito) {
 
         return repositorioCarrito.agregarUnProductoAlCarrito(carrito);
     }
+
+    @Override
+    public void eliminarDelCarrito(Carrito carrito) {
+            repositorioCarrito.eliminarCarrito(carrito);
+    }
+
+    @Override
+    public Double sumarElTotalDeLosProductos(List<Carrito> listaDeProductosDelCarrito) {
+        Double sumaProductos=0.0;
+      for (int i=0;i<listaDeProductosDelCarrito.size();i++){
+         sumaProductos += (listaDeProductosDelCarrito.get(i).getProducto().getPrecio()*listaDeProductosDelCarrito.get(i).getCantidad());
+      }
+        return sumaProductos;
+    }
+
 }

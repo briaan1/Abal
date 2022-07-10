@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ControladorCarritoTest {
     private ControladorCarrito controladorCarrito;
-    @Test
+   /* @Test
     public void alPedirElCarritoMeMuestraElCarrito(){
         dadoQueExisteElCarrito();
         ModelAndView model=cuandoPidoElCarrito();
@@ -20,9 +20,8 @@ public class ControladorCarritoTest {
 
     private ModelAndView cuandoPidoElCarrito() {
         return controladorCarrito.irAlCarrito();
-    }
 
     private void dadoQueExisteElCarrito() {
         controladorCarrito=new ControladorCarrito();
-    }
+    }*/
 }

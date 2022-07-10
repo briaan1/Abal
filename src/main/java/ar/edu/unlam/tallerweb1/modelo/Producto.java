@@ -36,7 +36,10 @@ public class Producto {
 
 	private Double precio;
 	private String imagen;
-	
+
+
+
+
 	public Set<Favorito> getFavoritos() {
 		return favoritos;
 	}

@@ -17,6 +17,8 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class ControladorCategoriaPizzaTest {
@@ -84,37 +86,109 @@ public class ControladorCategoriaPizzaTest {
 		usuario.setId(2);
 		Producto producto = new Producto();
 		producto.setId(2);
-		dadoQueExisteUnProductoParaElCarrito(producto, "pizza",usuario);
-		ModelAndView model = cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(producto, "pizza",usuario,1);
-		entoncesMeMuestraUnMensaje("Se agrego al carrito de compras el producto ", model);
+		dadoQueExisteUnProductoParaElCarrito(producto,usuario,2);
+		ModelAndView model = cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(producto, "pizza",usuario,2);
+		entoncesMeMuestraUnMensaje("Se agrego el producto al carrito de compras", model);
 	}
 
+@Test
+public void alQuererAgregarCeroProductosAlCarritoQueMuestreUnMensajeQueNoSePuedeAgregatr(){
+	Usuario usuario=new Usuario();
+	usuario.setId(2);
+	Producto producto = new Producto();
+	producto.setId(2);
+	dadoQueExisteUnProductoParaElCarrito(producto,usuario,2);
+	ModelAndView model = cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(producto, "pizza",usuario,0);
+	entoncesMeMuestraUnMensaje("selecciona la cantidad deseada", model);
 
+}
 
-	//@Test
-	//public void alAgregarMasDeUnProductoAlCarritoDeComprasQueMeMuestraUnMensajeQueSeAgregoCorrectamente(){
-	//dadoQueExisteUnProducto();
-	//	ModelAndView model = cuandoLosAgregoAlCarritoDeCompras(2, "pizza",2,1);
-	//	entoncesMeMuestraUnMensaje("Se agregaron  los productos al carrito de compras de compras", model);
-	//}
-	private void dadoQueExisteUnProductoParaElCarrito(Producto producto, String categoria, Usuario usuario) {
-		when(servicioUsuario.getUsuario()).thenReturn(usuario);
-		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
-		when(servicioCarrito.agregarProductoAlCarrito(usuario,producto)).thenReturn(true);
-
-	}
-/*	private ModelAndView cuandoLosAgregoAlCarritoDeCompras(Producto producto, String pizza, int cantidad,Usuario usuario) {
+	@Test
+	public void cuandoSeDeseeAgregarUnProductoAlCarritoYNoSePuedaQueMandeUnMensaje(){
 		Usuario usuario=new Usuario();
-		usuario.setId(IdUsario);
+		usuario.setId(2);
 		Producto producto = new Producto();
-		producto.setId(idProducto);
+		producto.setId(2);
+		dadoQueExisteUnProductoParaElCarritoYNoSePuedaAgregar(producto, "pizza",usuario,2);
+		ModelAndView model = cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(producto, "pizza",usuario,1);
+		entoncesMeMuestraUnMensaje("Se agrego el producto al carrito de compras", model);
+
+	}
+
+
+	@Test
+	public void cuandoSeDeseeAgregarUnProductoInxistenteAlCarritoYNoSePuedaQueMandeUnMensaje(){
+		Usuario usuario=new Usuario();
+		usuario.setId(2);
+		Producto producto = new Producto();
+		producto.setId(2);
+		dadoQueNoExisteUnProductoParaElCarritoYNoSePuedaAgregar(producto, usuario,2);
+		ModelAndView model = cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(producto, "pizza",usuario,1);
+		entoncesMeMuestraUnMensaje("el producto no se encontro", model);
+
+	}
+
+
+	@Test
+	public void queSeGuardeLaCantidadDelProductoAlMomentoDeGuardarElCarrito(){
+		Usuario usuario=new Usuario();
+		usuario.setId(2);
+		Producto producto = new Producto();
+		producto.setId(2);
+		 Carrito carrito=dadoQueExisteUnProductoParaElCarritoConUnaCantidad(producto,usuario,2);
+		int cantidadDeUnMismoProducto = cuandoLosAgregoAlCarritoConUnaCantidad(producto,usuario,2);
+		EntoncesAgregaElProductoConSuCantidad(cantidadDeUnMismoProducto,2);
+
+
+	}
+
+
+	private void EntoncesAgregaElProductoConSuCantidad( int cantidadDeUnMismoProducto, int cantidadEsperada) {
+		assertThat(cantidadDeUnMismoProducto).isEqualTo(cantidadEsperada);
+	}
+
+	private int cuandoLosAgregoAlCarritoConUnaCantidad(Producto producto, Usuario usuario,int cant) {
+		servicioCarrito.agregarProductoAlCarrito(usuario,producto,cant);
+		Carrito carrito=servicioCarrito.validarExistenciaProductoPor(producto.getId());
+		return carrito.getCantidad();
+
+	}
+
+	private Carrito dadoQueExisteUnProductoParaElCarritoConUnaCantidad(Producto producto, Usuario usuario, int cantiProducto) {
 		Carrito carrito=new Carrito();
 		carrito.setProducto(producto);
 		carrito.setUsuario(usuario);
+		carrito.setCantidad(cantiProducto);
+		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
+		when(servicioCarrito.agregarProductoAlCarrito(usuario,producto,cantiProducto)).thenReturn(true);
+		when(servicioCarrito.validarExistenciaProductoPor(producto.getId())).thenReturn(carrito);
+		return carrito;
+	}
 
-		servicioCarrito.agregarProductoAlCarrito(carrito.getUsuario(),carrito.getProducto());
-		return controladorCategoriaPizza.clickEnAgregarAlCarritoDeCompras(idProducto,cantidad);
-	}*/
+	private void dadoQueNoExisteUnProductoParaElCarritoYNoSePuedaAgregar(Producto producto,  Usuario usuario,int cantiProducto) {
+		when(servicioUsuario.getUsuario()).thenReturn(usuario);
+		when(servicioProducto.validarExistenciaProductoPor(3)).thenReturn(producto);
+		when(servicioCarrito.agregarProductoAlCarrito(usuario,producto,cantiProducto)).thenReturn(false);
+
+
+	}
+
+	private void dadoQueExisteUnProductoParaElCarritoYNoSePuedaAgregar(Producto producto, String pizza, Usuario usuario, int cantiProducto) {
+		when(servicioUsuario.getUsuario()).thenReturn(usuario);
+		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
+		when(servicioCarrito.agregarProductoAlCarrito(usuario,producto,cantiProducto)).thenReturn(false);
+
+
+	}
+
+
+	private void dadoQueExisteUnProductoParaElCarrito(Producto producto, Usuario usuario,int cant) {
+		when(servicioUsuario.getUsuario()).thenReturn(usuario);
+		when(servicioProducto.validarExistenciaProductoPor(producto.getId())).thenReturn(producto);
+		when(servicioCarrito.agregarProductoAlCarrito(usuario,producto,cant)).thenReturn(true);
+
+	}
+
 
 	private ModelAndView cuandoLosAgregoAlCarritoDeComprasYSuCantEsMenorAUno(Producto producto, String categoria,Usuario usuario,int cant ) {
 		return controladorCategoriaPizza.clickEnAgregarAlCarritoDeCompras(producto.getId(),cant);
