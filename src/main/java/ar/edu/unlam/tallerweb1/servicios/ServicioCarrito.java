@@ -7,13 +7,18 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import java.util.List;
 
 public interface ServicioCarrito {
-    List<Carrito> getListaDeProductosDelCarrito();
+    List<Carrito> getListaDeProductosDelCarrito( Usuario usuario);
 
   
 
-    Carrito validarExistenciaProductoPor(Usuario usuario, Producto producto);
+    Carrito validarExistenciaProductoPor(int idCarrito);
 
-    boolean agregarProductoAlCarrito(Usuario usuario, Producto producto);
+    boolean agregarProductoAlCarrito(Usuario usuario, Producto producto,int cantidadProducto);
 
     boolean agregarProductoAlCarrito1(Carrito carrito);
+
+
+    void eliminarDelCarrito(Carrito carrito);
+
+    Double sumarElTotalDeLosProductos(List<Carrito> listaDeProductosDelCarrito);
 }

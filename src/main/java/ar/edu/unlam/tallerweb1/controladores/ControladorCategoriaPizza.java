@@ -102,22 +102,22 @@ public class ControladorCategoriaPizza {
 		Usuario usuario=servicioUsuario.getUsuario();
 		Producto productoEncontrado = servicioProducto.validarExistenciaProductoPor(idProducto);
 		if(productoEncontrado!=null) {
-			boolean  seAgrego= servicioCarrito.agregarProductoAlCarrito(usuario,productoEncontrado);
-            if (seAgrego){
-			if (cantidad > 1) {
-				model.put("msg", "Se agregaron  los productos al carrito de compras de compras");
+
+            //if (seAgrego){
+			if (cantidad >= 1) {
+				 servicioCarrito.agregarProductoAlCarrito(usuario,productoEncontrado,cantidad);
+
+				model.put("msg", "Se agrego el producto al carrito de compras");
 
 			} else  {
-				model.put("msg", "Se agrego al carrito de compras el producto ");
+				model.put("msg", "selecciona la cantidad deseada");
 		      	}
-
-
 			}else {
-				model.put("msg", "el producto no se pudo agregar al carrito");
+				model.put("msg", "el producto no se encontro");
 			}
-		}else {
-			model.put("msg", "Producto inexistente");
-		}
+		//}else {
+			//model.put("msg", "Producto inexistente");
+		//}
 		return new ModelAndView("redirect:/pizza", model);
 	}
 }

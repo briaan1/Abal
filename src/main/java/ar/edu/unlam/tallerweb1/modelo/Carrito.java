@@ -18,6 +18,15 @@ public class Carrito {
     @JoinColumn(name = "productoCarrito")
     private Producto productoCarrito;
 
+
+    private int cantidad;
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
     public int getId() {
         return id;
     }
@@ -35,6 +44,14 @@ public class Carrito {
 
     public Producto getProducto() {
         return productoCarrito;
+    }
+
+    public Usuario getUsuarioCarrito() {
+        return usuarioCarrito;
+    }
+
+    public void setUsuarioCarrito(Usuario usuarioCarrito) {
+        this.usuarioCarrito = usuarioCarrito;
     }
 
     public void setProducto(Producto producto) {
