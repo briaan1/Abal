@@ -19,88 +19,73 @@ public class ServicioCarritoTest {
 
     @Test
     public void devolverUnaListaVaciaSiNoHayProductosEnElCarritoDeCompras() {
+
         dadoQueNoHayProductosEnElCarritoDeCompras();
         List<Carrito> listaDeProductosDelCarrito = cuandoPidoLaListaDelCarritoDeCompras();
         entoncesLaListaDelCarritoDeComprasEstaVacia(listaDeProductosDelCarrito,0);
     }
 
-    @Test
-    public void alAgregarUnProductoAlCarritoLoAgrega() {
-
-        Carrito carrito=dadoQueExisteUnProductoYUnUsuarioConId(1, 1);
-        boolean productoAgregado=cuandoLoAgregoAlCarrito1(carrito);
-
-        //  boolean productoAgregado=cuandoLoAgregoAlCarrito(carrito.getProducto(),carrito.getUsuario());
-        //entoncesLoAgrega(carrito.getProducto(),carrito.getUsuario());
-        entoncesLoAgrega(productoAgregado);
-
-    }
-
-    private boolean cuandoLoAgregoAlCarrito1(Carrito carrito) {
-        when(repositorioCarrito.agregarUnProductoAlCarrito(carrito)).thenReturn(true);
-        return servicioCarrito.agregarProductoAlCarrito1(carrito);
-
-    }
-
 
     @Test
-    public void alAgregarUnProductoQueSeSumeAElTotalDelCarrito(){
-        dadoQueExisteUnProductoConUnPrecioYUnUsuarioConId(1,2,55.5);
+    public void alSumarLosProductosDelCarritoQueSeMuestreLaSumaTotal(){
+
+        List<Carrito> listaDeCarrito=dadoQueExistentenProductosEnElCarrito();
+        Double valorTotalDelProducto=cuandoPidoLaSumaTotalDeLosProductosMeDebuelve(listaDeCarrito);
+        entocesLaSumaDeLosProductosDelCarritoes(valorTotalDelProducto,110.0);
+
 
     }
 
-    private void dadoQueExisteUnProductoConUnPrecioYUnUsuarioConId(int idUsuario, int idProducto, double precio) {
-        Usuario usuario=new Usuario();
-        usuario.setId(idUsuario);
+    private void entocesLaSumaDeLosProductosDelCarritoes(Double valorTotalDelProducto, double valorEsperado) {
+        assertThat(valorTotalDelProducto).isEqualTo(valorEsperado);
+    }
+
+    private Double cuandoPidoLaSumaTotalDeLosProductosMeDebuelve(List<Carrito> listaDeCarrito) {
+       return  servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
+    }
+
+    private List<Carrito> dadoQueExistentenProductosEnElCarrito() {
         Producto producto=new Producto();
-        producto.setId(idProducto);
-        producto.setPrecio(precio);
-        Carrito carrito=new Carrito();
-        carrito.setUsuario(usuario);
+        Producto producto1=new Producto();
+        Usuario usuario= new Usuario();
+        Carrito carrito =new Carrito();
+        Carrito carrito1 =new Carrito();
+        usuario.setId(1);
+        producto.setId(1);
+        producto.setPrecio(50.0);
+        producto1.setPrecio(60.0);
+        producto1.setId(2);
         carrito.setProducto(producto);
-
-
-    }
-
-    private void entoncesLoAgrega(boolean productoAgregado) {
-        assertThat(productoAgregado).isTrue();
-       // Carrito carrito=servicioCarrito.validarExistenciaProductoPor(usuario, producto);
-        //assertThat(carrito.getUsuario().getId()).isEqualTo(usuario.getId());
-        //assertThat(carrito.getProducto().getId()).isEqualTo(producto.getId());
-    }
-
-    private boolean cuandoLoAgregoAlCarrito(Producto producto, Usuario usuario) {
-
-        return servicioCarrito.agregarProductoAlCarrito(usuario, producto);
-    }
-
-    private Carrito dadoQueExisteUnProductoYUnUsuarioConId(int idProducto, int idUsuario) {
-        Usuario usuario=new Usuario();
-        usuario.setId(idUsuario);
-        Producto producto=new Producto();
-        producto.setId(idProducto);
-        Carrito carrito=new Carrito();
+        carrito1.setProducto(producto1);
         carrito.setUsuario(usuario);
-        carrito.setProducto(producto);
-     //   when(repositorioCarrito.agregarUnProductoAlCarrito(carrito)).thenReturn(true);
-     //   when(repositorioCarrito.buscarCarrito(usuario.getId(), producto.getId())).thenReturn(carrito);
-        return carrito;
+        carrito.setCantidad(1);
+        carrito1.setCantidad(1);
+        List<Carrito> listaDeCarrito=new ArrayList<>();
+        listaDeCarrito.add(carrito);
+        listaDeCarrito.add(carrito1);
+        return listaDeCarrito;
+
+
+
+
+
     }
 
     private void entoncesLaListaDelCarritoDeComprasEstaVacia(List<Carrito> listaDeProductosDelCarrito, int cantProductos)
     {
         assertThat(listaDeProductosDelCarrito).hasSize(0);
-
-
     }
 
     private List<Carrito> cuandoPidoLaListaDelCarritoDeCompras() {
-        return servicioCarrito.getListaDeProductosDelCarrito();
+        Usuario usuario=new Usuario();
+        return servicioCarrito.getListaDeProductosDelCarrito(usuario);
 
     }
 
     private void dadoQueNoHayProductosEnElCarritoDeCompras() {
-        when(repositorioCarrito.listarLosProductosDelCarrito()).thenReturn(new ArrayList<Carrito>());
+        Usuario usuario =new Usuario();
+
+        when(repositorioCarrito.listarLosProductosDelCarrito(usuario)).thenReturn(new ArrayList<Carrito>());
 
 
     }
