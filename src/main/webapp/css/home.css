@@ -1,30 +1,38 @@
 html{
 	font-size: 1em;
 }
-.inicio{
-    padding: 13rem;
-    color: #fff;
-    font-family: 'Dancing Script', cursive;
-    width: 98%;
-    margin: auto;
-    background: url(../img/img-pizza-principal.jpg) no-repeat top;
-    background-size: cover;
+body{
+	color: black !important;
 }
 .logo{
-	 font-family: 'Dancing Script', cursive;
+	 font-family: 'Yellowtail', cursive;
 	 font-size: 1.5rem;
 }
 .logo-img{
 	padding-bottom: 0.4em;
 }
+.nav-item-active a{
+	border-bottom: 2px solid #ff9c00;
+}
 .titulo{
+	 font-family: 'Yellowtail', cursive;
 	 text-align: center;
-	 padding: 2rem 0;
-	 font-size: 1.5rem;
+	 font-size: 2rem;
+	 color:#ff9c00;
+	 margin-top: 2.5rem;
 }
 .subtitulo{
-	font-size: 1.2rem;
-	padding: 1em 0;
+	font-size: 1.3rem;
+	text-align: center;
+	/*text-transform: uppercase;*/
+}
+.img-separador{
+	text-align: center;
+	margin-bottom: 3rem;
+	text-align: center;
+}
+.img-separador img{
+	height: 18px;
 }
 #contacto, #nosotros{
 	height: 80vh;
@@ -60,4 +68,49 @@ html{
 }
 .contenedor-redes p:hover{
 	transform: scale(103%);
+}
+.card{
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	transition: .2s linear;
+	margin-bottom: 3rem;
+}
+.card:hover{
+	transform: scale(105%);
+}
+.card-title{
+	font-size: 1.2rem;
+}
+.categoria-p{
+	width: 40%;
+	padding: 0.3rem 1.2rem;
+	margin: auto;
+	background-color: #ff9c00;
+	color: #fff;
+	border-radius: 1.8rem;
+}
+.categoria-p:hover{
+	background-color: #fff;
+	color:  #ff9c00;
+	outline: 2px solid  #ff9c00;
+}
+.div-frase{
+	padding: 2.2rem 0;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+	font-family: 'Yellowtail', cursive;
+	text-align: center;
+	color: #fff;
+	background-image: url(../img/fondo-patron.jpg);
+	background-position: center;
+	background-size: contain;
+}
+.div-frase h4{
+	font-size: 3rem;
+}
+.div-frase p{
+	font-size: 1.5rem;
+	color:#ff9c00;
+	width: 60%;
+	margin: auto;
+	text-align: right;
 }
