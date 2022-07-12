@@ -4,6 +4,7 @@ import ar.edu.unlam.tallerweb1.controladores.ControladorCategoriaCombos;
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
@@ -27,13 +28,15 @@ public class ControladorCategoriaCombosTest {
     private ServicioProducto servicioProducto;
     private ServicioFavoritos servicioFavoritos;
     private ServicioUsuario servicioUsuario;
+    private ServicioCarrito servicioCarrito;
     @Before
             public void init(){
         servicioProducto = mock(ServicioProducto.class);
         servicioFavoritos=mock(ServicioFavoritos.class);
         servicioUsuario=mock(ServicioUsuario.class);
-      controladorCategoriaCombos=new ControladorCategoriaCombos(servicioProducto,servicioFavoritos,servicioUsuario);
-        //  controladorCategoriaCombos=new ControladorCategoriaCombos(servicioProducto);
+        servicioCarrito=mock (ServicioCarrito.class);
+      controladorCategoriaCombos=new ControladorCategoriaCombos(servicioProducto,servicioFavoritos,servicioUsuario,servicioCarrito);
+        //        controladorCategoriaCombos=new ControladorCategoriaCombos(servicioProducto,servicioFavoritos,servicioUsuario,servicioCarrito);
 
     }
 

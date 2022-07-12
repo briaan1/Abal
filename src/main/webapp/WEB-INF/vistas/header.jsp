@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/carouselEstilos.css">
     
-    <title>Pizzería Abal</title>
+    <title>PizzerÃ­a Abal</title>
 </head>
 <body class="d-flex flex-column min-vh-100" style="color:black;">
 
@@ -32,6 +32,7 @@
 		<a class="navbar-brand logo text-dark px-1" href="/home">
         <img class="pb-2" alt="Logo en forma de pizza" src="img/pizza-logo-color-32.png">
   		Abal</a>
+
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -51,11 +52,14 @@
                     <a class="nav-link text-dark pb-2" href="/categoriaBebida">Bebidas</a>
                 </li>
             </ul>
-            <ul class="navbar-nav mr-1 mt-2 mt-lg-0">
+
+
+            <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
-                	<a href="/carrito"><button type="button" class="btn"><img src="img/shopping-cart.png" class="pb-1 pr-1">Carrito <span class="badge badge-light badge-pill" id="mostrarContador"></span></button> </a>
-                </li>
-            </ul>
+                 <a href="/carrito"><button type="button" class="btn btn-primary">
+                     <img src="img/shopping-cart.png" class="pb-1 pr-1">$${sumaTotalDelCarrito} <span class="badge badge-light badge-pill">${cantProductos}</span></button> </a>
+                </li></ul>
+
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 py-2"
                         type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -63,7 +67,7 @@
                     Usuario ${usuario}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- Debería ir (? -->
+                <!-- DeberÃ­a ir (? -->
                     <a class="dropdown-item" href="/perfil">Perfil</a>
                     <a class="dropdown-item" href="/historial-de-pedidos">Pedidos</a>
                     <a class="dropdown-item" href="/favorito">Favoritos</a>
