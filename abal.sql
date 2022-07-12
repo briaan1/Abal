@@ -36,7 +36,7 @@ VALUES (true, 'user@mail.com', '123456', 'usuario', 'Abal');
 INSERT INTO login (usuario_id)
 VALUES (1);
 
-INSERT INTO comentario(comentario, usuario_id)
-VALUES ('Las mejores pizzas de la zona. Muy recomendadas.' ,1),
-		('¡Excelente calidad!. Los recomiendo.' ,1),
-		('Riquisimas :)' ,1);
+INSERT INTO comentario(comentario, usuario_id,imagen)
+VALUES ('Las mejores pizzas de la zona. Muy recomendadas.' ,1,"persona1.jpg"),
+		('¡Excelente calidad!. Los recomiendo.' ,1,"persona2.jpg"),
+		('Riquisimas :)' ,1,"persona3.png");
