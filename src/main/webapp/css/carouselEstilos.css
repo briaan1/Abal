@@ -49,7 +49,11 @@
 	height: auto;
 	border-radius: 50%;
 }
-
+.box-area .img-area .foto-img {
+	width: 100%;
+	height: auto;
+	border-radius: 50%;
+}
 #testimonial_area .owl-nav {
 	position: absolute;
 	top: 50%;

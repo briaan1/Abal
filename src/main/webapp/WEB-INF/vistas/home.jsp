@@ -102,7 +102,7 @@
                 	<c:forEach var="lista" items="${listaDeComentarios}">
                     	<div class="box-area">	
                         	<div class="img-area">
-                                <img src="img/personas-fotos/${lista.imagen}" alt="">
+                                <img class="foto-img" src="img/personas-fotos/${lista.imagen}" alt="">
                             </div>	
                             <h5>Person's name</h5>
                             <span>Cliente</span>									
