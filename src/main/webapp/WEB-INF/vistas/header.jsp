@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/carouselEstilos.css">
     
-    <title>Pizzería Abal</title>
+    <title>Pizzerï¿½a Abal</title>
 </head>
 <body class="d-flex flex-column min-vh-100" style="color:black;">
 
@@ -54,7 +54,7 @@
             <ul class="navbar-nav mr-1 mt-2 mt-lg-0">
                 <li class="nav-item active">
                 <!-- Reemplazar el value por la variable que devuelve el controlador -->
-                	<a href="/carrito"><i class="fa badge fa-lg" value=8 style="background-color: #fff;"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                	<a href="/carrito"><i class="fa badge fa-lg" value=${cantProductos} style="background-color:"#fff"><i class="fa-solid fa-cart-shopping"></i></i></a><i>$${sumaTotalDelCarrito}</i>
                 </li>
             </ul>
             <div class="dropdown">
@@ -64,7 +64,7 @@
                     Usuario ${usuario}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- Debería ir (? -->
+                <!-- Deberï¿½a ir (? -->
                     <a class="dropdown-item" href="/perfil">Perfil</a>
                     <a class="dropdown-item" href="/historial-de-pedidos">Pedidos</a>
                     <a class="dropdown-item" href="/favorito">Favoritos</a>
