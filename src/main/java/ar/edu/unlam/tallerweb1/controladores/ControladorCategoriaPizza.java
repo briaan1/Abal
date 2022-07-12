@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.modelo.Carrito;
 import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,10 +45,16 @@ public class ControladorCategoriaPizza {
 		model.put("msg", mensaje);
 		
 		Usuario usuario=servicioUsuario.getUsuario();
+		List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+		int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+		model.put("cantProductos",cantProducto);
+
 		List<Producto> listaDeProductos=new ArrayList<Producto>();
 		if(usuario != null) {
 			List<Producto> listaDeFavoritos=servicioDeFavorito.listarFavoritos(usuario, "pizza");
 			listaDeProductos=servicioDeFavorito.listarProductosSinFavoritos(usuario, "pizza");
+
+
 			model.put("listaDeFavoritos", listaDeFavoritos);
 			model.put("usuario", usuario.getNombre());
 			model.put("eliminarDeFavoritos", "Eliminar de favoritos");
@@ -64,6 +71,7 @@ public class ControladorCategoriaPizza {
 		}
 		
 		model.put("titulo","Pizza");
+
 		return new ModelAndView("categoriaPizza", model);
 	}
 
@@ -106,7 +114,12 @@ public class ControladorCategoriaPizza {
             //if (seAgrego){
 			if (cantidad >= 1) {
 				 servicioCarrito.agregarProductoAlCarrito(usuario,productoEncontrado,cantidad);
+				 List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+				 int cantidadProductos= servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+				double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
 
+				model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+				 model.put("cantProductos",cantidadProductos);
 				model.put("msg", "Se agrego el producto al carrito de compras");
 
 			} else  {
@@ -115,9 +128,7 @@ public class ControladorCategoriaPizza {
 			}else {
 				model.put("msg", "el producto no se encontro");
 			}
-		//}else {
-			//model.put("msg", "Producto inexistente");
-		//}
+
 		return new ModelAndView("redirect:/pizza", model);
 	}
 }

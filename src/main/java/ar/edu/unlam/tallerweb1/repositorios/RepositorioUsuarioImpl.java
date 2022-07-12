@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
+import ar.edu.unlam.tallerweb1.modelo.Comentario;
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Login;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
@@ -14,7 +15,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository("repositorioUsuario")
 public class RepositorioUsuarioImpl implements RepositorioUsuario {
-	
+
+
 	private SessionFactory sessionFactory;
 
     @Autowired
@@ -62,7 +64,14 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
                 .createCriteria(Login.class)
                 .uniqueResult();
 	}
-	
+
+	@Override
+	public Usuario getUnicoUsuario() {
+		return (Usuario) sessionFactory.getCurrentSession()
+				.createCriteria(Usuario.class)
+				.uniqueResult();
+	}
+
 	@Override
 	public Usuario getUsuario() {
 		Login login=getLogin();

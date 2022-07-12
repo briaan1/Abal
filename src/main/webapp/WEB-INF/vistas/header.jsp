@@ -32,6 +32,7 @@
         <img class="pb-2" alt="Logo en forma de pizza" src="img/logo-pizza.png">
   		Abal</a>
 
+
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
@@ -62,9 +63,11 @@
                     <a class="nav-link text-dark pb-2" href="#contacto">Contacto</a>
                 </li>
             </ul>
+
             <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
-                 <a href="/carrito"><button type="button" class="btn btn-primary"><img src="img/shopping-cart.png" class="pb-1 pr-1">Carrito <span class="badge badge-light badge-pill">3</span></button> </a>    
+                 <a href="/carrito"><button type="button" class="btn btn-primary">
+                     <img src="img/shopping-cart.png" class="pb-1 pr-1">$${sumaTotalDelCarrito} <span class="badge badge-light badge-pill">${cantProductos}</span></button> </a>
                 </li></ul>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle bg-light text-dark border-0 py-2 mr-2"

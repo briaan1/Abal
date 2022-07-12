@@ -38,5 +38,10 @@ public class ServicioUsuarioImpl implements ServicioUsuario{
 	public void cambiarUsuario(int idUsuario) {
 		repositorioUsuario.cambiarUsuario(idUsuario);
 	}
-	
+
+	@Override
+	public Usuario getUnicoUsuario() {
+		return repositorioUsuario.getUnicoUsuario();
+	}
+
 }
