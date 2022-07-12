@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,9 @@ public class ServicioPedidoImpl implements ServicioPedido {
 	public void registrarPedido(Usuario usuario, List<Carrito> listaDeProductosDelCarrito) {
     	Pedido pedido = new Pedido();
     	pedido.setUsuario(usuario);
+    	LocalDateTime dateTime = LocalDateTime.now();
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    	pedido.setFecha(formatter.format(dateTime));
 		repositorioPedido.registrarPedido(pedido);
 		
 		for (int i = 0; i < listaDeProductosDelCarrito.size(); i++) {

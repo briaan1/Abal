@@ -7,7 +7,6 @@
   <thead class="thead-light">
     <tr>
       <th>id</th>
-      <th>Pedido</th>
       <th>Total</th>
       <th>Fecha</th>
       <th>Estado de envio</th>
@@ -18,9 +17,8 @@
   <c:forEach var="lista" items="${listaDePedidos}">
     <tr>
       <th scope="row">${lista.id}</th>
-      <td>Pedido</td>
       <td>$Total</td>
-      <td>Fecha</td>
+      <td>${lista.fecha}</td>
       <td class="text-primary">En proceso</td>
       <td><a href="/estado-de-pedido"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
     </tr>
