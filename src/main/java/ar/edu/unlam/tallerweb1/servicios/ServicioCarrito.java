@@ -23,4 +23,8 @@ public interface ServicioCarrito {
     Double sumarElTotalDeLosProductos(List<Carrito> listaDeProductosDelCarrito);
 
     int sumarCantidadDeProductosProductos(List<Carrito> listaDeProductosDelCarrito);
+
+    
+    void eliminarProductosDelCarrito(List<Carrito> listaDeProductosDelCarrito);
+
 }

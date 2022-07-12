@@ -32,14 +32,21 @@ public class Producto {
 
 	@OneToMany(mappedBy = "productoCarrito")
 	private Set<Carrito> carrito = new HashSet();
+	
+	@OneToMany(mappedBy = "productoDetalle")
+	private Set<DetalleDePedido> detalleDePedido = new HashSet();
 
 
 	private Double precio;
 	private String imagen;
 
 
-
-
+	public Set<DetalleDePedido> getDetalleDePedido() {
+		return detalleDePedido;
+	}
+	public void setDetalleDePedido(Set<DetalleDePedido> detalleDePedido) {
+		this.detalleDePedido = detalleDePedido;
+	}
 	public Set<Favorito> getFavoritos() {
 		return favoritos;
 	}
