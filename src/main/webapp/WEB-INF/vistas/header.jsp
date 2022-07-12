@@ -53,7 +53,8 @@
             </ul>
             <ul class="navbar-nav mr-1 mt-2 mt-lg-0">
                 <li class="nav-item active">
-                	<a href="/carrito"><button type="button" class="btn"><img src="img/shopping-cart.png" class="pb-1 pr-1">Carrito <span class="badge badge-light badge-pill" id="mostrarContador"></span></button> </a>
+                <!-- Reemplazar el value por la variable que devuelve el controlador -->
+                	<a href="/carrito"><i class="fa badge fa-lg" value=8 style="background-color: #fff;"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 </li>
             </ul>
             <div class="dropdown">
