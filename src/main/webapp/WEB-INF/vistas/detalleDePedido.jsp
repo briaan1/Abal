@@ -1,7 +1,9 @@
 <%@include file="header.jsp"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="css/simulado.css" rel="stylesheet">
 <h2 class="h2-titulo--margin">Detalle del pedido</h2>
+
 
 <ul class="list-group w-75 mx-auto mt-5">
 <c:forEach var="lista" items="${listaDeProductosDelCarrito}">
@@ -21,6 +23,8 @@
 
 
 <a class="btn btn-primary w-25 mx-auto mt-5" href="/pagar-pedido" role="button">Pagar</a><br><br>
+
+
 
 
 

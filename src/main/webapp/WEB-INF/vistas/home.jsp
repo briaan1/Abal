@@ -14,7 +14,7 @@
     <div class="carousel-item active">
       <img class="d-block w-100" src="img/img-pizza-principal.jpg" alt="First slide" style="height:500px;">
       <div class="carousel-caption d-none d-md-block">
-	    	<h1 style="font-family: 'Yellowtail', cursive;padding-bottom:20%;text-shadow: 4px 4px 2px rgba(0,0,0,0.6);font-size:3rem;">Descubrí las mejores pizzas acá</h1>
+	    	<h1 style="font-family: 'Yellowtail', cursive;padding-bottom:20%;text-shadow: 4px 4px 2px rgba(0,0,0,0.6);font-size:3rem;">Descubrï¿½ las mejores pizzas acï¿½</h1>
   	  </div>
     </div>
     <div class="carousel-item">
@@ -42,17 +42,17 @@
 
 
 <div class="container">
-<h2 class="titulo">Encontrá lo que mejor se adapte a vos</h2>
-<h3 class="subtitulo">Nuestras categorías</h3>
+<h2 class="titulo">Encontrï¿½ lo que mejor se adapte a vos</h2>
+<h3 class="subtitulo">Nuestras categorï¿½as</h3>
 <p class="img-separador"><img src="img/rolling-pin.png" alt=""></p>
   <div class="row">
     <div class="col-sm">
       <div class="card" style="width: 18rem;">
 	      <a href="/pizza" class="text-center text-decoration-none text-dark">
-		  		<img class="card-img-top" src="img/pizza-cat.jpg" alt="Card image cap">
+		  		<img class="card-img-top" src="img/pizza.jpg" alt="Card image cap">
 		  		<div class="card-body">
 					<h5 class="card-title">Pizzas</h5>
-					<p class="categoria-p">Ver más</p>
+					<p class="categoria-p">Ver mas</p>
 		  		</div>
 	  		</a>
 	 </div>
@@ -63,7 +63,7 @@
   <img class="card-img-top" src="img/combos.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Combos</h5>
-    <p class="categoria-p">Ver más</p>
+    <p class="categoria-p">Ver mas</p>
   </div>
   </a>
 </div>
@@ -74,7 +74,7 @@
   <img class="card-img-top" src="img/personalizada.png" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">Personalizadas</h5>
-    <p class="categoria-p">Ver más</p>
+    <p class="categoria-p">Ver mas</p>
   </div>
   </a>
 </div>
@@ -87,7 +87,7 @@
 
 <div class="div-frase">
 <h4>Nos encanta que seas parte de nosotros...</h4>
-<p>-Pizzería Abal</p></div>
+<p>-Pizzerï¿½a Abal</p></div>
 
 <div class="container mt-4">
 <h2 class="titulo">Comentarios</h2>
@@ -102,7 +102,7 @@
                 	<c:forEach var="lista" items="${listaDeComentarios}">
                     	<div class="box-area">	
                         	<div class="img-area">
-                                <img src="img/user-image.png" alt="">
+                                <img class="foto-img" src="img/personas-fotos/${lista.imagen}" alt="">
                             </div>	
                             <h5>Person's name</h5>
                             <span>Cliente</span>									
