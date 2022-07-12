@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioLogin;
 import org.junit.Test;
 import ar.edu.unlam.tallerweb1.modelo.Comentario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioHome;
@@ -12,8 +13,9 @@ import static org.assertj.core.api.Assertions.*;
 
 public class ServicioHomeTest {
 private RepositorioHome repositorioHome=mock(RepositorioHome.class);
-private ServicioHome servicioHome = new ServicioHomeImpl(repositorioHome);
-	
+private RepositorioLogin repositorioLogin=mock(RepositorioLogin.class);
+	private ServicioHome servicioHome = new ServicioHomeImpl(repositorioHome);
+
 	@Test
 	public void devolverUnaListaVaciaSiNoHayComentarios() {
 		dadoQueNoHayComentarios();

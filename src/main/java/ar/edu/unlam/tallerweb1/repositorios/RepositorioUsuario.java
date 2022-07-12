@@ -16,4 +16,6 @@ public interface RepositorioUsuario {
 	List<Usuario> listaDeUsuarios();
 	void cambiarUsuario(int idUsuario);
 	Login getLogin();
+
+    Usuario getUnicoUsuario();
 }

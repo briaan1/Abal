@@ -1,3 +1,4 @@
+
 package ar.edu.unlam.tallerweb1.controlador;
 
 import static org.assertj.core.api.Assertions.*;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,7 +27,8 @@ public class ControladorCategoriaBebidaTest {
 	private ServicioUsuario servicioUsuario = mock(ServicioUsuario.class);
 	private ServicioProducto servicioProducto = mock(ServicioProducto.class);
 	private ServicioFavoritos servicioFavorito = mock(ServicioFavoritos.class);
-	private ControladorCategoriaBebida controladorBebida = new ControladorCategoriaBebida(servicioProducto, servicioFavorito, servicioUsuario);
+	private ServicioCarrito servicioCarrito=mock(ServicioCarrito.class);
+	private ControladorCategoriaBebida controladorBebida = new ControladorCategoriaBebida(servicioProducto, servicioFavorito, servicioUsuario,servicioCarrito);
 	
 	@Test
 	public void alPedirLaCategoriaBebidaMeDevuelveEsaCategoria() {
@@ -131,3 +134,4 @@ public class ControladorCategoriaBebidaTest {
 	}
 
 }
+

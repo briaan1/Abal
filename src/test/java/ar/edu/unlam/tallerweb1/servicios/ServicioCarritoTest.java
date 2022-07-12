@@ -35,6 +35,21 @@ public class ServicioCarritoTest {
 
 
     }
+    @Test
+    public void alSumarProductosAlCarritoQueMuestreLaCantidadQueHay(){
+        List<Carrito> listaDeCarrito=dadoQueExistentenProductosEnElCarrito();
+        int sumaDeLosProductos=cuandoPidoLaSumaDeLosProductosDelCarrito(listaDeCarrito);
+        entoncesMeDevuelveLaCantidadDeProductoDelCarrito(sumaDeLosProductos,2);
+
+    }
+
+    private void entoncesMeDevuelveLaCantidadDeProductoDelCarrito(int sumaDeLosProductos, int cantEsperedad) {
+        assertThat(sumaDeLosProductos).isEqualTo(cantEsperedad);
+    }
+
+    private int cuandoPidoLaSumaDeLosProductosDelCarrito(List<Carrito> listaDeCarrito) {
+        return servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+    }
 
     private void entocesLaSumaDeLosProductosDelCarritoes(Double valorTotalDelProducto, double valorEsperado) {
         assertThat(valorTotalDelProducto).isEqualTo(valorEsperado);

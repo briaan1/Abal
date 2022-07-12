@@ -33,6 +33,7 @@
         <img class="pb-2" alt="Logo en forma de pizza" src="img/pizza-logo-color-32.png">
   		Abal</a>
 
+
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item-active">
@@ -51,12 +52,14 @@
                     <a class="nav-link text-dark pb-2" href="/categoriaBebida">Bebidas</a>
                 </li>
             </ul>
-            <ul class="navbar-nav mr-1 mt-2 mt-lg-0">
+
+
+            <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
-                <!-- Reemplazar el value por la variable que devuelve el controlador -->
-                	<a href="/carrito"><i class="fa badge fa-lg" value=8 style="background-color: #fff;"><i class="fa-solid fa-cart-shopping"></i></i></a>
-                </li>
-            </ul>
+                 <a href="/carrito"><button type="button" class="btn btn-primary">
+                     <img src="img/shopping-cart.png" class="pb-1 pr-1">$${sumaTotalDelCarrito} <span class="badge badge-light badge-pill">${cantProductos}</span></button> </a>
+                </li></ul>
+
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 py-2"
                         type="button" id="dropdownMenu1" data-toggle="dropdown"

@@ -3,6 +3,8 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.modelo.Carrito;
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,12 +26,14 @@ public class ControladorCategoriaBebida {
 	private ServicioProducto servicioProducto;
     private ServicioFavoritos servicioDeFavorito;
     private ServicioUsuario servicioUsuario;
+    private ServicioCarrito servicioCarrito;
 
     @Autowired
-    public ControladorCategoriaBebida(ServicioProducto servicioProducto, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario) {
+    public ControladorCategoriaBebida(ServicioProducto servicioProducto, ServicioFavoritos servicioDeFavorito, ServicioUsuario servicioUsuario,ServicioCarrito servicioCarrito) {
         this.servicioProducto = servicioProducto;
         this.servicioDeFavorito = servicioDeFavorito;
         this.servicioUsuario = servicioUsuario;
+        this.servicioCarrito=servicioCarrito;
     }
 	
     @RequestMapping(value = "/categoriaBebida" ,method = RequestMethod.GET)
@@ -37,7 +41,14 @@ public class ControladorCategoriaBebida {
                                   @RequestParam(value = "msg",required = false)String mensaje) {
         ModelMap model=new ModelMap();
         model.put("msg",mensaje);
+
         Usuario usuario=servicioUsuario.getUsuario();
+        List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+        int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+        double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
+        model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+        model.put("cantProductos",cantProducto);
+
         List<Producto> listaDeProductos=new LinkedList<>();
         if(usuario != null) {
             List<Producto> listaDeFavoritos=servicioDeFavorito.listarFavoritos(usuario, "bebida");
@@ -84,9 +95,36 @@ public class ControladorCategoriaBebida {
 		}else {
 			model.put("msg", "Producto inexistente");
 		}
-		
-		return new ModelAndView("redirect:/categoriaBebida", model);
+
+        return new ModelAndView("redirect:/categoriaBebida", model);
 	}
+
+
+    @RequestMapping(path = "/agregar-carrito-cate-bebida", method = RequestMethod.POST)
+    public ModelAndView clickEnAgregarAlCarritoDeCompras(  @ModelAttribute("idProductoParaCarrito") int idProducto,
+                                                           @ModelAttribute("cantDeProducto")int cantidad ) {
+        ModelMap model=new ModelMap();
+        Usuario usuario=servicioUsuario.getUsuario();
+        Producto productoEncontrado = servicioProducto.validarExistenciaProductoPor(idProducto);
+        if(productoEncontrado!=null) {
+
+            //if (seAgrego){
+            if (cantidad >= 1) {
+                servicioCarrito.agregarProductoAlCarrito(usuario,productoEncontrado,cantidad);
+                List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+                int cantidadProductos= servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+                model.put("cantProductos",cantidadProductos);
+                model.put("msg", "Se agrego el producto al carrito de compras");
+
+            } else  {
+                model.put("msg", "selecciona la cantidad deseada");
+            }
+        }else {
+            model.put("msg", "el producto no se encontro");
+        }
+
+        return new ModelAndView("redirect:/categoriaBebida", model);
+    }
 	
 	
 }
