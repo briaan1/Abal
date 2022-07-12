@@ -1,5 +1,5 @@
 <%@include file="header.jsp"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container mt-5 mb-5">
 	<h2 class="h2-titulo">Mis Pedidos</h2><br>
 
@@ -15,22 +15,16 @@
     </tr>
   </thead>
   <tbody>
+  <c:forEach var="lista" items="${listaDePedidos}">
     <tr>
-      <th scope="row">1</th>
-      <td>Pedido 1</td>
+      <th scope="row">${lista.id}</th>
+      <td>Pedido</td>
       <td>$Total</td>
       <td>Fecha</td>
       <td class="text-primary">En proceso</td>
       <td><a href="/estado-de-pedido"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Pedido 2</td>
-      <td>$Total</td>
-      <td>Fecha</td>
-      <td><span class="text-success">Entregado</span></td>
-      <td><a href="/pedido-realizado"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
-    </tr>
+    </c:forEach>
   </tbody>
 </table>
 

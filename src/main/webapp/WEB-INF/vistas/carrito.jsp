@@ -46,8 +46,8 @@
 		<br>
 		<div>
 			<h4 class="float-left">Total $${total} </h4>
-			 <a href="/detalle-de-pedido"></a>
-				<div><button type="button" class="btn btn-primary float-right">Realizar pedido</button></div>
+			 <a href="/detalle-de-pedido">
+				<div><button type="button" class="btn btn-primary float-right">Realizar pedido</button></a></div>
 		</div>
 	</div>
 </div>

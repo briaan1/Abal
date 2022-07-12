@@ -87,6 +87,11 @@ for (int i=0;i<listaDeProductosDelCarrito.size();i++){
 }
 return cantProductos;
     }
-
-
+    
+    @Override
+    public void eliminarProductosDelCarrito(List<Carrito> listaDeProductosDelCarrito) {
+    	for (int i = 0; i < listaDeProductosDelCarrito.size(); i++) {
+    		repositorioCarrito.eliminarCarrito(listaDeProductosDelCarrito.get(i));
+    		}
+    	}
 }
