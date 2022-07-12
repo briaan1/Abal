@@ -59,10 +59,9 @@
             <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
 
-                <!-- Reemplazar el value por la variable que devuelve el controlador -->
-                	<a href="/carrito"><i class="fa badge fa-lg"  value="${cantProductos}" style="background-color:#fff"><i class="fa-solid fa-cart-shopping"></i></i></a><i>$${sumaTotalDelCarrito}</i>
-                </li>
-            </ul>
+                <a href="/carrito"><button type="button" class="btn btn-primary">
+                     <img src="img/shopping-cart.png" class="pb-1 pr-1">$${sumaTotalDelCarrito} <span class="badge badge-light badge-pill">${cantProductos}</span></button> </a>
+                </li></ul>
 
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 py-2"

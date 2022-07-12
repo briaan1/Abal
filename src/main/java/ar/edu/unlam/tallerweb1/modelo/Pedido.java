@@ -19,6 +19,7 @@ public class Pedido {
 	private String estado;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
+	private String fecha;
 	
 	@OneToMany(mappedBy = "pedido")
 	private Set<DetalleDePedido> detalleDePedido = new HashSet();
@@ -53,5 +54,13 @@ public class Pedido {
 
 	public void setDetalleDePedido(Set<DetalleDePedido> detalleDePedido) {
 		this.detalleDePedido = detalleDePedido;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 }
