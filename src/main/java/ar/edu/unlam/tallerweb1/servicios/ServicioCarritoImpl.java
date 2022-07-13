@@ -74,8 +74,27 @@ public class ServicioCarritoImpl implements ServicioCarrito {
         Double sumaProductos=0.0;
       for (int i=0;i<listaDeProductosDelCarrito.size();i++){
          sumaProductos += (listaDeProductosDelCarrito.get(i).getProducto().getPrecio()*listaDeProductosDelCarrito.get(i).getCantidad());
+
       }
         return sumaProductos;
     }
+
+    @Override
+    public int sumarCantidadDeProductosProductos(List<Carrito> listaDeProductosDelCarrito) {
+int cantProductos=0;
+for (int i=0;i<listaDeProductosDelCarrito.size();i++){
+    cantProductos+=listaDeProductosDelCarrito.get(i).getCantidad();
+}
+return cantProductos;
+    }
+
+    
+    @Override
+    public void eliminarProductosDelCarrito(List<Carrito> listaDeProductosDelCarrito) {
+    	for (int i = 0; i < listaDeProductosDelCarrito.size(); i++) {
+    		repositorioCarrito.eliminarCarrito(listaDeProductosDelCarrito.get(i));
+    		}
+    	}
+
 
 }

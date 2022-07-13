@@ -9,4 +9,6 @@ public interface ServicioUsuario {
 	Usuario buscarUsuario(String string);
 	List<Usuario> listaDeUsuarios();
 	void cambiarUsuario(int idUsuario);
+
+    Usuario getUnicoUsuario();
 }
