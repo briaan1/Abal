@@ -18,8 +18,13 @@ public class Carrito {
     @JoinColumn(name = "productoCarrito")
     private Producto productoCarrito;
 
-
+    @ManyToOne()
+    @JoinColumn(name = "productoPersonalizado")
+    private TipoPersonalizado productoPersonalizado;
+    
     private int cantidad;
+    
+    
     public int getCantidad() {
         return cantidad;
     }
@@ -66,4 +71,21 @@ public class Carrito {
         this.total = total;
     }
 
+	public Producto getProductoCarrito() {
+		return productoCarrito;
+	}
+
+	public void setProductoCarrito(Producto productoCarrito) {
+		this.productoCarrito = productoCarrito;
+	}
+
+	public TipoPersonalizado getProductoPersonalizado() {
+		return productoPersonalizado;
+	}
+
+	public void setProductoPersonalizado(TipoPersonalizado productoPersonalizado) {
+		this.productoPersonalizado = productoPersonalizado;
+	}
+
+    
 }

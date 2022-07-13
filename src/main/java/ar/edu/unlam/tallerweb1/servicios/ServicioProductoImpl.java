@@ -34,5 +34,15 @@ public class ServicioProductoImpl implements ServicioProducto {
 	public Producto validarExistenciaProductoPor(int idProducto) {
 		return repositorioProducto.validarExistenciaProductoPor(idProducto);
 	}
+
+	@Override
+	public Double calcularPrecioPorUnidad(List<Producto> listaProductos) {
+		Double precioUnidad = 0.0;
+		for(int i=0;i<listaProductos.size();i++) {
+			precioUnidad = listaProductos.get(i).getPrecio() / 8;
+			listaProductos.get(i).setPrecioUnitario(precioUnidad);
+		}
+		return precioUnidad;
+	}
 	
 }

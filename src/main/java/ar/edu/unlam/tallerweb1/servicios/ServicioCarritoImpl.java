@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import ar.edu.unlam.tallerweb1.modelo.Carrito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.modelo.TipoPersonalizado;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioCarrito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,10 +58,9 @@ public class ServicioCarritoImpl implements ServicioCarrito {
     }
 
 
-
+    //Revisar si se usa en algun lado
     @Override
     public boolean agregarProductoAlCarrito1(Carrito carrito) {
-
         return repositorioCarrito.agregarUnProductoAlCarrito(carrito);
     }
 
@@ -73,7 +73,7 @@ public class ServicioCarritoImpl implements ServicioCarrito {
     public Double sumarElTotalDeLosProductos(List<Carrito> listaDeProductosDelCarrito) {
         Double sumaProductos=0.0;
       for (int i=0;i<listaDeProductosDelCarrito.size();i++){
-         sumaProductos += (listaDeProductosDelCarrito.get(i).getProducto().getPrecio()*listaDeProductosDelCarrito.get(i).getCantidad());
+         sumaProductos += (listaDeProductosDelCarrito.get(i).getTotal()*listaDeProductosDelCarrito.get(i).getCantidad());
 
       }
         return sumaProductos;
@@ -81,11 +81,11 @@ public class ServicioCarritoImpl implements ServicioCarrito {
 
     @Override
     public int sumarCantidadDeProductosProductos(List<Carrito> listaDeProductosDelCarrito) {
-int cantProductos=0;
-for (int i=0;i<listaDeProductosDelCarrito.size();i++){
-    cantProductos+=listaDeProductosDelCarrito.get(i).getCantidad();
-}
-return cantProductos;
+    	int cantProductos=0;
+    	for (int i=0;i<listaDeProductosDelCarrito.size();i++){
+    		cantProductos+=listaDeProductosDelCarrito.get(i).getCantidad();
+    	}
+    	return cantProductos;
     }
 
     
@@ -95,6 +95,29 @@ return cantProductos;
     		repositorioCarrito.eliminarCarrito(listaDeProductosDelCarrito.get(i));
     		}
     	}
+
+
+	@Override
+	public boolean agregarProductoPersonalizadoAlCarrito(Usuario usuario, TipoPersonalizado productoPersonalizado,
+			int cantidadPersonalizado) {
+		 	Carrito carrito=new Carrito();
+	        carrito.setUsuario(usuario);
+	        carrito.setProductoPersonalizado(productoPersonalizado);
+	        carrito.setCantidad(cantidadPersonalizado);
+	        carrito.setTotal(productoPersonalizado.getPrecioTotal());
+	        return repositorioCarrito.agregarUnProductoAlCarrito(carrito);
+	    }
+
+
+	/*@Override
+	public Double sumarElTotalDeLosProductosPersonalizados(List<Carrito> listaDeCarrito) {
+		 Double sumaProductos=0.0;
+		 for (int i=0;i<listaDeCarrito.size();i++){
+	         sumaProductos += (listaDeCarrito.get(i).getProductoPersonalizado().getPrecioTotal()*listaDeCarrito.get(i).getCantidad());
+
+	      }
+	        return sumaProductos;
+	}*/
 
 
 }

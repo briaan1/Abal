@@ -1,16 +1,18 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" >
+    
     <!-- Icono -->
-     <link rel="icon" type="image/png" href="img/pizza-logo-color-32.png">
+    <link rel="icon" type="image/png" href="img/pizza-logo-color-32.png">
     <script src="https://kit.fontawesome.com/2f22cf7961.js" crossorigin="anonymous"></script>
+    
     <!-- Estilos -->
    	<link href="css/estilosPerfil.css" rel="stylesheet">
     <link href="css/home.css" rel="stylesheet">
     <link href="css/estiloFooter.css" rel="stylesheet">
+    
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +23,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/carouselEstilos.css">
     
-
     <title>Pizzeria Abal</title>
-
 </head>
-<body class="d-flex flex-column min-vh-100" style="color:black;">
 
+<body class="d-flex flex-column min-vh-100" style="color:black;">
 <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,9 +71,6 @@
                     Usuario ${usuario}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
-                <!-- Debería ir (? -->
-
                     <a class="dropdown-item" href="/perfil">Perfil</a>
                     <a class="dropdown-item" href="/historial-de-pedidos">Pedidos</a>
                     <a class="dropdown-item" href="/favorito">Favoritos</a>

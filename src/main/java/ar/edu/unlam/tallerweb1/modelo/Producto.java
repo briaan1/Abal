@@ -100,7 +100,7 @@ public class Producto {
 	
 	/*Cargarlo en la BD o calcularlo desde el servicio*/
 	public Double getPrecioUnitario() {
-		precioUnitario = this.getPrecio()/8.0;
+		//precioUnitario = this.getPrecio()/8.0;
 		return precioUnitario;
 	}
 	public void setPrecioUnitario(Double precioUnitario) {

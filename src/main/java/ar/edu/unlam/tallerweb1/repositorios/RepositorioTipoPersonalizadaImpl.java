@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +28,14 @@ public class RepositorioTipoPersonalizadaImpl implements RepositorioTipoPersonal
 	public void guardarListaProductosPersonalizado(TipoPersonalizado productoPersonalizado) {
 		sessionFactory.getCurrentSession().save(productoPersonalizado);
 		
+	}
+
+	@Override
+	public TipoPersonalizado buscarProductoPersonalizadoPorCodigo(int codigo) {
+			return (TipoPersonalizado) sessionFactory.getCurrentSession()
+	                .createCriteria(TipoPersonalizado.class)
+	                .add(Restrictions.eq("codigoPersonalizado", codigo))
+	                .uniqueResult();
 	}
 
 }

@@ -19,6 +19,7 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPersonalizarPizza;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTipoPersonalizada;
+import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 
 public class ControladorPersonalizarPizzaTest {
 	private ServicioPersonalizarPizza servicioPersonalizarPizza= mock(ServicioPersonalizarPizza.class);
@@ -26,8 +27,8 @@ public class ControladorPersonalizarPizzaTest {
 	private ServicioFavoritos servicioFavorito = mock(ServicioFavoritos.class);
 	private ServicioCarrito servicioCarrito = mock(ServicioCarrito.class);
 	private ServicioTipoPersonalizada servicioPersonalizada = mock(ServicioTipoPersonalizada.class);
-	
-	private ControladorPersonalizarPizza controladorPersonalizarPizza= new ControladorPersonalizarPizza(servicioPersonalizarPizza, servicioProducto, servicioFavorito, servicioCarrito, servicioPersonalizada);
+	private ServicioUsuario servicioUsuario = mock(ServicioUsuario.class);; 
+	private ControladorPersonalizarPizza controladorPersonalizarPizza= new ControladorPersonalizarPizza(servicioPersonalizarPizza, servicioProducto, servicioFavorito, servicioCarrito, servicioPersonalizada, servicioUsuario);
 	
 	@Test
 	public void alPedirPersonalizarQueMeMuestrePersonalizarPizza() {

@@ -9,4 +9,6 @@ public interface RepositorioTipoPersonalizada {
 
 	void guardarListaProductosPersonalizado(TipoPersonalizado productoPersonalizado);
 
+	TipoPersonalizado buscarProductoPersonalizadoPorCodigo(int id);
+
 }

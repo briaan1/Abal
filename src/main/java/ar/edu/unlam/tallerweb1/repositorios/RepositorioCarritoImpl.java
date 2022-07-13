@@ -29,7 +29,6 @@ public class RepositorioCarritoImpl implements RepositorioCarrito {
 
     @Override
     public boolean agregarUnProductoAlCarrito(Carrito carrito) {
-
         sessionFactory.getCurrentSession().save(carrito);
         return true;
     }
