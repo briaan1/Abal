@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@
 	<link rel="stylesheet" href="css/carouselEstilos.css">
     
 
-    <title>Pizzería Abal</title>
+    <title>Pizzeria Abal</title>
 
 </head>
 <body class="d-flex flex-column min-vh-100" style="color:black;">

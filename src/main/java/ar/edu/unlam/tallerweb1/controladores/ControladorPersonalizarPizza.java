@@ -12,16 +12,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.modelo.TipoPersonalizado;
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
+import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPersonalizarPizza;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
+import ar.edu.unlam.tallerweb1.servicios.ServicioTipoPersonalizada;
 
 @Controller
 
 public class ControladorPersonalizarPizza {
 	private ServicioPersonalizarPizza servicioPersonalizarPizza;
+	private ServicioProducto servicioProducto;
+	private ServicioFavoritos servicioFavorito;
+	private ServicioCarrito servicioCarrito;
+	private ServicioTipoPersonalizada servicioPersonalizada;
 	
 	@Autowired
-	public ControladorPersonalizarPizza(ServicioPersonalizarPizza servicioPersonalizarPizza) {
+	public ControladorPersonalizarPizza(ServicioPersonalizarPizza servicioPersonalizarPizza, ServicioProducto servicioProducto, ServicioFavoritos servicioFavorito, ServicioCarrito servicioCarrito, ServicioTipoPersonalizada servicioPersonalizada) {
 		this.servicioPersonalizarPizza = servicioPersonalizarPizza;
+		this.servicioProducto = servicioProducto;
+		this.servicioFavorito = servicioFavorito;
+		this.servicioCarrito = servicioCarrito;
+		this.servicioPersonalizada = servicioPersonalizada;
 	}
 
 	@RequestMapping("/personalizar-pizza")
@@ -40,7 +53,7 @@ public class ControladorPersonalizarPizza {
 	}
 	
 	@RequestMapping(path="/agregar-personalizar-pizza",method= RequestMethod.POST)
-	public ModelAndView irADetallePersonalizarPizza(@ModelAttribute("datosPizzaPersonalizada") DatosPizzaPersonalizada datos ) {
+	public ModelAndView irADetallePersonalizarPizza(@ModelAttribute("datosPizzaPersonalizada") DatosPizzaPersonalizada datos) {
 		ModelMap model = new ModelMap();
 		
 		List<Integer> listaDePorciones=new ArrayList<Integer>();
@@ -52,7 +65,26 @@ public class ControladorPersonalizarPizza {
 		listaDePorciones.add(datos.getPorcion6());
 		listaDePorciones.add(datos.getPorcion7());
 		listaDePorciones.add(datos.getPorcion8());
+	
+		List<Producto> listaProductos = new ArrayList<Producto>();
+		List<TipoPersonalizado> listaProductosPersonalizados = new ArrayList<TipoPersonalizado>();
+		//int idPersonalizada=0;
 		
+		for(int i=0;i<listaDePorciones.size(); i++) {
+			Producto producto = servicioProducto.validarExistenciaProductoPor(listaDePorciones.get(i));
+			//servicioPersonalizada.setProductoPersonalizado(producto);
+			//servicioPersonalizada.setProductoPersonalizado(listaDePorciones.get(i));
+		
+			
+			//idPersonalizada += listaDePorciones.get(i);
+			listaProductos.add(producto);
+			boolean existeListaProductosPersonalizados = servicioPersonalizada.agregarProductoPersonalizado(listaProductos);
+			//listaProductosPersonalizados.addAll(producto);
+			
+		}
+		
+		//model.put("idPizzaPersonalizada", idPersonalizada);
+		model.put("listaDeProductosPrueba", listaProductos);
 		model.put("datosPizzaPersonalizada", listaDePorciones);
 		return new ModelAndView("detallePizzaPersonalizada",model);
 	}

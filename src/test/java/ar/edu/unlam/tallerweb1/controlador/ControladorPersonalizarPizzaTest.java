@@ -14,11 +14,20 @@ import static org.mockito.Mockito.when;
 import ar.edu.unlam.tallerweb1.controladores.ControladorPersonalizarPizza;
 import ar.edu.unlam.tallerweb1.modelo.Categoria;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
+import ar.edu.unlam.tallerweb1.servicios.ServicioFavoritos;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPersonalizarPizza;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProducto;
+import ar.edu.unlam.tallerweb1.servicios.ServicioTipoPersonalizada;
 
 public class ControladorPersonalizarPizzaTest {
 	private ServicioPersonalizarPizza servicioPersonalizarPizza= mock(ServicioPersonalizarPizza.class);
-	private ControladorPersonalizarPizza controladorPersonalizarPizza= new ControladorPersonalizarPizza(servicioPersonalizarPizza);
+	private ServicioProducto servicioProducto = mock(ServicioProducto.class);
+	private ServicioFavoritos servicioFavorito = mock(ServicioFavoritos.class);
+	private ServicioCarrito servicioCarrito = mock(ServicioCarrito.class);
+	private ServicioTipoPersonalizada servicioPersonalizada = mock(ServicioTipoPersonalizada.class);
+	
+	private ControladorPersonalizarPizza controladorPersonalizarPizza= new ControladorPersonalizarPizza(servicioPersonalizarPizza, servicioProducto, servicioFavorito, servicioCarrito, servicioPersonalizada);
 	
 	@Test
 	public void alPedirPersonalizarQueMeMuestrePersonalizarPizza() {
