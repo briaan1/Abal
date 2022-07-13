@@ -17,10 +17,46 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
+	private String apellido;
 	private String email;
 	private String password;
 	private String rol;
 	private Boolean activo = false;
+	private String domicilio;
+	private String localidad;
+	private int codPostal;
+	private String imagen;
+	
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+	public String getLocalidad() {
+		return localidad;
+	}
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+	public int getCodPostal() {
+		return codPostal;
+	}
+	public void setCodPostal(int codPostal) {
+		this.codPostal = codPostal;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public String getDomicilio() {
+		return domicilio;
+	}
+	public void setDomicilio(String domicilio) {
+		this.domicilio = domicilio;
+	}
 
 	@OneToMany(mappedBy = "usuario")
 	private Set<Favorito> favoritos = new HashSet();

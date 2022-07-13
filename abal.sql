@@ -30,8 +30,8 @@ VALUES  ("Coca Cola 500ml", "Bebida gasificada sabor Cola", "bebida_coca.jpg", 1
 		("Combo 2", "Pizza Napolitana y especial con atun", "combo_dos.jpg", 1350.00, 3),
 		("Combo 3", "Pizza Vegana y especial con tomate y peperoni", "combo_tres.jpg", 1250.00, 3);
         
-INSERT INTO usuario (activo, email, password, rol, nombre)
-VALUES (true, 'user@mail.com', '123456', 'usuario', 'Abal');
+INSERT INTO usuario (activo, email, nombre, password, rol, apellido, codPostal, domicilio, localidad, imagen )
+VALUES (true, 'user@mail.com','Abal', '123456', 'usuario', 'Labarden', 1754, 'Arieta 2133'. 'San Justo', "persona2.jpg");
 
 INSERT INTO login (usuario_id)
 VALUES (1);
