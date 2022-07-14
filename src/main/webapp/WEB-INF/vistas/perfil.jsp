@@ -6,8 +6,8 @@
 	<img src="img/personas-fotos/persona2.jpg" class="img" alt="imagen-perfil-de-usuario">
 	</p>
  
- 	<h2 class="h2-titulo">Nombre de usuario</h2>
- 	<p class="etiqueta-usuario">@Abal</p>
+ 	<h2 class="h2-titulo">${nombre}  ${apellido}</h2>
+	<span> </span>	<p class="etiqueta-usuario">@Abal</p>
  	
 </div>
 
