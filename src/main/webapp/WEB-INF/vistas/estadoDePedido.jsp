@@ -1,42 +1,31 @@
 <%@include file="header.jsp"%>
 
-<h2 class="h2-titulo--margin">Estado del pedido</h2>
-
-<div class="alert alert-success w-50 mx-auto mt-3 mb-5" role="alert">
+<div class="alert alert-success w-50 mx-auto mt-3" role="alert">
   <h4 class="alert-heading">Pago procesado</h4>
-  <p>Su pago ha sido procesado. Revise su email para obtener el comprobante de confirmación.</p>
+  <p>Su pago ha sido procesado.</p>
   <hr>
-  <p class="mb-0">Recuerde que puede ver y hacer un seguimiento de su pedido desde esta misma solapa.</p>
+  <p class="mb-0">Gracias por confiar en nuestro equipo.</p>
 </div>
 
-<p class="p-descripcion">Gracias por confiar en nuestro equipo</p>
-
-<div class="container w-75 mx-auto">
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Preparando pedido...</div>
-</div></div>
-
-<script type="text/javascript">
-
-  for (let i = 0; i < 500; i++) {
-    const el = document.querySelector(".number");
-    const elValue = Number(el.getAttribute("data-value"));
-    let counter = 0;
-
-    setInterval(() => {
-      if (counter !== elValue) {
-        counter++;
-        el.innerHTML = `${counter}%`;
-      }
-      if (counter == 100) {
-        counter = 0;
-        el.setAttribute("data-value", 0);
-      }
-    }, 80);
-  }
-
-</script>
-
-
+<div class="container">
+<h2 class="titulo">Comentarios</h2>
+<h3 class="subtitulo">Opiniones de nuestros clientes</h3>
+<p class="img-separador"><img src="img/rolling-pin.png" alt=""></p>
+	<div class="container">       	
+             <div class="box-area" style="height: 300px;">
+             <div class="img-area">
+             <img class="foto-img" src="img/personas-fotos/persona1.jpg" alt="">
+             </div>	
+             <h5>${usuario}</h5>								
+           
+        <form action="/enviar-comentario" method="post">     
+    	<label for="exampleFormControlTextarea1"></label>
+    	<textarea placeholder="Comentario" name="comentario" autofocus class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+    	<button type="submit" class="btn btn-primary float-right">Enviar comentario</button>
+    	<a href="/historial-de-pedidos"><button type="button" class="btn btn-light float-right mr-2">Omitir</button></a>
+    	</form>
+         </div>
+	</div>
+</div><br><br><br>
 
 <%@include file="footer.jsp"%>

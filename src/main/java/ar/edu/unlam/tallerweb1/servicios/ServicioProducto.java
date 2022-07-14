@@ -9,5 +9,7 @@ public interface ServicioProducto {
 	List<Producto> getListaDeProductos(String categoria);
 
 	Producto validarExistenciaProductoPor(int idProducto);
+
+	Double calcularPrecioPorUnidad(List<Producto> listaProductos);
 	
 }

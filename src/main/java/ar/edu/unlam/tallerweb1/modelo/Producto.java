@@ -21,9 +21,6 @@ public class Producto {
 	private String nombre;
 	private String descripcion;
 
-
-
-
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Categoria categoria;
 	
@@ -36,10 +33,12 @@ public class Producto {
 	@OneToMany(mappedBy = "productoDetalle")
 	private Set<DetalleDePedido> detalleDePedido = new HashSet();
 
-
+    @ManyToOne(cascade = CascadeType.ALL)
+	private TipoPersonalizado producto_ids;
+	
 	private Double precio;
 	private String imagen;
-
+	private Double precioUnitario;
 
 	public Set<DetalleDePedido> getDetalleDePedido() {
 		return detalleDePedido;
@@ -98,4 +97,21 @@ public class Producto {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	
+	/*Cargarlo en la BD o calcularlo desde el servicio*/
+	public Double getPrecioUnitario() {
+		//precioUnitario = this.getPrecio()/8.0;
+		return precioUnitario;
+	}
+	public void setPrecioUnitario(Double precioUnitario) {
+		this.precioUnitario = precioUnitario;
+	}
+	public TipoPersonalizado getProducto_ids() {
+		return producto_ids;
+	}
+	public void setProducto_ids(TipoPersonalizado producto_ids) {
+		this.producto_ids = producto_ids;
+	}
+	
+	
 }

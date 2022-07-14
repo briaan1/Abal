@@ -7,8 +7,8 @@
   <thead class="thead-light">
     <tr>
       <th>id</th>
-      <th>Total</th>
       <th>Fecha</th>
+      <th>Total</th>
       <th>Estado de envio</th>
       <th></th>
     </tr>
@@ -17,10 +17,10 @@
   <c:forEach var="lista" items="${listaDePedidos}">
     <tr>
       <th scope="row">${lista.id}</th>
-      <td>$Total</td>
       <td>${lista.fecha}</td>
+      <td>$${lista.total}</td>
       <td class="text-primary">En proceso</td>
-      <td><a href="/estado-de-pedido"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
+      <td><a href="/pedido-realizado?idPedido=${lista.id}"><button type="button" class="btn btn-outline-info">Ver pedido</button></a></td>
     </tr>
     </c:forEach>
   </tbody>

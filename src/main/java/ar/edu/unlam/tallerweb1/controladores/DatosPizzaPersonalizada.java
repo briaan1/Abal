@@ -15,7 +15,8 @@ public class DatosPizzaPersonalizada {
 	private int porcion7;
 	private int porcion8;
 
-
+	//private int idPersonalizada;
+	
 	public int getPorcion1() {
 		return porcion1;
 	}

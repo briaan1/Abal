@@ -14,7 +14,7 @@
     <div class="carousel-item active">
       <img class="d-block w-100" src="img/img-pizza-principal.jpg" alt="First slide" style="height:500px;">
       <div class="carousel-caption d-none d-md-block">
-	    	<h1 style="font-family: 'Yellowtail', cursive;padding-bottom:20%;text-shadow: 4px 4px 2px rgba(0,0,0,0.6);font-size:3rem;">Descubr� las mejores pizzas ac�</h1>
+	    	<h1 style="font-family: 'Yellowtail', cursive;padding-bottom:20%;text-shadow: 4px 4px 2px rgba(0,0,0,0.6);font-size:3rem;">Descubri las mejores pizzas aca</h1>
   	  </div>
     </div>
     <div class="carousel-item">
@@ -42,8 +42,8 @@
 
 
 <div class="container">
-<h2 class="titulo">Encontr� lo que mejor se adapte a vos</h2>
-<h3 class="subtitulo">Nuestras categor�as</h3>
+<h2 class="titulo">Encontra lo que mejor se adapte a vos</h2>
+<h3 class="subtitulo">Nuestras categorias</h3>
 <p class="img-separador"><img src="img/rolling-pin.png" alt=""></p>
   <div class="row">
     <div class="col-sm">
@@ -82,12 +82,9 @@
   </div>
 </div>
 
-<!-- Desde el HttpSession
-<h1>Contador: ${contadorPrueba}</h1> -->
-
 <div class="div-frase">
 <h4>Nos encanta que seas parte de nosotros...</h4>
-<p>-Pizzer�a Abal</p></div>
+<p>-Pizzeria Abal</p></div>
 
 <div class="container mt-4">
 <h2 class="titulo">Comentarios</h2>

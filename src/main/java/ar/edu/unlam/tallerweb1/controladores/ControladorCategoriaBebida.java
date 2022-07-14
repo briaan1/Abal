@@ -44,8 +44,10 @@ public class ControladorCategoriaBebida {
 
         Usuario usuario=servicioUsuario.getUsuario();
         List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+        
         int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
         double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
+        
         model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
         model.put("cantProductos",cantProducto);
 
@@ -108,7 +110,6 @@ public class ControladorCategoriaBebida {
         Producto productoEncontrado = servicioProducto.validarExistenciaProductoPor(idProducto);
         if(productoEncontrado!=null) {
 
-            //if (seAgrego){
             if (cantidad >= 1) {
                 servicioCarrito.agregarProductoAlCarrito(usuario,productoEncontrado,cantidad);
                 List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);

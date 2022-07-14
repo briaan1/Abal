@@ -7,7 +7,7 @@
 	<h1 class="my-4">${titulo}</h1>
 
 	<c:choose>
-		<c:when test="${not empty msg}">
+		<c:when test="${ not empty msg}">
 			<div class="alert alert-primary"><h4>${msg}</h4></div>
 		</c:when>
 	</c:choose>
