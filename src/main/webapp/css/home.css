@@ -95,6 +95,10 @@ body{
 .card-title{
 	font-size: 1.2rem;
 }
+
+.card-body{
+	padding: 0.7rem;
+}
 .categoria-p{
 	width: 40%;
 	padding: 0.3rem 1.2rem;
