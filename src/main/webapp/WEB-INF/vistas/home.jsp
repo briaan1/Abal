@@ -20,13 +20,13 @@
     <div class="carousel-item">
       <img class="d-block w-100" src="img/img-slider-2.jpg" alt="Second slide" style="height:500px;">
       <div class="carousel-caption d-none d-md-block">
-	    	<!-- <h1 style="font-family: 'Dancing Script', cursive;background-color: black;color:white;width:46%;">La especialidad de la casa...</h1>-->
+	    	<h1 style="font-family: 'Yellowtail', cursive;padding-bottom:20%;text-shadow: 4px 4px 2px rgba(0,0,0,0.6);font-size:3rem;">¡Nos reinventamos! Conoce nuestra variedad de sabores</h1>
   	  </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="img/img-slider-3.jpg" alt="Third slide" style="height:500px;">
       <div class="carousel-caption d-none d-md-block">
-	    	<!-- <h1 style="font-family: 'Dancing Script', cursive;background-color: black;color:white;width:75%;">Porque no queremos que nadie se quede afuera...</h1> -->
+	    	<h1 style="font-family: 'Yellowtail', cursive;padding-bottom:20%;text-shadow: 4px 4px 2px rgba(0,0,0,0.6);font-size:3rem;">Desde 1990, junto a vos...</h1>
   	  </div>
     </div>
   </div>
