@@ -84,12 +84,12 @@ body{
 .contenedor-redes p:hover{
 	transform: scale(103%);
 }
-.card{
+#tarjeta1, #tarjeta2, #tarjeta3{
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	transition: .2s linear;
 	margin-bottom: 3rem;
 }
-.card:hover{
+#tarjeta1:hover, #tarjeta2:hover, #tarjeta3:hover{
 	transform: scale(105%);
 }
 .card-title{
