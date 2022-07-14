@@ -7,6 +7,8 @@ import ar.edu.unlam.tallerweb1.modelo.Comentario;
 public interface RepositorioHome {
 
 	List<Comentario> listar();
+
+	void addComentario(Comentario nuevoComentario);
 	
 	
 

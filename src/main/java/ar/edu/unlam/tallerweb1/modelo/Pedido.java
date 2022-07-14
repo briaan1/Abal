@@ -20,6 +20,14 @@ public class Pedido {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Usuario usuario;
 	private String fecha;
+	private String nombre;
+	private String apellido;
+	private String telefono;
+	private String email;
+	private String direccion;
+	private String localidad;
+	private Double total;
+	private String codigoPostal;
 	
 	@OneToMany(mappedBy = "pedido")
 	private Set<DetalleDePedido> detalleDePedido = new HashSet();
@@ -62,5 +70,69 @@ public class Pedido {
 
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+	public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
 	}
 }

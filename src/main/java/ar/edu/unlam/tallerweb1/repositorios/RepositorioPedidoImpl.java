@@ -4,6 +4,7 @@ import ar.edu.unlam.tallerweb1.modelo.Carrito;
 import ar.edu.unlam.tallerweb1.modelo.DetalleDePedido;
 import ar.edu.unlam.tallerweb1.modelo.Pedido;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.modelo.TipoPersonalizado;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -38,5 +39,47 @@ public class RepositorioPedidoImpl implements RepositorioPedido {
     			.createCriteria(Pedido.class)
                 .add(Restrictions.eq("usuario.id", usuario.getId()))
                 .list();
+	}
+
+	@Override
+	public List<DetalleDePedido> getListaDeProductos(int idPedido) {
+		return  sessionFactory.getCurrentSession()
+    			.createCriteria(DetalleDePedido.class)
+                .add(Restrictions.eq("pedido.id", idPedido))
+                .add(Restrictions.eq("idProductoPersonalizado", 0))
+                .list();
+	}
+	@Override
+	public List<DetalleDePedido> getListaDeProductosPersonalizados(int idPedido) {
+		return  sessionFactory.getCurrentSession()
+    			.createCriteria(DetalleDePedido.class)
+                .add(Restrictions.eq("pedido.id", idPedido))
+                .add(Restrictions.not(Restrictions.eq("idProductoPersonalizado", 0)))
+                .list();
+	}
+	
+	@Override
+	public TipoPersonalizado getPersonalizado(int idProductoPersonalizado) {
+		return  (TipoPersonalizado) sessionFactory.getCurrentSession()
+    			.createCriteria(TipoPersonalizado.class)
+                .add(Restrictions.eq("id", idProductoPersonalizado))
+                .uniqueResult();
+	}
+	
+
+	@Override
+	public Pedido getPedido(int idPedido) {
+		return  (Pedido) sessionFactory.getCurrentSession()
+    			.createCriteria(Pedido.class)
+                .add(Restrictions.eq("id", idPedido))
+                .uniqueResult();
+	}
+
+	@Override
+	public Producto getProductoPersonalizado() {
+		return  (Producto) sessionFactory.getCurrentSession()
+    			.createCriteria(Producto.class)
+                .add(Restrictions.eq("nombre", "Personalizado"))
+                .uniqueResult();
 	}
 }

@@ -24,4 +24,9 @@ public class RepositorioHomeImpl implements RepositorioHome{
 				.list();
 	}
 
+	@Override
+	public void addComentario(Comentario comentario) {
+		sessionFactory.getCurrentSession().save(comentario);
+	}
+
 }

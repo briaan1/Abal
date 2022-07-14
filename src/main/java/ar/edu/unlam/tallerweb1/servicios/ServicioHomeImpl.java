@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Comentario;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioHome;
 
 @Service @Transactional
@@ -28,6 +29,15 @@ public class ServicioHomeImpl implements ServicioHome{
 		}else {
 			return new ArrayList<Comentario>();
 		}
+	}
+
+	@Override
+	public void addComentario(Usuario usuario, String comentario) {
+		Comentario nuevoComentario=new Comentario();
+		nuevoComentario.setUsuario(usuario);
+		nuevoComentario.setComentario(comentario);
+		nuevoComentario.setImagen("persona1.jpg");
+		repositorioHome.addComentario(nuevoComentario);
 	}
 
 }

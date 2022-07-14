@@ -69,7 +69,7 @@ model.put("msg",msg);
 	}
 
 	@RequestMapping(path="/agregar-personalizar-pizza",method= RequestMethod.POST)
-	public ModelAndView irADetallePersonalizarPizza(@ModelAttribute("datosPizzaPersonalizada") DatosPizzaPersonalizada datos, @ModelAttribute("cantDeProducto") int cantidadPersonalizado) {
+	public ModelAndView irADetallePersonalizarPizza(@ModelAttribute("datosPizzaPersonalizada") DatosPizzaPersonalizada datos, @ModelAttribute("cantDeProducto") int cantidadPersonalizado, @ModelAttribute("nombre") String nombre) {
 		ModelMap model = new ModelMap();
 		Usuario usuario = servicioUsuario.getUsuario();
 
@@ -92,7 +92,7 @@ model.put("msg",msg);
 			listaProductos.add(producto);
 		}
 		servicioProducto.calcularPrecioPorUnidad(listaProductos);
-		productosPersonalizado = servicioPersonalizada.agregarProductoPersonalizado(listaProductos,cantidadPersonalizado);
+		productosPersonalizado = servicioPersonalizada.agregarProductoPersonalizado(listaProductos,cantidadPersonalizado, nombre);
 		TipoPersonalizado productoPersonalizado = servicioPersonalizada.buscarProductoPersonalizadoPorCodigoGenerado(productosPersonalizado.getCodigoPersonalizado());
 		//servicioPersonalizada.sumarTotalDePorciones(productoPersonalizado);
 
