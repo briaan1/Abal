@@ -17,6 +17,18 @@ public class Comentario {
 	private Usuario usuario;
 	
 	private String comentario;
+	
+	private String imagen;
+	
+	private String nombreUsuario;
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
 
 	public String getImagen() {
 		return imagen;
@@ -25,8 +37,6 @@ public class Comentario {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-
-	private String imagen;
 	
 	public int getId() {
 		return id;

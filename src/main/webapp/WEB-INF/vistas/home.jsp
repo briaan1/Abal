@@ -104,7 +104,7 @@
                         	<div class="img-area">
                                 <img class="foto-img" src="img/personas-fotos/${lista.imagen}" alt="">
                             </div>	
-                            <h5>Person's name</h5>
+                            <h5>${lista.nombreUsuario}</h5>
                             <span>Cliente</span>									
                             <p class="content">
                                 ${lista.comentario}

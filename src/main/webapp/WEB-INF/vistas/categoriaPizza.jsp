@@ -19,8 +19,7 @@
 					<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
 
 					<div class="card-body">
-						<h5 class="card-title">${lista.nombre}</h5>
-						<h5>$${lista.precio}</h5>
+						<h5 class="card-title">${lista.nombre} $${lista.precio}</h5>	
 						<p class="card-text" style="height:80px;">${lista.descripcion}</p>
 
 						<div class="input-group" >
@@ -50,9 +49,8 @@
 					<img class="card-img-top" src="img/pizza/${lista.imagen}" alt="Imagen de pizza" style="height:180px">
 
 					<div class="card-body">
-						<h5 class="card-title">${lista.nombre}</h5>
-						<h5>$${lista.precio}</h5>
-						<p class="card-text" style="height:80px;">${lista.descripcion}</p>
+						<h5 class="card-title">${lista.nombre} $${lista.precio}</h5>
+						<p class="card-text" style="height:50px;">${lista.descripcion}</p>
 
 						<div class="input-group">
 							<form action="/agregar-carrito-cate-pizza" id="form-carrito-productos${listaIndex.index}" method="POST" >
