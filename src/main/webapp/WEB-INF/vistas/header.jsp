@@ -3,16 +3,13 @@
 <head>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" >
-
     <!-- Icono -->
     <link rel="icon" type="image/png" href="img/pizza-logo-color-32.png">
     <script src="https://kit.fontawesome.com/2f22cf7961.js" crossorigin="anonymous"></script>
-
     <!-- Estilos -->
     <link href="css/estilosPerfil.css" rel="stylesheet">
     <link href="css/home.css" rel="stylesheet">
     <link href="css/estiloFooter.css" rel="stylesheet">
-
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,10 +20,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="css/carouselEstilos.css">
 
-    <title>Pizzeria Abal</title>
-</head>
 
+    <title>Pizzería Abal</title>
+
+</head>
 <body class="d-flex flex-column min-vh-100" style="color:black;">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,9 +59,10 @@
             <ul class="navbar-nav mr-4 mt-2 mt-lg-0">
                 <li class="nav-item active">
 
-                    <a href="/carrito"><button type="button" class="btn btn-primary">
-                        <img src="img/shopping-cart.png" class="pb-1 pr-1">$${sumaTotalDelCarrito} <span class="badge badge-light badge-pill">${cantProductos}</span></button> </a>
-                </li></ul>
+                    <!-- Reemplazar el value por la variable que devuelve el controlador -->
+                    <a href="/carrito"><i class="fa badge fa-lg"  value="${cantProductos}" style="background-color:#fff"><i class="fa-solid fa-cart-shopping"></i></i></a><i>$${sumaTotalDelCarrito}</i>
+                </li>
+            </ul>
 
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle bg-white text-dark border-0 py-2"
@@ -71,6 +71,9 @@
                     Usuario ${usuario}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+                    <!-- Debería ir (? -->
+
                     <a class="dropdown-item" href="/perfil">Perfil</a>
                     <a class="dropdown-item" href="/historial-de-pedidos">Pedidos</a>
                     <a class="dropdown-item" href="/favorito">Favoritos</a>
