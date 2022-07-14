@@ -47,7 +47,7 @@
 <p class="img-separador"><img src="img/rolling-pin.png" alt=""></p>
   <div class="row">
     <div class="col-sm">
-      <div class="card" style="width: 18rem;">
+      <div class="card tarjeta" id="tarjeta1" style="width: 18rem;">
 	      <a href="/pizza" class="text-center text-decoration-none text-dark">
 		  		<img class="card-img-top" src="img/pizza.jpg" alt="Card image cap">
 		  		<div class="card-body">
@@ -58,7 +58,7 @@
 	 </div>
     </div>
     <div class="col-sm">
-      <div class="card" style="width: 18rem;">
+      <div class="card tarjeta" id="tarjeta2" style="width: 18rem;">
       <a href="/categoriaCombos" class="text-center text-decoration-none text-dark">
   <img class="card-img-top" src="img/combos.jpg" alt="Card image cap">
   <div class="card-body">
@@ -69,7 +69,7 @@
 </div>
 		</div>
     <div class="col-sm">
-      <div class="card" style="width: 18rem;">
+      <div class="card tarjeta" id="tarjeta3" style="width: 18rem;">
       <a href="/personalizar-pizza" class="text-center text-decoration-none text-dark">
   <img class="card-img-top" src="img/personalizada.png" alt="Card image cap">
   <div class="card-body">
