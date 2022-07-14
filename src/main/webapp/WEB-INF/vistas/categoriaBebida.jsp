@@ -19,9 +19,8 @@
 					<img class="card-img-top" src="img/bebida/${lista.imagen}" alt="Imagen de combo" style="height:180px">
 
 					<div class="card-body">
-						<h5 class="card-title">${lista.nombre}</h5>
-						<h5>$${lista.precio}</h5>
-						<p class="card-text" style="height:80px;">${lista.descripcion}</p>
+						<h5 class="card-title">${lista.nombre} $${lista.precio}</h5>
+						<p class="card-text" style="height:40px;">${lista.descripcion}</p>
 
 						<div class="input-group" >
 
@@ -33,7 +32,7 @@
 							</div>
 						</div>
 
-						<div class="card-footer mt-3 text-center">
+						<div class="card-footer mt-2 text-center">
 							<button type="submit" class="btn btn-danger btn-sm text-center" form="form-favorito" value="${lista.id}" name="idFavorito" style="width: 100px;">${eliminarDeFavoritos}</button>
 
 							<button type="submit" class="btn btn-primary btn-sm" form="form-carrito-bebida${listaIndex.index}" value="${lista.id}" name="idProductoParaCarrito"><img src="img/shopping-cart.png" class="px-1 py-1"></button>
@@ -51,9 +50,8 @@
 					<img class="card-img-top" src="img/bebida/${lista.imagen}" alt="Imagen de bebida" style="height:180px">
 
 					<div class="card-body">
-						<h5 class="card-title">${lista.nombre}</h5>
-						<h5>$${lista.precio}</h5>
-						<p class="card-text" style="height:80px;">${lista.descripcion}</p>
+						<h5 class="card-title">${lista.nombre} $${lista.precio}</h5>
+						<p class="card-text" style="height:40px;">${lista.descripcion}</p>
 
 						<div class="input-group" >
 							<form action="/agregar-carrito-cate-bebida" id="form-carrito-bebida${listaIndex.index}" method="POST" >
