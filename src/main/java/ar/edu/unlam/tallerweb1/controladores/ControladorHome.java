@@ -37,7 +37,7 @@ public class ControladorHome {
 		ModelMap model = new ModelMap();
             Usuario usuario= servicioUsuario.getUnicoUsuario();
 			List <Carrito> listaDeProductos=servicioCarrito.getListaDeProductosDelCarrito(usuario);
-			double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeProductos);
+			Double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeProductos);
 
 		int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeProductos);
 

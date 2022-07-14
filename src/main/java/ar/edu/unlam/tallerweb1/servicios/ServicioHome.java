@@ -11,4 +11,6 @@ public interface ServicioHome {
 	
 	List<Comentario> getListaDeComentarios();
 
+	void addComentario(Usuario usuario, String comentario);
+
 }

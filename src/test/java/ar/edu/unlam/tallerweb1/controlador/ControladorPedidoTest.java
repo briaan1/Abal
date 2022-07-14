@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +21,7 @@ public class ControladorPedidoTest {
 	 private ControladorDeHistorialDePedidos controladorHistorialPedido;
 	 private ServicioPedido servicioPedido = mock(ServicioPedido.class);
 	 private ServicioUsuario servicioUsuario = mock(ServicioUsuario.class);
+	 private ServicioCarrito servicioCarrito= mock(ServicioCarrito.class);
 	 
 	    @Test
 	    public void alPedirLaCategoriaMeMuestraLaCategoria(){
@@ -39,7 +41,7 @@ public class ControladorPedidoTest {
 	    private void dadoQueExisteLaVistaHistorialDePedidos() {
 	    	when(servicioUsuario.getUnicoUsuario()).thenReturn(new Usuario());
 	    	when(servicioPedido.getListaDePedidos(new Usuario())).thenReturn(new ArrayList<Pedido>());
-	    	controladorHistorialPedido = new ControladorDeHistorialDePedidos(servicioPedido, servicioUsuario);
+	    	controladorHistorialPedido = new ControladorDeHistorialDePedidos(servicioPedido, servicioUsuario,servicioCarrito);
 	    }
 
 }

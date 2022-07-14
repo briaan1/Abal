@@ -13,6 +13,7 @@ public class DetalleDePedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 	private int cantidad;
+	private int idProductoPersonalizado;
 	
 	@ManyToOne()
 	@JoinColumn(name = "pedido_id")
@@ -52,5 +53,13 @@ public class DetalleDePedido {
 
 	public void setProductoDetalle(Producto productoDetalle) {
 		this.productoDetalle = productoDetalle;
+	}
+
+	public int getIdProductoPersonalizado() {
+		return idProductoPersonalizado;
+	}
+
+	public void setIdProductoPersonalizado(int idProductoPersonalizado) {
+		this.idProductoPersonalizado = idProductoPersonalizado;
 	}
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Carrito;
@@ -33,6 +34,9 @@ public class ControladorDeDetalleDePedido {
 	     Usuario usuario=servicioUsuario.getUsuario();
 	     List<Carrito> listaDeProductosDelCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
 	     
+	     double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeProductosDelCarrito);
+		 model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+	     
 	     if(listaDeProductosDelCarrito.size()==0) {
 	    	 model.put("msg", "No hay productos en el carrito");
 	     }else {
@@ -42,16 +46,22 @@ public class ControladorDeDetalleDePedido {
 	        }
 
 	     model.put("usuario", usuario.getNombre());
+	     model.put("email", usuario.getEmail());
+	     model.put("direccion", usuario.getDomicilio());
+	     model.put("apellido", usuario.getApellido());
+	     model.put("codigoPostal", usuario.getCodPostal());
 	     model.put("eliminarDelCarrito", "Eliminar del carrito");
 	       
         return new ModelAndView("detalleDePedido", model);
     }
 	
 	@RequestMapping(path = "/pagar-pedido")
-    public ModelAndView pagarPedido() {
-		Usuario usuario=servicioUsuario.getUsuario();
+    public ModelAndView pagarPedido(@RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, 
+    	@RequestParam("telefono") String telefono, @RequestParam("direccion") String direccion, @RequestParam("localidad") String localidad,
+    	@RequestParam("total") Double total, @RequestParam("email") String email, @RequestParam("codigoPostal") String codigoPostal) {
+		Usuario usuario=servicioUsuario.getUnicoUsuario();
 		List<Carrito> listaDeProductosDelCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
-		servicioPedido.registrarPedido(usuario, listaDeProductosDelCarrito);
+		servicioPedido.registrarPedido(usuario, listaDeProductosDelCarrito, total, nombre, apellido, telefono, email, direccion, localidad, codigoPostal);
 		servicioCarrito.eliminarProductosDelCarrito(listaDeProductosDelCarrito);
 		return new ModelAndView("redirect:/estado-de-pedido");
 	}

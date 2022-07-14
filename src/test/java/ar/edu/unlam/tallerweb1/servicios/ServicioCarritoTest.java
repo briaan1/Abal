@@ -71,7 +71,8 @@ public class ServicioCarritoTest {
         producto1.setPrecio(60.0);
         producto1.setId(2);
         carrito.setProducto(producto);
-        carrito1.setProducto(producto1);
+        carrito.setTotal(producto.getPrecio());
+        carrito1.setTotal(producto1.getPrecio());
         carrito.setUsuario(usuario);
         carrito.setCantidad(1);
         carrito1.setCantidad(1);

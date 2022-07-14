@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.servicios.ServicioCarrito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,11 +19,13 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 public class ControladorDeHistorialDePedidos {
 	private ServicioPedido servicioPedido;
 	private ServicioUsuario servicioUsuario;
+	private ServicioCarrito servicioCarrito;
 	
 	@Autowired
-	public ControladorDeHistorialDePedidos(ServicioPedido servicioPedido, ServicioUsuario servicioUsuario) {
+	public ControladorDeHistorialDePedidos(ServicioPedido servicioPedido, ServicioUsuario servicioUsuario,ServicioCarrito servicioCarrito) {
 		this.servicioPedido = servicioPedido;
 		this.servicioUsuario = servicioUsuario;
+		this.servicioCarrito=servicioCarrito;
 	}
 
 	@RequestMapping(path = "/historial-de-pedidos")
@@ -30,8 +33,16 @@ public class ControladorDeHistorialDePedidos {
 		 ModelMap model=new ModelMap();
 	     Usuario usuario=servicioUsuario.getUnicoUsuario();
 	     List<Pedido> listaDePedidos=servicioPedido.getListaDePedidos(usuario);
-	     
-	     if(listaDePedidos.size()==0) {
+		List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+
+		int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+		double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
+
+		model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+		model.put("cantProductos",cantProducto);
+
+
+		if(listaDePedidos.size()==0) {
 	    	 model.put("msg", "No hay pedidos");
 	     }else {
 	        	model.put("listaDePedidos", listaDePedidos);

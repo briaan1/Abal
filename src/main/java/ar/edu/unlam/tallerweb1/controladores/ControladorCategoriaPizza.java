@@ -47,7 +47,7 @@ public class ControladorCategoriaPizza {
 		Usuario usuario=servicioUsuario.getUsuario();
 		List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
 		int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
-		double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
+		Double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
 
 
 		model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);

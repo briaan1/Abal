@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import ar.edu.unlam.tallerweb1.modelo.Carrito;
 import ar.edu.unlam.tallerweb1.modelo.Producto;
+import ar.edu.unlam.tallerweb1.modelo.TipoPersonalizado;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 import java.util.List;
@@ -26,5 +27,12 @@ public interface ServicioCarrito {
 
     
     void eliminarProductosDelCarrito(List<Carrito> listaDeProductosDelCarrito);
+
+
+
+	boolean agregarProductoPersonalizadoAlCarrito(Usuario usuario, TipoPersonalizado productoPersonalizado,
+			int cantidadPersonalizado);
+
+	//Double sumarElTotalDeLosProductosPersonalizados(List<Carrito> listaDeCarrito);
 
 }
