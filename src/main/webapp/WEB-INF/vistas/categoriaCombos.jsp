@@ -4,7 +4,10 @@
 <div class = "container">
 	<div class="modal-body"></div>
 
-	<h1 class="my-4">${titulo}</h1>
+
+
+	<h2 class="h2-titulo py-5">Elegi tu combo favorito</h2>
+
 
 	<c:choose>
 		<c:when test="${not empty msg}">
@@ -12,7 +15,7 @@
 		</c:when>
 	</c:choose>
 
-	<div class="row row-cols-1 row-cols-md-3 g-4">
+	<div class="row row-cols-1 row-cols-md-3 g-4" >
 		<c:forEach var="lista" items="${listaDeFavoritos}" varStatus="listaIndex">
 			<div class="card-group col-3 mb-3">
 				<div class="card h-100">

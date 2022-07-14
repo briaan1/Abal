@@ -3,7 +3,7 @@
 
 <div class="contenedor">
 	<p class="p-img">
-	<img src="img/personas-fotos/persona2.jpg" class="img" alt="imagen-perfil-de-usuario">
+	<img src="img/personas-fotos/persona1.jpg" class="img" alt="imagen-perfil-de-usuario">
 	</p>
  
  	<h2 class="h2-titulo">${nombre}  ${apellido}</h2>

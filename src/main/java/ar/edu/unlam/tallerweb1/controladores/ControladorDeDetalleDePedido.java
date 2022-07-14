@@ -33,11 +33,18 @@ public class ControladorDeDetalleDePedido {
 		 ModelMap model=new ModelMap();
 	     Usuario usuario=servicioUsuario.getUsuario();
 	     List<Carrito> listaDeProductosDelCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
-	     
-	     double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeProductosDelCarrito);
-		 model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
-	     
-	     if(listaDeProductosDelCarrito.size()==0) {
+
+		int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeProductosDelCarrito);
+		Double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeProductosDelCarrito);
+
+
+		model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+
+		model.put("cantProductos",cantProducto);
+
+
+
+		if(listaDeProductosDelCarrito.size()==0) {
 	    	 model.put("msg", "No hay productos en el carrito");
 	     }else {
 	        	Double sumaTotal= servicioCarrito.sumarElTotalDeLosProductos(listaDeProductosDelCarrito);

@@ -8,6 +8,11 @@
 
 	<h1 class="my-4">${titulo}</h1>
 
+<!--	<div class="mt-3 text-center">-->
+	<h2 class="h2-titulo py-5">Dale el estilo que mas te gusta </h2>
+
+	<p class="text-center"><b>Ponele nombre a tu pizza</b></p>
+
 	<c:choose>
 		<c:when test="${not empty msg}">
 			<div class="alert alert-primary"><h4>${msg}</h4></div>
@@ -17,9 +22,12 @@
 	
 <form:form action="/agregar-personalizar-pizza" method="POST" modelAttribute="datosPizzaPersonalizada" id="form-personalizado">
 
+	<div class="input-group w-50 mx-auto my-3">
+		<input type="text" class="form-control text-center w-50 " placeholder="Ingresa un nombre para tu pizza"   name="nombre"  required="required">
+
+	</div>
 
 
-	<div class="modal-body">
 		<table class="table table-hover border">
 			<thead class="thead-light">
 			<tr>
@@ -134,14 +142,13 @@
 			</tbody>
 		</table>
 		<br>
-	</div>
+
 		
-		<div class="input-group">
-           <!-- <form action="/agregar-personalizar-pizza" id="form-carrito-personalizado${listaIndex.index}" method="POST" >  </form>   --> 
-            <input type="text" class="form-control text-center" placeholder="Nombre"   name="nombre" style="width:80px;" required="required">
-            <input type="number" class="form-control text-center"  value="1"   name="cantDeProducto" style="width:80px;">
-                                 
-            <div class="input-group-append">
+		<div class="input-group w-50 mx-auto">
+
+            <input type="number" class="form-control text-center w-50"  value="1"   name="cantDeProducto" >
+
+			<div class="input-group-append">
             	<span class="input-group-text">Cantidad</span>
          	</div>
     	</div>

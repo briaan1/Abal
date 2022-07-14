@@ -11,7 +11,10 @@ body{
 .logo-img{
 	padding-bottom: 0.4em;
 }
-.nav-item-active a{
+/*.nav-item-active a{
+	border-bottom: 2px solid #ff9c00;
+}*/
+.nav-item-active a:hover{
 	border-bottom: 2px solid #ff9c00;
 }
 .fa-cart-shopping{

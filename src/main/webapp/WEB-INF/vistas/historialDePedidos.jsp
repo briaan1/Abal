@@ -1,8 +1,10 @@
 <%@include file="header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container py-3 mb-5">
-	<h2 class="h2-titulo">Mis Pedidos</h2>
-	
+	<h2 class="h2-titulo py-5">Mis Pedidos</h2>
+
+
+
 	<c:if test="${listaDePedidos == null}">
 		<div class="alert alert-warning"><h4>No tiene pedidos realizados</h4></div>
 	</c:if>

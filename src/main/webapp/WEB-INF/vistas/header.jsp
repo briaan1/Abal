@@ -10,10 +10,12 @@
     <link href="css/estilosPerfil.css" rel="stylesheet">
     <link href="css/home.css" rel="stylesheet">
     <link href="css/estiloFooter.css" rel="stylesheet">
+    <link href="css/estiloDetallePedido.css" rel="stylesheet">
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
 
     <!--Para carousel de comentarios-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -41,16 +43,16 @@
                 <li class="nav-item-active">
                     <a class="nav-link text-dark pb-2" href="/home">Inicio<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item-active">
                     <a class="nav-link text-dark pb-2" href="/pizza">Pizzas</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item-active">
                     <a class="nav-link text-dark pb-2" href="/categoriaCombos">Combos</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item-active">
                     <a class="nav-link text-dark pb-2" href="/personalizar-pizza">Personalizadas</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item-active">
                     <a class="nav-link text-dark pb-2" href="/categoriaBebida">Bebidas</a>
                 </li>
             </ul>

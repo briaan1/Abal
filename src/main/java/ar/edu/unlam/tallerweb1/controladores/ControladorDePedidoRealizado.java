@@ -23,11 +23,13 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 public class ControladorDePedidoRealizado {
 	private ServicioUsuario servicioUsuario;
 	private ServicioPedido servicioPedido;
+	private ServicioCarrito servicioCarrito;
 	
 	@Autowired
-	public ControladorDePedidoRealizado(ServicioUsuario servicioUsuario, ServicioPedido servicioPedido) {
+	public ControladorDePedidoRealizado(ServicioUsuario servicioUsuario, ServicioPedido servicioPedido,ServicioCarrito servicioCarrito) {
 		this.servicioUsuario = servicioUsuario;
 		this.servicioPedido = servicioPedido;
+		this.servicioCarrito= servicioCarrito;
 	}
 
     @RequestMapping(path = "/pedido-realizado")
@@ -37,8 +39,20 @@ public class ControladorDePedidoRealizado {
 	     List<DetalleDePedido> listaDeProductosDelPedido=servicioPedido.getListaDeProductos(idPedido);
 	     List<DetalleDePedido> listaDeProductoPersonalizado=servicioPedido.getListaDeProductosPersonalizados(idPedido);
 	     List<TipoPersonalizado> listaDeTipoPersonalizado=servicioPedido.getListaDeTipoPersonalizado(listaDeProductoPersonalizado);
-	     
-	     model.put("listaDeTipoPersonalizado", listaDeTipoPersonalizado);
+
+		List<Carrito> listaDeCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
+		int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeCarrito);
+		Double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeCarrito);
+
+
+		model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+
+		model.put("cantProductos",cantProducto);
+
+
+
+
+		model.put("listaDeTipoPersonalizado", listaDeTipoPersonalizado);
 	        	Double sumaTotal= servicioPedido.sumarElTotalDeLosProductos(listaDeProductosDelPedido);
 	        	sumaTotal+=servicioPedido.sumarElTotalDeTipoPersonalizado(listaDeTipoPersonalizado);
 	        	Pedido pedido= servicioPedido.getPedido(idPedido);

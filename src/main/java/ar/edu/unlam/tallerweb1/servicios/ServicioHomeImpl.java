@@ -36,6 +36,7 @@ public class ServicioHomeImpl implements ServicioHome{
 		Comentario nuevoComentario=new Comentario();
 		nuevoComentario.setUsuario(usuario);
 		nuevoComentario.setComentario(comentario);
+		nuevoComentario.setNombreUsuario(usuario.getNombre()+" "+usuario.getApellido());
 		nuevoComentario.setImagen("persona1.jpg");
 		repositorioHome.addComentario(nuevoComentario);
 	}

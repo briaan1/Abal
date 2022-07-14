@@ -4,11 +4,13 @@
 <div class="container">
 	<div class="modal-body"></div>
 	
-	<h1 class="my-4">Mis favoritos</h1>
-  
+
+	<h2 class="h2-titulo py-5">Mis favoritos</h2>
+
+
 	<c:choose>
 <c:when test="${not empty msg}">
-     <div class="alert alert-primary"><h4>${msg}</h4></div>
+     <div class="alert alert-warning"><h4>${msg}</h4></div>
 </c:when>
 </c:choose>
 

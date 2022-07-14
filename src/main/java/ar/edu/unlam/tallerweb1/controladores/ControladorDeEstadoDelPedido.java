@@ -27,12 +27,15 @@ public class ControladorDeEstadoDelPedido {
 	public ModelAndView verEstadoDePedido() {
 		ModelMap model=new ModelMap();
 		model.put("usuario", servicioUsuario.getUnicoUsuario().getNombre());
+		model.put("sumaTotalDelCarrito", 0.0);
+		model.put("cantProductos", 0);
 		return new ModelAndView("estadoDePedido", model);
 	}
 	
 	@RequestMapping(path = "/enviar-comentario", method = RequestMethod.POST)
 	public ModelAndView enviarComentario(@ModelAttribute("comentario") String comentario) {
 		Usuario usuario=servicioUsuario.getUnicoUsuario();
+
 		servicioHome.addComentario(usuario, comentario);
 		return new ModelAndView("redirect:/historial-de-pedidos");
 	}

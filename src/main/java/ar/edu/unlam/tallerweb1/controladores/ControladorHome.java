@@ -49,6 +49,7 @@ public class ControladorHome {
 		}
 		model.put("cantProductos",cantProducto);
 		model.put("usuario",usuario.getNombre());
+
 		model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
 		return new ModelAndView("home",model);
 	}
