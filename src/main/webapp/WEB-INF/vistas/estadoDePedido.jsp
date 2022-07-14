@@ -4,7 +4,8 @@
   <h4 class="alert-heading text-center">Tu pago se proceso con exito</h4>
 
   <hr>
-  <p class="mb-0 text-center" >Gracias por confiar en nosotros.</p>
+    <!--<p class="mb-0 text-center" >Gracias por confiar en nosotros.</p>---->
+    <p class="mb-0 text-center" >Estamos preparando tu pedido</p>
 </div>
 
 <div class="container">

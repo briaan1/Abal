@@ -19,7 +19,7 @@
       <tbody>
       <c:forEach var="lista" items="${listaDeProductosDelPedido}">
           <tr>
-            <td>${lista.pedido.nombre}</td>
+            <td>${lista.productoDetalle.nombre}</td>
             <td>${lista.cantidad} </td>
             <td>$${lista.cantidad * lista.productoDetalle.precio}</td>
           </tr>
