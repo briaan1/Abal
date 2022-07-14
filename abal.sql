@@ -16,9 +16,8 @@ VALUES  ("Faina", "Harina de garbanzos y aceite de oliva", "pizza_faina.jpg", 50
         ("Pizza Napolitana", "Tomate, albahaca y mozzarella", "pizza_napolitana.jpg", 600.00, 1),
         ("Pizza Peperoni", "Peperoni y mozzarella", "pizza_peperoni.jpg", 700.00, 1),
 		("Pizza Popeye", "Espinaca, salsa blanca y mozzarella", "pizza_espinaca.jpg", 600.00, 1),
-		("Pizza Vegana", "Queso vegano, champiñones y rucula", "pizza_vegana.jpg", 650.00, 1),
-        ("Pizza Vegetariana", "Morron verde, cebolla morada, aceitunas negras y mozzarella", "pizza_vegetariana.jpg", 600.00, 1)
-        ("Personalizado", "", "", 0, 1);
+		("Pizza Vegana", "Queso vegano, champiÃ±ones y rucula", "pizza_vegana.jpg", 650.00, 1),
+        ("Pizza Vegetariana", "Morron verde, cebolla morada, aceitunas negras y mozzarella", "pizza_vegetariana.jpg", 600.00, 1);
 
 INSERT INTO producto (nombre, descripcion, imagen, precio, categoria_id)
 VALUES  ("Coca Cola 500ml", "Bebida gasificada sabor Cola", "bebida_coca.jpg", 150.00, 2),
@@ -39,5 +38,5 @@ VALUES (1);
 
 INSERT INTO comentario(comentario, usuario_id,imagen, nombreUsuario)
 VALUES ('Las mejores pizzas de la zona. Muy recomendadas.' ,1,"persona1.jpg", 'Juan Acosta'),
-		('�Excelente calidad!. Los recomiendo.' ,1,"persona2.jpg", 'Abal Labarden'),
+		('¡Excelente calidad!. Los recomiendo.' ,1,"persona2.jpg", 'Abal Labarden'),
 		('Riquisimas :)' ,1,"persona3.png", 'Laura Perez');
