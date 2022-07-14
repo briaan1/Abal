@@ -16,7 +16,16 @@ public class TipoPersonalizado {
 	private String nombre;
 	private int codigoPersonalizado;
 	private Double precioTotal;
-	
+
+	public int getCantPerzonalizada() {
+		return cantPerzonalizada;
+	}
+
+	public void setCantPerzonalizada(int cantPerzonalizada) {
+		this.cantPerzonalizada = cantPerzonalizada;
+	}
+
+	private int cantPerzonalizada;
 	@OneToMany(mappedBy = "producto_ids")
 	private List<Producto> producto = new ArrayList<Producto>();
 	

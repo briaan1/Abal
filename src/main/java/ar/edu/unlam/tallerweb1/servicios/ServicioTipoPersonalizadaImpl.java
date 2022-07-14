@@ -27,7 +27,7 @@ public class ServicioTipoPersonalizadaImpl implements ServicioTipoPersonalizada{
 	}
 
 	@Override
-	public TipoPersonalizado agregarProductoPersonalizado(List<Producto> listaProductos) {
+	public TipoPersonalizado agregarProductoPersonalizado(List<Producto> listaProductos,int CantPersonalizadas) {
 		TipoPersonalizado productoPersonalizado = new TipoPersonalizado();
 		int codigoProducto = this.generarId(listaProductos);
 		Double precioTotalPorciones = this.sumarTotalDePorciones(listaProductos);
@@ -35,6 +35,7 @@ public class ServicioTipoPersonalizadaImpl implements ServicioTipoPersonalizada{
 		productoPersonalizado.setProducto(listaProductos);
 		productoPersonalizado.setCodigoPersonalizado(codigoProducto);
 		productoPersonalizado.setPrecioTotal(precioTotalPorciones);
+		productoPersonalizado.setCantPerzonalizada(CantPersonalizadas);
 		repositorioPersonalizada.guardarListaProductosPersonalizado(productoPersonalizado);
 		
 		return productoPersonalizado;

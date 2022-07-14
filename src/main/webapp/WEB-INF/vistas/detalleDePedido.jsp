@@ -7,10 +7,20 @@
 
 <ul class="list-group w-75 mx-auto mt-5">
 <c:forEach var="lista" items="${listaDeProductosDelCarrito}">
+  <c:if test="${lista.producto!=null}">
   <li class="list-group-item d-flex justify-content-between align-items-center">
     ${lista.producto.nombre}
-    <span><span class="badge badge-primary badge-pill">${lista.cantidad} </span> $${lista.cantidad * lista.producto.precio}</span> 
+
+    <span><span >${lista.cantidad} </span> $${lista.cantidad * lista.producto.precio}</span>
   </li>
+</c:if >
+  <c:if test="${lista.productoPersonalizado!=null}">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        ${lista.productoPersonalizado.nombre}
+
+      <span><span >${lista.productoPersonalizado.cantPerzonalizada} </span> $${lista.productoPersonalizado.cantPerzonalizada * lista.productoPersonalizado.precioTotal}</span>
+    </li>
+  </c:if >
   </c:forEach>
   
   <li class="list-group-item d-flex justify-content-between align-items-center">

@@ -9,7 +9,7 @@ public interface ServicioTipoPersonalizada {
 
 	void setProductoPersonalizado(Producto producto);
 
-	TipoPersonalizado agregarProductoPersonalizado(List<Producto> listaProductos);
+	TipoPersonalizado agregarProductoPersonalizado(List<Producto> listaProductos,int cantPersonalizada);
 
 	int generarId(List<Producto> listaProductos);
 

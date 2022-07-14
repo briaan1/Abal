@@ -1,21 +1,24 @@
 <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+		 pageEncoding="ISO-8859-1"%>
+<div class = "container">
+	<div class="modal-body"></div>
 
-<div class="container">
-	
-	<div class="mt-3 text-center">
-		<h2 class="alert-heading">Personalizar Pizza</h2>
-		<p>Seleccione el tipo de pizza que desee por cada porci�n.</p>
-	</div>
+	<h1 class="my-4">${titulo}</h1>
 
 	<c:choose>
 		<c:when test="${not empty msg}">
 			<div class="alert alert-primary"><h4>${msg}</h4></div>
 		</c:when>
 	</c:choose>
+
 	
 <form:form action="/agregar-personalizar-pizza" method="POST" modelAttribute="datosPizzaPersonalizada" id="form-personalizado">
+
+
+
 	<div class="w-75 mx-auto mt-5">
 		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
@@ -43,7 +46,7 @@
 		<div class="input-group mb-3">	
 			<div class="input-group-prepend">
 				<label class="input-group-text" for="inputGroupSelect01">3
-					Porci�n</label>
+					Porcion</label>
 			</div>	
 		<form:select path="porcion3" class="custom-select">
 			
