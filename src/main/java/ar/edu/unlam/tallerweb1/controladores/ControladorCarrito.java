@@ -34,7 +34,10 @@ public class ControladorCarrito {
         Usuario usuario=servicioUsuario.getUsuario();
         List<Carrito> listaDeProductosDelCarrito=servicioCarrito.getListaDeProductosDelCarrito(usuario);
         double sumaTotalDelCarrito=servicioCarrito.sumarElTotalDeLosProductos(listaDeProductosDelCarrito);
+        int cantProducto=servicioCarrito.sumarCantidadDeProductosProductos(listaDeProductosDelCarrito);
         model.put("sumaTotalDelCarrito",sumaTotalDelCarrito);
+        model.put("cantProductos",cantProducto);
+
 
         if(listaDeProductosDelCarrito.size()==0) {
             model.put("msg", "No hay productos en el carrito");
